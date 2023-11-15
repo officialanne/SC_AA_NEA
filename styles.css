@@ -31,3 +31,26 @@ body, html {
     padding-bottom: 1em;
 }
 
+/* style the nav bar */
+#navigation {
+    list-style-type: none;
+    background-color: #1B263B;
+    overflow: hidden;
+    padding: 1em; 
+}
+
+.navigate {
+    display: inline;
+}
+
+.navigate a {
+    text-decoration: none;
+    color: #E0E1DD;
+    font-size: 1.3em;
+    padding: 1em;
+}
+
+.navigate a:hover {
+    background-color: #FF7D00
+}
+
