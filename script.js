@@ -8,7 +8,7 @@ function buttonClicked() {
 
 
 function setup(){
-    createCanvas(800,500);
+    createCanvas(600,400);
 }
 
 function draw(){
