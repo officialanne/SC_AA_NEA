@@ -1,6 +1,5 @@
 let numButtonClicks = 0;
 
-
 function buttonClicked() {
     numButtonClicks = numButtonClicks + 1;
     document.getElementById("mainDiv").textContent =
@@ -8,10 +7,8 @@ function buttonClicked() {
 }
 
 
-
-
 function setup(){
-    createCanvas(600,400);
+    createCanvas(800,500);
 }
 
 function draw(){
