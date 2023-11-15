@@ -12,6 +12,5 @@ function setup(){
 }
 
 function draw(){
-    background('#E0E1DD');
-    line(0, 0, width, height);
+    background('#A3B18A');
 }
