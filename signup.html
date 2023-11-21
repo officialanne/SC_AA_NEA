@@ -57,7 +57,7 @@
                     <input type="text" placeholder="Enter Role" name="role" required>
 
                     <label for="email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Role" name="email" required>
+                    <input type="email" placeholder="Enter Email" name="email" id="email" required>
             
               
                     <label>
@@ -67,10 +67,10 @@
                     <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
               
                     <div class="clearfix">
-                      <input type="button" id="bt" value="Save data to file" onclick="foo()" />
                       <button type="submit" class="s_signup">Sign Up as Student</button>
                       <button type="submit" class="tp_signup" formaction="tp_home.html">Submit as Paret/Teacher</button>
                       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                      <button onclick="store()" type="button">Store Email</button>
                     </div>
                   </div>
                 </form>
