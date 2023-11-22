@@ -40,21 +40,21 @@
             
             <p>Create An Account to Synchronise Your Revision</p>
             <div id="signform">
-                <form class="modal-content" onsubmit="foo()" action="s_home.html">
+                <form id="s_form" onsubmit="foo()" action="index.html">
                   <div class="container">
 
                     <hr>
                     <label for="fname"><b>First Name</b></label>
-                    <input type="text" placeholder="Enter First Name" name="fname" id = "name" required>
+                    <input type="text" placeholder="Enter First Name" name="fname" id = "fname" required>
 
                     <label for="lname"><b>Last Name</b></label>
-                    <input type="text" placeholder="Enter Last Name" name="lname" required>
+                    <input type="text" placeholder="Enter Last Name" name="lname" id = "lname" required>
               
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Enter Password" name="psw" id="pass" required>
 
                     <label for="role"><b>Role</b></label>
-                    <input type="text" placeholder="Enter Role" name="role" required>
+                    <input type="text" placeholder="Enter Role" name="role" id = "role" required>
 
                     <label for="email"><b>Email</b></label>
                     <input type="email" placeholder="Enter Email" name="email" id="email" required>
@@ -68,9 +68,9 @@
               
                     <div class="clearfix">
                       <button type="submit" class="s_signup">Sign Up as Student</button>
-                      <button type="submit" class="tp_signup" formaction="tp_home.html">Submit as Paret/Teacher</button>
-                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                      <button onclick="store()" type="button">Store Email</button>
+                      <button type="submit" class="tp_signup" formaction="index.html">Submit as Paret/Teacher</button>
+                      <button onclick="store()" type="button">Save Details</button>
+                      <button type="button" class="cancelbtn">Cancel</button>
                     </div>
                   </div>
                 </form>

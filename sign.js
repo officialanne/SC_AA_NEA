@@ -1,19 +1,35 @@
-
+var inputEmail, inputPass, inputLname, inputFname, inputRole;
 
 function foo(){
-    var name = document.getElementById("name").value;
+    var name = document.getElementById("fname").value;
     console.log(name);
 }
 
 function store(){
-    var inputEmail = document.getElementById("email");
-    localStorage.setItem("email"), inputEmail.value;
-    console.log(inputEmail)
-  }
+    inputEmail = document.getElementById("email").value;
+    localStorage.setItem("email", inputEmail);
 
-function writing(){
+    inputLname = document.getElementById("lname").value;
+    localStorage.setItem("lname", inputLname);
+
+    inputFname = document.getElementById("fname").value;
+    localStorage.setItem("fname", inputFname);
+
+    inputPass = document.getElementById("pass").value;
+    localStorage.setItem("pass", inputPass);
+
+    inputRole = document.getElementById("role").value;
+    localStorage.setItem("role", inputRole);
+
     
+
+    console.log(inputEmail);
+    console.log(inputFname);
+    console.log(inputLname);
+    console.log(inputPass);
+    console.log(inputRole);
 }
+
 
 function setup(){
     createCanvas(600,400);
