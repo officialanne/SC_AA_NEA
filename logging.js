@@ -23,7 +23,12 @@ function check(){
     else{
         alert("error");
     }
+
+
 }
+
+
+
 
 function setup(){
     createCanvas(600,400);
@@ -32,3 +37,4 @@ function setup(){
 function draw(){
     background(200,200,220);
 }
+

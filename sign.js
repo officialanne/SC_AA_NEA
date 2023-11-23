@@ -1,4 +1,5 @@
-var inputEmail, inputPass, inputLname, inputFname, inputRole;
+var inputEmail, inputPass, inputLname, inputFname, inputRole, username;
+
 
 function foo(){
     var name = document.getElementById("fname").value;
@@ -21,6 +22,8 @@ function store(){
     inputRole = document.getElementById("role").value;
     localStorage.setItem("role", inputRole);
 
+    username = inputFname.substring(0,1) + inputLname.substring(0,3) + "17";
+
     
 
     console.log(inputEmail);
@@ -28,6 +31,7 @@ function store(){
     console.log(inputLname);
     console.log(inputPass);
     console.log(inputRole);
+
 }
 
 
