@@ -1,5 +1,7 @@
 import sqlite3
+import random
 from sqlite3 import Error
+from flask import Flask, session, renduer_template, request, g
 
 
 
