@@ -1,16 +1,21 @@
 import sqlite3
-import numpy as np
+from sqlite3 import Error
+
+
 
 print("starting...")
+cnn = None
+filename = "users.db"
 try:
-    cnn = sqlite.connect(users.db)
+    cnn = sqlite3.connect(filename)
     print("database connected")
     sql = ("Select firstName"
            " From student"
             )
     cs = cnn.curser()
     cs.execute(sql)
-    rst = cs.fetchall ()
+    print("done")
+
 
 except Error as e:
     print(e)
