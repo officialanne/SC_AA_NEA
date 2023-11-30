@@ -1,29 +1,22 @@
 import sqlite3
-import random
-from sqlite3 import Error
-from flask import Flask, session, renduer_template, request, g
+from flask import Flask, app, render_template, request
 
 
 
-print("starting...")
-cnn = None
-filename = "users.db"
-try:
-    cnn = sqlite3.connect(filename)
-    print("database connected")
-    sql = ("Select firstName"
-           " From student"
-            )
-    cs = cnn.curser()
-    cs.execute(sql)
-    print("done")
 
+con = sqlite3.connect("users.db")
 
-except Error as e:
-    print(e)
+cur = con.cursor()
+app = Flask(__name__)
+@app.route('/trial.py', methods = ["GET", "POST"])
+def gfg():
+    if request.method == "POST":
+       # getting input with name = fname in HTML form
+       first_name = request.form.get("fname")
+       # getting input with name = lname in HTML form 
+       last_name = request.form.get("lname") 
+       return "Your name is "+first_name + last_name
+    return render_template("signup.html")
 
-finally:
-    if cnn:
-        cnn.close()
-
-print("done.")
+if __name__=='__main__':
+   app.run()
