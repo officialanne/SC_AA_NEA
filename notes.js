@@ -1,10 +1,11 @@
-let intro;
+let ball;
 
 
 function setup() {
     textAlign(CENTER);
     createCanvas(1000, 600);
-    
+    ball = new Sprite();
+
     
     
 }
