@@ -31,6 +31,17 @@ function draw(){
     background("#ccd5ae");
     intro.text=(intro_text);
 
-
+    box1.text = box_text[0];
+    box2.text = box_text[1];
+    box3.text = box_text[2];
+    box4.text = box_text[3];
+    box5.text = box_text[4];
+    box6.text = box_text[5];
+    box7.text = box_text[6];
+    box8.text = box_text[7];
+    box9.text = box_text[8];
+    box10.text = box_text[9];
+    box11.text = box_text[10];
+    box12.text = box_text[11];
 
 }
