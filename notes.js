@@ -1,4 +1,4 @@
-let into;
+let intro;
 
 
 function setup() {
