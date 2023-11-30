@@ -1,27 +1,47 @@
-<!DOCTYPE html>
-<html>
-
+DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>p5play</title>
-	<style>
-		html,
-		body {
-			background-color: black;
-			margin: 0;
-			padding: 0;
-			overscroll-behavior: none;
-		}
-	</style>
+    <meta charset="UTF-8" />
+    <title>NEA - Synchronise</title>
+
+    <!--Link to CSS for design-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--Link to p5 for canvas and screens for other features-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+
+    <!--Link to js file-->
+    <script src="script.js"></script>
+	<!--j query for forms-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-
 <body>
-	<script src="node_modules/p5/lib/p5.js"></script>
-	<script src="node_modules/p5/lib/addons/p5.sound.min.js"></script>
-	<script src="node_modules/p5play/planck.min.js"></script>
-	<script src="node_modules/p5play/p5play.js"></script>
-	<script src="sketch.js"></script>
-</body>
+	<header class="titles">
+		<h1 >Synchronise</h1>
+	</header>
 
+	<nav id="navigation">
+		<ul>
+			<li class = "navigate"><a href="signup.html">Sign Up</a></li>
+			<li class = "navigate"><a href="login.html">Login</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<style class = "bg">
+			body{
+			background-image: url("photos/stockcode.jpg");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;}
+		</style>
+
+		<p>Welcome to Synchronise!</p>
+
+		<div id="mainDiv">Hello Div</div>
+		<br />
+		<button onclick="buttonClicked()">Click me to learn about synchronise</button>
+
+	</main>
+</body>
 </html>
