@@ -54,7 +54,7 @@ function draw(){
     box12.text = box_text[11];
     returnMenu.text = "Return to \n menu";
 
-    if (box1.mouse.presses() || box2.mouse.presses()) {
+    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses()) {
         selectUnit();
     }
 
@@ -91,9 +91,7 @@ function screenZero() {
 }
 
 function selectUnit() {
-    //change background colour
     
-
     //reposition buttons
     box1.pos = { x: 3000, y: 3000 };
     box2.pos = { x: 3500, y: 3500 };
@@ -170,8 +168,6 @@ function selectUnit() {
         choice = 12;
         box12.text = "Here are the notes for unit 12";
     }
-
-
 
 }
 
