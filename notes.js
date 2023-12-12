@@ -12,7 +12,7 @@ let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, b
 function setup() {
     textAlign(CENTER);
     createCanvas(1000, 600);
-    background("#ccd5ae");
+    background("#e0e1dd");
     intro = new Sprite(width/2, 50, 500, 55);
     returnMenu = new Sprite(150, 50, 150, 50);
 
@@ -73,7 +73,7 @@ function returnToMenu(){
 
 function screenZero() {
     screen = 0;
-    background("green");
+    background("#f2e8cf");
     
     box1.pos = { x: 150, y: 175 };
     box2.pos = { x: 375, y: 175 };
@@ -109,18 +109,18 @@ function selectUnit() {
 
     if (box1.mouse.presses()) {
         choice = 1;
-        background("#a3cef1");
+        background("#84a98c");
         text("Here are the notes for unit 1", width/2, height/2);
     }
     if (box2.mouse.presses()) {
         choice = 2;
-        background("yellow");
+        background("#f2d0a9");
         text("Here are the notes for unit 2", width/2, height/2);
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
-        background("pink");
+        background("#d88c9a");
         text("Here are the notes for unit 3", width/2, height/2);
     }
 
