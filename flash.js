@@ -172,6 +172,7 @@ function selectCards(){
 
 }
 
+
 function displayCards(choice){
     unit = choice - 1;
     index = 0;
