@@ -120,7 +120,8 @@ function selectUnit() {
 
     else if (box3.mouse.presses()) {
         choice = 3;
-        box3.text = "Here are the notes for unit 3";
+        background("pink");
+        text("Here are the notes for unit 3", width/2, height/2);
     }
 
     else if (box4.mouse.presses()) {
@@ -169,6 +170,11 @@ function selectUnit() {
         box12.text = "Here are the notes for unit 12";
     }
 
+    displayNotes(choice);
+
 }
 
 
+function displayNotes(choice){
+    text(unitNotes[choice-1], width/2, height/2 + 100);
+}
