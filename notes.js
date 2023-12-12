@@ -1,5 +1,5 @@
 let boxes;
-let userChoice;
+let choice;
 let screen = 0;
 let returnMenu;
 let intro_text = "Study these notes to help catch up on content";
@@ -10,14 +10,21 @@ let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, b
 
 
 function setup() {
+
+    // creating canvas
     textAlign(CENTER);
     createCanvas(1000, 600);
     background("#e0e1dd");
+
+    // creating intro text box
     intro = new Sprite(width/2, 50, 500, 55);
+
+    // creating button to return to summary notes menu
     returnMenu = new Sprite(150, 50, 150, 50);
 
     
 
+    // creating buttons to click to select menu as objects called sprites
     boxes = new Group();
 
     box1 = new boxes.Sprite(150, 175, 150, 75);
@@ -38,8 +45,10 @@ function setup() {
 
 function draw(){
     
+    // putting the text in the intro text box
     intro.text=(intro_text);
 
+    // adding labels to the boxes
     box1.text = box_text[0];
     box2.text = box_text[1];
     box3.text = box_text[2];
@@ -54,10 +63,12 @@ function draw(){
     box12.text = box_text[11];
     returnMenu.text = "Return to \n menu";
 
+    // changing screens when the user clicks any of the boxes
     if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses()) {
         selectUnit();
     }
 
+    // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {
         returnToMenu();
     }
@@ -67,10 +78,12 @@ function draw(){
 
 }
 
+// function to reset the screen when the reset button is clicked
 function returnToMenu(){
     screenZero();
 }
 
+// function to reset the screen through the backround and buttons
 function screenZero() {
     screen = 0;
     background("#f2e8cf");
@@ -90,6 +103,7 @@ function screenZero() {
 
 }
 
+// function to reposition buttons and change the screen to display notes for a unit
 function selectUnit() {
     
     //reposition buttons
@@ -107,6 +121,7 @@ function selectUnit() {
     box12.pos = { x: -3500, y: -3500 };
     
 
+    // when the button is pressed, return the choice in order to display its notes
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
@@ -170,11 +185,12 @@ function selectUnit() {
         box12.text = "Here are the notes for unit 12";
     }
 
+    // return choice to display that unit's notes
     displayNotes(choice);
 
 }
 
-
+// function to display notes depending on user click
 function displayNotes(choice){
     text(unitNotes[choice-1], width/2, height/2 + 100);
 }
