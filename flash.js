@@ -1,21 +1,20 @@
-let unitOneQ = ["qOne", "qTwo", "qThree"];
-let unitOneA = ["aOne", "aTwo", "aThree"];
-let unitTwoQ = ["qOne", "qTwo", "qThree"];
-let unitTwoA = ["aOne", "aTwo", "aThree"];
-let unitThreeQ = ["qOne", "qTwo", "qThree"];
-let unitThreeA = ["aOne", "aTwo", "aThree"];
-let questions = [unitOneQ, unitTwoQ, unitThreeQ];
-let answers = [unitOneA, unitTwoA, unitThreeA];
-let intro_text = "Put your knowledge to the test!";
+var questions = new Array(10);
+questions[0] = new Array("qOne", "qTwo", "qThree");
+questions[1] = new Array("qOneTwo", "qTwoTwo", "qTwoThree");
+questions[2] = new Array("qOneThree", "qTwoThree", "qThreeThree");
+
+var answers = new Array(10);
+answers[0] = new Array("aOne", "aTwo", "aThree");
+answers[1] = new Array("aOneTwo", "aTwoTwo", "aThreeTwo");
+answers[2] = new Array("aThreeOne", "aThreeTwo", "aThreeThree");
+
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
-let choice;
-let unit;
-let index;
-let side;
 let returnMenu;
+let choice;
 let screen = 0;
-let flip_sides, question, answer, nextQ;
+
+let flip, question, answer, nextQ, side, aBox;
 
 
 function setup(){
@@ -30,7 +29,7 @@ function setup(){
     returnMenu = new Sprite(150, 50, 150, 50);
 
     // button to change sides
-    flip_sides = new Sprite (850, 50, 150, 50);
+    flip = new Sprite (850, 50, 150, 50);
     nextQ = new Sprite (850, 575, 150, 30);
 
     
@@ -50,12 +49,13 @@ function setup(){
     box10 = new boxes.Sprite(375, 500, 150, 75);
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
+    aBox = new Sprite(-5500, 5500, 200, 200);
     
 }
 
 function draw(){
     // putting the text in the intro text box
-    intro.text=(intro_text);
+    intro.text=("Put your knowledge to the test!");
 
     // adding labels to the boxes
     box1.text = box_text[0];
@@ -71,7 +71,7 @@ function draw(){
     box11.text = box_text[10];
     box12.text = box_text[11];
     returnMenu.text = "Return to \n menu";
-    flip_sides.text = "Flip Sides";
+    flip.text = "Flip Sides";
     nextQ.text = "Go to next question";
 
     // changing screens when the user clicks any of the boxes
@@ -82,6 +82,18 @@ function draw(){
     // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {
         returnToMenu();
+    }
+
+    if (flip.mouse.presses()) {
+        if (side == false) {
+            text(question, width / 2, height / 2 + 100);
+            side = true;
+
+        }
+        else if (side == true) {
+            text(answer, width / 2, height / 2 + 200);
+            side = false;
+        }
     }
 
     
@@ -101,6 +113,7 @@ function selectCards(){
     box10.pos = { x: 2500, y: 2500 };
     box11.pos = { x: -3000, y: -3000 };
     box12.pos = { x: -3500, y: -3500 };
+
     
 
     // when the button is pressed, return the choice in order to display its notes
@@ -173,12 +186,21 @@ function selectCards(){
 }
 
 
-function displayCards(choice){
-    unit = choice - 1;
-    index = 0;
+function displayCards(choice) {
+    let unit = choice - 1;
+    let index = 0;
     side = false;
-    question = questions[unit[index]];
-    answer = answers[unit[index]];
+    let question = questions[unit][index];
+    let answer = answers[unit[index]];
+
+    for (index = 0; index <= 2; index++) {
+        text(question, width / 2, height / 2 + 100);
+        
+        
+    }
+    
+
+    /*
     while (index <= 2){
         text(question, width/2, height/2 + 100);
         if (flip_sides.mouse.presses()){
@@ -201,6 +223,7 @@ function displayCards(choice){
         }
 
     }
+    */
 
 
 }
