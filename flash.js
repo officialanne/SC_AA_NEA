@@ -11,10 +11,13 @@ answers[2] = new Array("aThreeOne", "aThreeTwo", "aThreeThree");
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
 let returnMenu;
-let choice;
+let choice, unit, index;
 let screen = 0;
 
-let flip, question, answer, nextQ, side, aBox;
+let flip, nextQ, answer, question,aBox;
+let side = false;
+
+
 
 
 function setup(){
@@ -84,18 +87,36 @@ function draw(){
         returnToMenu();
     }
 
-    if (flip.mouse.presses()) {
-        if (side == false) {
-            text(question, width / 2, height / 2 + 100);
-            side = true;
 
-        }
-        else if (side == true) {
-            text(answer, width / 2, height / 2 + 200);
-            side = false;
-        }
+    
+
+    if (flip.mouse.presses() && side == false){
+        aBox.text = question;
+        side = true;
     }
 
+    else if (flip.mouse.presses() && side == true) {
+        aBox.text = answer;
+        side = false;
+    }
+
+    else if (nextQ.mouse.presses() && index ==0){
+        question = questions[unit][index+1];
+        answer = answers[unit][index+1];
+    }
+
+    else if (nextQ.mouse.presses() && index ==1){
+        question = questions[unit][2];
+        answer = answers[unit][2];
+    }
+
+
+    
+
+
+    
+
+    
     
 }
 
@@ -183,55 +204,27 @@ function selectCards(){
     // return choice to display that unit's notes
     displayCards(choice);
 
+
 }
 
 
 function displayCards(choice) {
-    let unit = choice - 1;
-    let index = 0;
+    unit = choice - 1;
+    index = 0;
     side = false;
-    let question = questions[unit][index];
-    let answer = answers[unit[index]];
+    question = questions[unit][index];
+    answer = answers[unit][index];
     aBox.pos = {x: width/2, y: height/2 + 100};
+    flip_sides();
 
-    for (index = 0; index <= 2; index++) {
-        aBox.text = question;
-        if (flip.mouse.presses()){
-            if (side==false){
-                aBox.text = answer;
-            }
-        }
-        
-        
+
+}
+
+function flip_sides(){
+    if (nextQ.mouse.presses() && index <=2){
+        index = index + 1;
     }
-    
-
-    /*
-    while (index <= 2){
-        text(question, width/2, height/2 + 100);
-        if (flip_sides.mouse.presses()){
-            if (side == false){
-                text(answer, width/2, height/2 + 100);
-                side = true;
-            }
-            else if (side == true){
-                text(question, width/2, height/2 + 100);
-                side = false;
-            }
-        }
-
-        if (index == 2) {
-            nextQ.pos = {x: -1100, y: 1100};
-        }
-
-        if (nextQ.mouse.presses()){
-            index = index + 1;
-        }
-
-    }
-    */
-
-
+   
 }
 
 
