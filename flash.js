@@ -192,9 +192,15 @@ function displayCards(choice) {
     side = false;
     let question = questions[unit][index];
     let answer = answers[unit[index]];
+    aBox.pos = {x: width/2, y: height/2 + 100};
 
     for (index = 0; index <= 2; index++) {
-        text(question, width / 2, height / 2 + 100);
+        aBox.text = question;
+        if (flip.mouse.presses()){
+            if (side==false){
+                aBox.text = answer;
+            }
+        }
         
         
     }
@@ -237,6 +243,7 @@ function returnToMenu(){
 // function to reset the screen through the backround and buttons
 function screenZero() {
     screen = 0;
+    aBox.pos = {x: -5500, y: 5500};
     background("#f2e8cf");
     
     box1.pos = { x: 150, y: 175 };
