@@ -3,7 +3,7 @@ let choice;
 let screen = 0;
 let returnMenu;
 let intro_text = "Study these notes to help catch up on content";
-let unitNotes = ["FDE Cycle = Fetch, Decode, Execute", "Memory Management", "The Waterfall Model", "Asymmetric Encryption", "Structure of the Internet", "Binary Arithmetic", "Abstract Data Types", "Boolean Algebra", "The Data Protection Act", "Thinkint Abstractly", "Iteration", "A* Algorithm"];
+let unitNotes = ["FDE Cycle = Fetch, Decode, Execute", "Memory Management", "The Waterfall Model", "Asymmetric Encryption", "Structure of the Internet", "Binary Arithmetic", "Abstract Data Types", "Boolean Algebra", "The Data Protection Act", "Thinking Abstractly", "Iteration", "A* Algorithm"];
 let unitFrame = ["Here are the notes for unit ", "Key terms and definitions: ", "Key advantages: ", "Key disadvantages: "];
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 

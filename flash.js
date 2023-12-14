@@ -1,30 +1,30 @@
 var qs = new Array();
-qs[0] = new Array("qOne", "q2", "q3");
-qs[1] = new Array("q21", "2", "q23");
-qs[2] = new Array("q31", "q32", "q33");
+qs[0] = new Array("qOne", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
+qs[1] = new Array("q21", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
+qs[2] = new Array("q31", "q32", "q33", "q34", "q35", "q36", "q37", "q38", "q39", "q310");
 qs[3] = new Array("q41", "q42", "q43");
 qs[4] = new Array("q51", "q52", "q53");
 qs[5] = new Array("q61", "q62", "q63");
 qs[6] = new Array("q71", "q72", "q73");
 qs[7] = new Array("q81", "q82", "q83");
 qs[8] = new Array("q91", "q92", "q93");
-qs[9] = new Array("q01", "q02", "q03");
-qs[10] = new Array("111", "112", "113");
-qs[11]= new Array("121", "122", "123");
+qs[9] = new Array("q101", "q102", "q103");
+qs[10] = new Array("q111", "q112", "q113");
+qs[11]= new Array("a121", "a122", "a123");
 
 var ans = new Array();
-ans[0] = new Array("a1", "a2", "a3");
-ans[1] = new Array("a21", "a22", "a23");
-ans[2] = new Array("a31", "a32", "a33");
+ans[0] = new Array("a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
+ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
+ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
 ans[3] = new Array("a41", "a42", "a43");
 ans[4] = new Array("a51", "a52", "a53");
 ans[5] = new Array("a61", "a62", "a63");
 ans[6] = new Array("a71", "a72", "a73");
 ans[7] = new Array("a81", "a82", "a83");
 ans[8] = new Array("a91", "a92", "a93");
-ans[9] = new Array("a01", "a02", "a03");
-ans[10]= new Array("aa1", "aa2", "aa3");
-ans[11]= new Array("2a1", "2a2", "2a3");
+ans[9] = new Array("a101", "a102", "a103");
+ans[10]= new Array("a111", "a112", "a113");
+ans[11]= new Array("a121", "a122", "a123");
 
 
 
@@ -135,6 +135,57 @@ function draw(){
 
     }
 
+    else if (nextQ.mouse.presses() && index == 2) {
+        question = qs[unit][3];
+        answer = ans[unit][3];
+        index = index + 1;
+
+    }
+
+    else if (nextQ.mouse.presses() && index == 3) {
+        question = qs[unit][4];
+        answer = ans[unit][4];
+        index = index + 1;
+
+    }
+
+    else if (nextQ.mouse.presses() && index == 4) {
+        question = qs[unit][5];
+        answer = ans[unit][5];
+        index = index + 1;
+
+    }
+
+    else if (nextQ.mouse.presses() && index == 5) {
+        question = qs[unit][6];
+        answer = ans[unit][6];
+        index = index + 1;
+
+    }
+
+    else if (nextQ.mouse.presses() && index == 6) {
+        question = qs[unit][7];
+        answer = ans[unit][7];
+        index = index + 1;
+
+    }
+
+    else if (nextQ.mouse.presses() && index == 7) {
+        question = qs[unit][8];
+        answer = ans[unit][8];
+        index = index + 1;
+
+    }
+
+    else if (nextQ.mouse.presses() && index == 8) {
+        question = qs[unit][9];
+        answer = ans[unit][9];
+        index = index + 1;
+
+    }
+
+
+
 
     
 
@@ -163,7 +214,7 @@ function selectCards(){
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Here are the cards unit 1", width / 2, height / 2 - 175);
+        text("Here are the cards unit for 1", width / 2, height / 2 - 175);
     }
     if (box2.mouse.presses()) {
         choice = 2;
@@ -245,6 +296,10 @@ function displayCards(choice) {
     aBox.pos = { x: width / 2, y: height / 2 + 100 };
     question = qs[unit][index];
     answer = ans[unit][index];
+
+    if (index == 9){
+        aBox.pos = {x: -5500, y: 5500};
+    }
     
 }
 
