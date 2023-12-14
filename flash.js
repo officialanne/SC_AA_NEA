@@ -1,12 +1,32 @@
-var questions = new Array(10);
-questions[0] = new Array("qOne", "qTwo", "qThree");
-questions[1] = new Array("qOneTwo", "qTwoTwo", "qTwoThree");
-questions[2] = new Array("qOneThree", "qTwoThree", "qThreeThree");
+var qs = new Array();
+qs[0] = new Array("qOne", "q2", "q3");
+qs[1] = new Array("q21", "2", "q23");
+qs[2] = new Array("q31", "q32", "q33");
+qs[3] = new Array("q41", "q42", "q43");
+qs[4] = new Array("q51", "q52", "q53");
+qs[5] = new Array("q61", "q62", "q63");
+qs[6] = new Array("q71", "q72", "q73");
+qs[7] = new Array("q81", "q82", "q83");
+qs[8] = new Array("q91", "q92", "q93");
+qs[9] = new Array("q01", "q02", "q03");
+qs[10] = new Array("111", "112", "113");
+qs[11]= new Array("121", "122", "123");
 
-var answers = new Array(10);
-answers[0] = new Array("aOne", "aTwo", "aThree");
-answers[1] = new Array("aOneTwo", "aTwoTwo", "aThreeTwo");
-answers[2] = new Array("aThreeOne", "aThreeTwo", "aThreeThree");
+var ans = new Array();
+ans[0] = new Array("a1", "a2", "a3");
+ans[1] = new Array("a21", "a22", "a23");
+ans[2] = new Array("a31", "a32", "a33");
+ans[3] = new Array("a41", "a42", "a43");
+ans[4] = new Array("a51", "a52", "a53");
+ans[5] = new Array("a61", "a62", "a63");
+ans[6] = new Array("a71", "a72", "a73");
+ans[7] = new Array("a81", "a82", "a83");
+ans[8] = new Array("a91", "a92", "a93");
+ans[9] = new Array("a01", "a02", "a03");
+ans[10]= new Array("aa1", "aa2", "aa3");
+ans[11]= new Array("2a1", "2a2", "2a3");
+
+
 
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
@@ -52,6 +72,7 @@ function setup(){
     box10 = new boxes.Sprite(375, 500, 150, 75);
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
+
     aBox = new Sprite(-5500, 5500, 200, 200);
     
 }
@@ -78,7 +99,7 @@ function draw(){
     nextQ.text = "Go to next question";
 
     // changing screens when the user clicks any of the boxes
-    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses()) {
+    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
         selectCards();
     }
 
@@ -90,7 +111,7 @@ function draw(){
 
     
 
-    if (flip.mouse.presses() && side == false){
+    if (flip.mouse.presses() && side == false) {
         aBox.text = question;
         side = true;
     }
@@ -100,18 +121,19 @@ function draw(){
         side = false;
     }
 
-    else if (nextQ.mouse.presses() && index ==0){
-        question = questions[unit][index+1];
-        answer = answers[unit][index+1];
+    else if (nextQ.mouse.presses() && index == 0) {
+        question = qs[unit][1];
+        answer = ans[unit][1];
+        index = index + 1;
+
     }
 
-    else if (nextQ.mouse.presses() && index ==1){
-        question = questions[unit][2];
-        answer = answers[unit][2];
+    else if (nextQ.mouse.presses() && index == 1) {
+        question = qs[unit][2];
+        answer = ans[unit][2];
+        index = index + 1;
+
     }
-
-
-    
 
 
     
@@ -141,64 +163,72 @@ function selectCards(){
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Here are the notes for unit 1", width/2, height/2);
+        text("Here are the cards unit 1", width / 2, height / 2 - 175);
     }
     if (box2.mouse.presses()) {
         choice = 2;
         background("#f2d0a9");
-        text("Here are the notes for unit 2", width/2, height/2);
+        text("Here are the cards for unit 2", width/2, height/2);
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
         background("#d88c9a");
-        text("Here are the notes for unit 3", width/2, height/2);
+        text("Here are the cards for unit 3", width/2, height/2);
     }
 
     else if (box4.mouse.presses()) {
         choice = 4;
-        box4.text = "Here are the notes for unit 4";
+        background("#84a98c");
+        text("Here are the cards for unit 4", width / 2, height / 2);
     }
 
     else if (box5.mouse.presses()) {
         choice = 5;
-        box5.text = "Here are the notes for unit 5";
+        background("#f2d0a9");
+        text("Here are the cards for unit 5", width / 2, height / 2);
     }
 
     else if (box6.mouse.presses()) {
         choice = 6;
-        box6.text = "Here are the notes for unit 6";
+        background("#d88c9a");
+        text("Here are the cards for unit 6", width / 2, height / 2);
     }
 
     else if (box7.mouse.presses()) {
         choice = 7;
-        box7.text = "Here are the notes for unit 7";
-
+        background("#84a98c");
+        text("Here are the cards for unit 7", width / 2, height / 2);
     }
 
     else if (box8.mouse.presses()) {
         choice = 8;
-        box8.text = "Here are the notes for unit 8";
+        background("#f2d0a9");
+        text("Here are the cards for unit 8", width / 2, height / 2);
     }
 
     else if (box9.mouse.presses()) {
         choice = 9;
-        box9.text = "Here are the notes for unit 9";
+        background("#d88c9a");
+        text("Here are the cards for unit 9", width / 2, height / 2);
     }
 
     else if (box10.mouse.presses()) {
         choice = 10;
-        box10.text = "Here are the notes for unit 10";
+        background("#84a98c");
+        text("Here are the cards for unit 10", width / 2, height / 2);
     }
 
     else if (box11.mouse.presses()) {
         choice = 11;
-        box11.text = "Here are the notes for unit 11";
+        background("#f2d0a9");
+        text("Here are the cards for unit 11", width / 2, height / 2);
     }
 
-    else if (box12.mouse.presses()) { 
+    else if (box12.mouse.presses()) {
         choice = 12;
-        box12.text = "Here are the notes for unit 12";
+        background("#d88c9a");
+        text("Here are the cards for unit 12", width / 2, height / 2);
     }
 
     // return choice to display that unit's notes
@@ -212,20 +242,13 @@ function displayCards(choice) {
     unit = choice - 1;
     index = 0;
     side = false;
-    question = questions[unit][index];
-    answer = answers[unit][index];
-    aBox.pos = {x: width/2, y: height/2 + 100};
-    flip_sides();
-
-
+    aBox.pos = { x: width / 2, y: height / 2 + 100 };
+    question = qs[unit][index];
+    answer = ans[unit][index];
+    
 }
 
-function flip_sides(){
-    if (nextQ.mouse.presses() && index <=2){
-        index = index + 1;
-    }
-   
-}
+
 
 
 // function to reset the screen when the reset button is clicked
@@ -236,6 +259,8 @@ function returnToMenu(){
 // function to reset the screen through the backround and buttons
 function screenZero() {
     screen = 0;
+    index = 0;
+    unit = 0;
     aBox.pos = {x: -5500, y: 5500};
     background("#f2e8cf");
     
