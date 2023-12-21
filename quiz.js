@@ -1,3 +1,4 @@
+// copy of arrays from flashcards
 var qs = new Array();
 qs[0] = new Array("qOne", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
 qs[1] = new Array("q21", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
@@ -24,7 +25,38 @@ ans[7] = new Array("a81", "a82", "a83", "a84", "a85", "a86", "a87", "a88", "a89"
 ans[8] = new Array("a91", "a92", "a93", "a94", "a95", "a96", "a97", "a98", "a99", "a910");
 ans[9] = new Array("a101", "a102", "a103", "a104", "a105", "a106", "a107", "a108", "a109", "a1010");
 ans[10]= new Array("a111", "a112", "a113", "a114", "a115", "a116", "a117", "a118", "a119", "a1110");
-ans[11]= new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a128", "a129", "a1210");
+ans[11] = new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a128", "a129", "a1210");
+
+// additional arrays to store other answer and score
+var ans2 = new Array();
+ans2[0] = new Array("aA1", "aA2", "aA3", "aA4", "aA5", "aA6", "aA7", "aA8", "aA9", "aA10");
+ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "aA27", "aA28", "aA29", "aA210");
+ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
+ans2[3] = new Array("aA41", "aA42", "aA43", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
+ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
+ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "a66", "aA67", "aA68", "aA69", "aA610");
+ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "a76", "aA77", "aA78", "aA79", "aA710");
+ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "a86", "aA87", "aA88", "aA89", "aA810");
+ans2[8] = new Array("aA91", "aA92", "aA93", "aA94", "aA95", "a96", "aA97", "aA98", "aA99", "aA910");
+ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107", "aA108", "aA109", "aA1010");
+ans2[10] = new Array("aA111", "aA112", "aA113", "aA114", "aA115", "aA116", "aA117", "aA118", "aA119", "aA1110");
+ans2[11] = new Array("aA121", "aA122", "aA123", "aA124", "aA125", "aA126", "aA127", "aA128", "aA129", "aA1210");
+
+// score array
+var scores = new Array();
+scores[0] = [];
+scores[1] = [];
+scores[2] = [];
+scores[3] = [];
+scores[4] = [];
+scores[5] = [];
+scores[6] = [];
+scores[7] = [];
+scores[8] = [];
+scores[9] = [];
+scores[10] = [];
+scores[11] = [];
+
 
 
 
@@ -34,8 +66,10 @@ let returnMenu;
 let choice, unit, index;
 let screen = 0;
 
-let flip, nextQ, answer, question,aBox;
+let flip, nextQ, wrongAns, correctAns, question, aBox, a2Box;
 let side = false;
+let score = 0;
+let endQuiz;
 
 
 
@@ -53,7 +87,10 @@ function setup(){
 
     // button to change sides
     flip = new Sprite (850, 50, 150, 50);
-    nextQ = new Sprite (850, 575, 150, 30);
+    nextQ = new Sprite(850, 575, 150, 30);
+
+    // button to end quiz
+    endQuiz = new Sprite(-6000, 6000, 150, 30);
 
     
 
@@ -74,6 +111,7 @@ function setup(){
     box12 = new boxes.Sprite(850, 500, 150, 75);
 
     aBox = new Sprite(-5500, 5500, 200, 200);
+    a2Box = new Sprite(5500, -5500, 200, 200);
     
 }
 
@@ -100,7 +138,7 @@ function draw(){
 
     // changing screens when the user clicks any of the boxes
     if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
-        selectCards();
+        selectQuiz();
     }
 
     // return back to summary notes when the return button is clicked
@@ -109,7 +147,7 @@ function draw(){
     }
 
 
-    
+    // Using selection to change the text on boxes depending on whether the user wants to go to the next question
 
     if (flip.mouse.presses() && side == false) {
         aBox.text = question;
@@ -193,7 +231,7 @@ function draw(){
     
 }
 
-function selectCards(){
+function selectQuiz(){
     //reposition buttons
     box1.pos = { x: 3000, y: 3000 };
     box2.pos = { x: 3500, y: 3500 };
@@ -214,92 +252,91 @@ function selectCards(){
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Here are the cards unit for 1", width / 2, height / 2 - 175);
+        text("Practice Unit 1", width / 2, height / 2 - 175);
     }
     if (box2.mouse.presses()) {
         choice = 2;
         background("#f2d0a9");
-        text("Here are the cards for unit 2", width/2, height/2);
+        text("Practice Unit 2", width/2, height/2);
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
         background("#d88c9a");
-        text("Here are the cards for unit 3", width/2, height/2);
+        text("Practice Unit 3", width/2, height/2);
     }
 
     else if (box4.mouse.presses()) {
         choice = 4;
         background("#84a98c");
-        text("Here are the cards for unit 4", width / 2, height / 2);
+        text("Practice Unit 4", width / 2, height / 2);
     }
 
     else if (box5.mouse.presses()) {
         choice = 5;
         background("#f2d0a9");
-        text("Here are the cards for unit 5", width / 2, height / 2);
+        text("Practice Unit 5", width / 2, height / 2);
     }
 
     else if (box6.mouse.presses()) {
         choice = 6;
         background("#d88c9a");
-        text("Here are the cards for unit 6", width / 2, height / 2);
+        text("Practice Unit 6", width / 2, height / 2);
     }
 
     else if (box7.mouse.presses()) {
         choice = 7;
         background("#84a98c");
-        text("Here are the cards for unit 7", width / 2, height / 2);
+        text("Practice Unit 7", width / 2, height / 2);
     }
 
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
-        text("Here are the cards for unit 8", width / 2, height / 2);
+        text("Practice Unit 8", width / 2, height / 2);
     }
 
     else if (box9.mouse.presses()) {
         choice = 9;
         background("#d88c9a");
-        text("Here are the cards for unit 9", width / 2, height / 2);
+        text("Practice Unit 9", width / 2, height / 2);
     }
 
     else if (box10.mouse.presses()) {
         choice = 10;
         background("#84a98c");
-        text("Here are the cards for unit 10", width / 2, height / 2);
+        text("Practice Unit 10", width / 2, height / 2);
     }
 
     else if (box11.mouse.presses()) {
         choice = 11;
         background("#f2d0a9");
-        text("Here are the cards for unit 11", width / 2, height / 2);
+        text("Practice Unit 11", width / 2, height / 2);
     }
 
     else if (box12.mouse.presses()) {
         choice = 12;
         background("#d88c9a");
-        text("Here are the cards for unit 12", width / 2, height / 2);
+        text("Practice Unit 12", width / 2, height / 2);
     }
 
     // return choice to display that unit's notes
-    displayCards(choice);
+    displayQuiz(choice);
 
 
 }
 
 
-function displayCards(choice) {
+function displayQuiz(choice) {
     unit = choice - 1;
     index = 0;
     side = false;
-    aBox.pos = { x: width / 2, y: height / 2 + 100 };
+    aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
+    a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     question = qs[unit][index];
     answer = ans[unit][index];
 
-    if (index == 9){
-        aBox.pos = {x: -5500, y: 5500};
-    }
+    
     
 }
 
