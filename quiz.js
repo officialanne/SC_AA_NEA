@@ -66,10 +66,11 @@ let returnMenu;
 let choice, unit, index;
 let screen = 0;
 
-let flip, nextQ, wrongAns, correctAns, question, aBox, a2Box;
+let saveQ, nextQ, wrongAns, answer, question, aBox, a2Box, qBox;
 let side = false;
 let score = 0;
 let endQuiz;
+
 
 
 
@@ -86,7 +87,7 @@ function setup(){
     returnMenu = new Sprite(150, 50, 150, 50);
 
     // button to change sides
-    flip = new Sprite (850, 50, 150, 50);
+    saveQ = new Sprite (850, 50, 150, 50);
     nextQ = new Sprite(850, 575, 150, 30);
 
     // button to end quiz
@@ -109,9 +110,14 @@ function setup(){
     box10 = new boxes.Sprite(375, 500, 150, 75);
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
+    
 
+    // creating buttons for answer box selection
     aBox = new Sprite(-5500, 5500, 200, 200);
     a2Box = new Sprite(5500, -5500, 200, 200);
+
+    // creating button to display question
+    qBox = new Sprite(-450, 4500, 500, 55);
     
 }
 
@@ -132,9 +138,17 @@ function draw(){
     box10.text = box_text[9];
     box11.text = box_text[10];
     box12.text = box_text[11];
+
     returnMenu.text = "Return to \n menu";
-    flip.text = "Flip Sides";
+
+    saveQ.text = "Save \n Question";
+
     nextQ.text = "Go to next question";
+
+    qBox.text = question;
+
+    
+
 
     // changing screens when the user clicks any of the boxes
     if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
@@ -149,19 +163,24 @@ function draw(){
 
     // Using selection to change the text on boxes depending on whether the user wants to go to the next question
 
-    if (flip.mouse.presses() && side == false) {
-        aBox.text = question;
-        side = true;
-    }
-
-    else if (flip.mouse.presses() && side == true) {
-        aBox.text = answer;
-        side = false;
-    }
 
     else if (nextQ.mouse.presses() && index == 0) {
         question = qs[unit][1];
+        
         answer = ans[unit][1];
+        wrongAns = ans2[unit][1];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
+
         index = index + 1;
 
     }
@@ -169,6 +188,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 1) {
         question = qs[unit][2];
         answer = ans[unit][2];
+        wrongAns = ans2[unit][2];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -176,6 +207,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 2) {
         question = qs[unit][3];
         answer = ans[unit][3];
+        wrongAns = ans2[unit][3];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -183,6 +226,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 3) {
         question = qs[unit][4];
         answer = ans[unit][4];
+        wrongAns = ans2[unit][4];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -190,6 +245,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 4) {
         question = qs[unit][5];
         answer = ans[unit][5];
+        wrongAns = ans2[unit][5];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -197,6 +264,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 5) {
         question = qs[unit][6];
         answer = ans[unit][6];
+        wrongAns = ans2[unit][6];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -204,6 +283,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 6) {
         question = qs[unit][7];
         answer = ans[unit][7];
+        wrongAns = ans2[unit][7];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -211,6 +302,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 7) {
         question = qs[unit][8];
         answer = ans[unit][8];
+        wrongAns = ans2[unit][8];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -218,6 +321,18 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 8) {
         question = qs[unit][9];
         answer = ans[unit][9];
+        wrongAns = ans2[unit][9];
+
+        let answersText = [answer, wrongAns];
+        aBox.text = random(answersText);
+
+        
+        if (aBox.text == answer){
+            a2Box.text = wrongAns;
+        }
+        else if (aBox.text == wrongAns){
+            a2Box.text = answer;
+        }
         index = index + 1;
 
     }
@@ -328,15 +443,28 @@ function selectQuiz(){
 
 
 function displayQuiz(choice) {
+    
     unit = choice - 1;
     index = 0;
     side = false;
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
+    qBox.pos = {x: width / 2, y: height / 2 -100};
     question = qs[unit][index];
     answer = ans[unit][index];
-    
+    wrongAns = ans2[unit][index];
 
+    let answersText = [answer, wrongAns];
+    aBox.text = random(answersText);
+
+    
+    if (aBox.text == answer){
+        a2Box.text = wrongAns;
+    }
+    else if (aBox.text == wrongAns){
+        a2Box.text = answer;
+    }
+    
     
     
 }
@@ -356,6 +484,7 @@ function screenZero() {
     unit = 0;
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
+    qBox.pos = {x: 450, y: -4760};
 
     background("#f2e8cf");
     
