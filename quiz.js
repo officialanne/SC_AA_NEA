@@ -252,72 +252,72 @@ function selectQuiz(){
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Practice Unit 1", width / 2, height / 2 - 175);
+        text("Practice Unit 1", width / 2-30, 125);
     }
     if (box2.mouse.presses()) {
         choice = 2;
         background("#f2d0a9");
-        text("Practice Unit 2", width/2, height/2);
+        text("Practice Unit 2", width / 2-30, 125);
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
         background("#d88c9a");
-        text("Practice Unit 3", width/2, height/2);
+        text("Practice Unit 3", width / 2-30, 125);
     }
 
     else if (box4.mouse.presses()) {
         choice = 4;
         background("#84a98c");
-        text("Practice Unit 4", width / 2, height / 2);
+        text("Practice Unit 4", width / 2-30, 125);
     }
 
     else if (box5.mouse.presses()) {
         choice = 5;
         background("#f2d0a9");
-        text("Practice Unit 5", width / 2, height / 2);
+        text("Practice Unit 5", width / 2-30, 125);
     }
 
     else if (box6.mouse.presses()) {
         choice = 6;
         background("#d88c9a");
-        text("Practice Unit 6", width / 2, height / 2);
+        text("Practice Unit 6", width / 2-30, 125);
     }
 
     else if (box7.mouse.presses()) {
         choice = 7;
         background("#84a98c");
-        text("Practice Unit 7", width / 2, height / 2);
+        text("Practice Unit 7", width / 2-30, 125);
     }
 
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
-        text("Practice Unit 8", width / 2, height / 2);
+        text("Practice Unit 8", width / 2-30, 125);
     }
 
     else if (box9.mouse.presses()) {
         choice = 9;
         background("#d88c9a");
-        text("Practice Unit 9", width / 2, height / 2);
+        text("Practice Unit 9", width / 2-30, 125);
     }
 
     else if (box10.mouse.presses()) {
         choice = 10;
         background("#84a98c");
-        text("Practice Unit 10", width / 2, height / 2);
+        text("Practice Unit 10", width / 2-30, 125);
     }
 
     else if (box11.mouse.presses()) {
         choice = 11;
         background("#f2d0a9");
-        text("Practice Unit 11", width / 2, height / 2);
+        text("Practice Unit 11", width / 2-30, 125);
     }
 
     else if (box12.mouse.presses()) {
         choice = 12;
         background("#d88c9a");
-        text("Practice Unit 12", width / 2, height / 2);
+        text("Practice Unit 12", width / 2-30, 125);
     }
 
     // return choice to display that unit's notes
@@ -335,6 +335,7 @@ function displayQuiz(choice) {
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     question = qs[unit][index];
     answer = ans[unit][index];
+    
 
     
     
@@ -354,6 +355,8 @@ function screenZero() {
     index = 0;
     unit = 0;
     aBox.pos = {x: -5500, y: 5500};
+    a2Box.pos = {x: 3000, y: -3750};
+
     background("#f2e8cf");
     
     box1.pos = { x: 150, y: 175 };
