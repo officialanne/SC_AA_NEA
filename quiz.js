@@ -66,7 +66,7 @@ let returnMenu;
 let choice, unit, index;
 let screen = 0;
 
-let saveQ, nextQ, wrongAns, answer, question, aBox, a2Box, qBox;
+let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
 let side = false;
 let score = 0;
 let endQuiz;
@@ -87,7 +87,7 @@ function setup(){
     returnMenu = new Sprite(150, 50, 150, 50);
 
     // button to change sides
-    saveQ = new Sprite (850, 50, 150, 50);
+    showScore = new Sprite (850, 50, 150, 50);
     nextQ = new Sprite(850, 575, 150, 30);
 
     // button to end quiz
@@ -118,7 +118,9 @@ function setup(){
 
     // creating button to display question
     qBox = new Sprite(-450, 4500, 500, 55);
-    
+
+    // creating button to save score
+    saveQuiz = new Sprite(4500, -675, 150, 30);
 }
 
 function draw(){
@@ -141,11 +143,13 @@ function draw(){
 
     returnMenu.text = "Return to \n menu";
 
-    saveQ.text = "Save \n Question";
+    showScore.text = "Current Score = " + score;
 
     nextQ.text = "Go to next question";
 
     qBox.text = question;
+
+    saveQuiz.text = "Save Score";
 
     
 
@@ -157,6 +161,10 @@ function draw(){
 
     // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {
+        returnToMenu();
+    }
+
+    if (saveQuiz.mouse.presses()){
         returnToMenu();
     }
 
@@ -181,7 +189,10 @@ function draw(){
             a2Box.text = answer;
         }
 
+
         index = index + 1;
+
+
 
     }
 
@@ -335,10 +346,17 @@ function draw(){
         }
         index = index + 1;
 
+        saveScore(unit);
+
     }
 
 
-
+    if (aBox.text == answer && aBox.mouse.presses()){
+        score = score + 1;
+    } 
+    else if (a2Box.text == answer && a2Box.mouse.presses()){
+        score = score + 1;
+    }
 
     
 
@@ -460,12 +478,20 @@ function displayQuiz(choice) {
     
     if (aBox.text == answer){
         a2Box.text = wrongAns;
+        
     }
     else if (aBox.text == wrongAns){
         a2Box.text = answer;
+        
     }
-    
-    
+
+    if (aBox.text == answer && aBox.mouse.presses()){
+        score = score + 1;
+    } 
+    else if (a2Box.text == answer && a2Box.mouse.presses()){
+        score = score + 1;
+    }
+
     
 }
 
@@ -482,9 +508,11 @@ function screenZero() {
     screen = 0;
     index = 0;
     unit = 0;
+    score = 0;
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
+    saveQuiz.pos = {x:-6000, y: 4750};
 
     background("#f2e8cf");
     
@@ -501,4 +529,14 @@ function screenZero() {
     box11.pos = { x: 625, y: 500 };
     box12.pos = { x: 850, y: 500 };
 
+}
+
+function saveScore(unit){
+    saveQuiz.pos = {x: 150, y: 575};
+    nextQ.pos = {x:5000, y:-540};
+    let newUnit = unit.toString();
+    let newScore = score.toString();
+
+    localStorage.setItem("unit: " + newUnit, "score: " + newScore);
+        
 }

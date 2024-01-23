@@ -1,5 +1,5 @@
 var inputEmail, inputPass, inputLname, inputFname, inputRole, username;
-var sqlite3 = require("sqlite3");
+
 
 function foo(){
     var name = document.getElementById("fname").value;
