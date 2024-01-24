@@ -37,25 +37,25 @@ ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA5
 ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "a66", "aA67", "aA68", "aA69", "aA610");
 ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "a76", "aA77", "aA78", "aA79", "aA710");
 ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "a86", "aA87", "aA88", "aA89", "aA810");
-ans2[8] = new Array("aA91", "aA92", "aA93", "aA94", "aA95", "a96", "aA97", "aA98", "aA99", "aA910");
+ans2[8] = new Array("aA91", "aA92", "aA93", "aA94", "aA95", "aA96", "aA97", "aA98", "aA99", "aA910");
 ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107", "aA108", "aA109", "aA1010");
 ans2[10] = new Array("aA111", "aA112", "aA113", "aA114", "aA115", "aA116", "aA117", "aA118", "aA119", "aA1110");
 ans2[11] = new Array("aA121", "aA122", "aA123", "aA124", "aA125", "aA126", "aA127", "aA128", "aA129", "aA1210");
 
 // score array
 var scores = new Array();
-scores[0] = [];
-scores[1] = [];
-scores[2] = [];
-scores[3] = [];
-scores[4] = [];
-scores[5] = [];
-scores[6] = [];
-scores[7] = [];
-scores[8] = [];
-scores[9] = [];
-scores[10] = [];
-scores[11] = [];
+scores[0] = new Array(20);
+scores[1] = new Array(20);
+scores[2] = new Array(20);
+scores[3] = new Array(20);
+scores[4] = new Array(20);
+scores[5] = new Array(20);
+scores[6] = new Array(20);
+scores[7] = new Array(20);
+scores[8] = new Array(20);
+scores[9] = new Array(20);
+scores[10] = new Array(20);
+scores[11] = new Array(20);
 
 
 
@@ -70,6 +70,7 @@ let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
 let side = false;
 let score = 0;
 let endQuiz;
+
 
 
 
@@ -378,6 +379,7 @@ function selectQuiz(){
     box10.pos = { x: 2500, y: 2500 };
     box11.pos = { x: -3000, y: -3000 };
     box12.pos = { x: -3500, y: -3500 };
+    nextQ.pos = { x: 850, y: 575};
 
     
 
@@ -534,9 +536,44 @@ function screenZero() {
 function saveScore(unit){
     saveQuiz.pos = {x: 150, y: 575};
     nextQ.pos = {x:5000, y:-540};
-    let newUnit = unit.toString();
-    let newScore = score.toString();
+    let newUnit = (unit+1).toString();
+    let newScore = (score).toString();
 
-    localStorage.setItem("unit: " + newUnit, "score: " + newScore);
+    let setScores = localStorage.getItem("unit" + newUnit + "Scores: ");
+    let retScores = JSON.parse(setScores);
+ 
+  
+
+    if (setScores == null) {
+        for (i = 0; i <= 19; i++) {
+            if (scores[unit][i] != null) {
+                scores[unit][i] = newScore;
+            }
+        }
+
+        let newScores = JSON.stringify(scores[unit]);
+
+        localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+
+        
+        
+    }
+
+    else {
+        for (i = 0; i <= 19; i++) {
+            if (retScores[i] != null) {
+                retScores[i] = newScore;
+            }
+        }
+       
+    }
+
+    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+    
+
+
+    
+
+
         
 }
