@@ -548,59 +548,55 @@ function saveScore(unit) {
     let newUnit = (unit+1).toString();
     let newScore = (score).toString();
 
-    if (saveQuiz.mouse.presses()) {
-        // get array from local storage if it does exist
-        let setScores = localStorage.getItem("unit " + newUnit + " Scores: ");
+    // get array from local storage if it does exist
+    let setScores = localStorage.getItem("unit " + newUnit + " Scores: ");
 
-        // turns the item into the format of an array
-        let retScores = JSON.parse(setScores);
+    // turns the item into the format of an array
+    let retScores = JSON.parse(setScores);
 
 
-        // checks whether the variable used to get the array is null
-        // if the array is null, the quiz has not already been done for that unit, so create a new array
-        if (retScores[i] == null) {
-            // go to the maximum and find a free space in the array to store the score
-            for (i = 0; i <= 9; i++) {
-                if (scores[unit][i] != null) {
-                    scores[unit][i] = newScore;
-                }
+    // checks whether the variable used to get the array is null
+    // if the array is null, the quiz has not already been done for that unit, so create a new array
+    if (retScores[i] == null) {
+        // go to the maximum and find a free space in the array to store the score
+        for (i = 0; i <= 9; i++) {
+            if (scores[unit][i] != null) {
+                scores[unit][i] = newScore;
             }
-
-            // turn all the items in the array to a string
-            let newScores = JSON.stringify(scores[unit]);
-
-            // save the array to local storage
-            localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
-
-
-
         }
 
-        // the array already exists so append with the new score
-        else {
+        // turn all the items in the array to a string
+        let newScores = JSON.stringify(scores[unit]);
 
-            // go to the next free space
-            for (i = 0; i <= 9; i++) {
-                if (retScores[i] != null) {
-                    retScores[i] = newScore;
-                }
-            }
+        // save the array to local storage
+        localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
 
-            let newScores = JSON.stringify(retScores);
-
-            // save to local storage
-            localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
-
-
-        }
-
-        // save the score to local storage
-        localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
-
-        returnToMenu();
 
 
     }
+
+    // the array already exists so append with the new score
+    else {
+
+        // go to the next free space
+        for (i = 0; i <= 9; i++) {
+            if (retScores[i] != null) {
+                retScores[i] = newScore;
+            }
+        }
+
+        let newScores = JSON.stringify(retScores);
+
+        // save to local storage
+        localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+
+
+    }
+
+    // save the score to local storage
+    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+
+    returnToMenu();
 
     
 
