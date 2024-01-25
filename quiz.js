@@ -165,28 +165,30 @@ function draw(){
         returnToMenu();
     }
 
-    if (saveQuiz.mouse.presses()){
+    /*
+    if (saveQuiz.mouse.presses()) {
         returnToMenu();
     }
 
+    */
 
     // Using selection to change the text on boxes depending on whether the user wants to go to the next question
 
 
     else if (nextQ.mouse.presses() && index == 0) {
         question = qs[unit][1];
-        
+
         answer = ans[unit][1];
         wrongAns = ans2[unit][1];
 
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
 
@@ -205,11 +207,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -224,11 +226,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -243,11 +245,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -262,11 +264,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -281,11 +283,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -300,11 +302,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -319,11 +321,11 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
@@ -338,17 +340,20 @@ function draw(){
         let answersText = [answer, wrongAns];
         aBox.text = random(answersText);
 
-        
-        if (aBox.text == answer){
+
+        if (aBox.text == answer) {
             a2Box.text = wrongAns;
         }
-        else if (aBox.text == wrongAns){
+        else if (aBox.text == wrongAns) {
             a2Box.text = answer;
         }
         index = index + 1;
 
-        saveScore(unit);
 
+    }
+
+    else if (nextQ.mouse.presses() && index == 9) {
+        saveScore(unit);
     }
 
 
@@ -533,42 +538,72 @@ function screenZero() {
 
 }
 
-function saveScore(unit){
-    saveQuiz.pos = {x: 150, y: 575};
+function saveScore(unit) {
+    background("blue");
+    saveQuiz.pos = { x: 150, y: 575 };
+    aBox.pos = { x: -5500, y: 5500 };
+    a2Box.pos = { x: 3000, y: -3750 };
+    qBox.pos = { x: 450, y: -4760 };
     nextQ.pos = {x:5000, y:-540};
     let newUnit = (unit+1).toString();
     let newScore = (score).toString();
 
-    let setScores = localStorage.getItem("unit" + newUnit + "Scores: ");
-    let retScores = JSON.parse(setScores);
- 
-  
+    if (saveQuiz.mouse.presses()) {
+        // get array from local storage if it does exist
+        let setScores = localStorage.getItem("unit" + newUnit + " Scores: ");
 
-    if (setScores == null) {
-        for (i = 0; i <= 19; i++) {
-            if (scores[unit][i] != null) {
-                scores[unit][i] = newScore;
+        // turns the item into the format of an array
+        let retScores = JSON.parse(setScores);
+
+
+        // checks whether the variable used to get the array is null
+        // if the array is null, the quiz has not already been done for that unit, so create a new array
+        if (retScores[i] == null) {
+            // go to the maximum and find a free space in the array to store the score
+            for (i = 0; i <= 9; i++) {
+                if (scores[unit][i] != null) {
+                    scores[unit][i] = newScore;
+                }
             }
+
+            // turn all the items in the array to a string
+            let newScores = JSON.stringify(scores[unit]);
+
+            // save the array to local storage
+            localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+
+
+
         }
 
-        let newScores = JSON.stringify(scores[unit]);
+        // the array already exists so append with the new score
+        else {
 
-        localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
-
-        
-        
-    }
-
-    else {
-        for (i = 0; i <= 19; i++) {
-            if (retScores[i] != null) {
-                retScores[i] = newScore;
+            // go to the next free space
+            for (i = 0; i <= 9; i++) {
+                if (retScores[i] != null) {
+                    retScores[i] = newScore;
+                }
             }
+
+            let newScores = JSON.stringify(retScores);
+
+            // save to local storage
+            localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+
+
         }
-       
+
+        // save the score to local storage
+        localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+
+        returnToMenu();
+
+
     }
 
-    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+    
+
     
 
 
