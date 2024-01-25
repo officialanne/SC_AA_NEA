@@ -550,7 +550,7 @@ function saveScore(unit) {
 
     if (saveQuiz.mouse.presses()) {
         // get array from local storage if it does exist
-        let setScores = localStorage.getItem("unit" + newUnit + " Scores: ");
+        let setScores = localStorage.getItem("unit " + newUnit + " Scores: ");
 
         // turns the item into the format of an array
         let retScores = JSON.parse(setScores);
