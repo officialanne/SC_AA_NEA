@@ -539,27 +539,38 @@ function screenZero() {
 }
 
 function saveScore(unit) {
-    background("blue");
-    saveQuiz.pos = { x: 150, y: 575 };
-    aBox.pos = { x: -5500, y: 5500 };
-    a2Box.pos = { x: 3000, y: -3750 };
-    qBox.pos = { x: 450, y: -4760 };
-    nextQ.pos = {x:5000, y:-540};
+    // saveQuiz.pos = { x: 150, y: 575 };
+    // nextQ.pos = {x:5000, y:-540};
+
     let newUnit = (unit+1).toString();
     let newScore = (score).toString();
 
+    for (i = 0; i <= 19; i++) {
+        if (scores[unit][i] != null) {
+            scores[unit][i] = newScore;
+        }
+    }
+
+    let newScores = JSON.stringify(scores[unit]);
+
+
+    // save the score to local storage
+    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+    localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+
+    returnToMenu();
+
+    /*
     // get array from local storage if it does exist
     let setScores = localStorage.getItem("unit " + newUnit + " Scores: ");
 
-    // turns the item into the format of an array
-    let retScores = JSON.parse(setScores);
 
-
+    let i = 0;
     // checks whether the variable used to get the array is null
     // if the array is null, the quiz has not already been done for that unit, so create a new array
-    if (retScores[i] == null) {
+    if (setScores == null) {
         // go to the maximum and find a free space in the array to store the score
-        for (i = 0; i <= 9; i++) {
+        for (i = 0; i <= 19; i=i+1) {
             if (scores[unit][i] != null) {
                 scores[unit][i] = newScore;
             }
@@ -570,16 +581,13 @@ function saveScore(unit) {
 
         // save the array to local storage
         localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
-
-
-
     }
 
     // the array already exists so append with the new score
     else {
-
+        let retScores = JSON.parse(setScores);
         // go to the next free space
-        for (i = 0; i <= 9; i++) {
+        for (i = 0; i <= 19; i++) {
             if (retScores[i] != null) {
                 retScores[i] = newScore;
             }
@@ -589,22 +597,10 @@ function saveScore(unit) {
 
         // save to local storage
         localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
-
-
     }
 
-    // save the score to local storage
-    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
-
-    returnToMenu();
-
+    */
     
-
-    
-
-
-    
-
 
         
 }
