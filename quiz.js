@@ -44,18 +44,18 @@ ans2[11] = new Array("aA121", "aA122", "aA123", "aA124", "aA125", "aA126", "aA12
 
 // score array
 var scores = new Array();
-scores[0] = new Array(20);
-scores[1] = new Array(20);
-scores[2] = new Array(20);
-scores[3] = new Array(20);
-scores[4] = new Array(20);
-scores[5] = new Array(20);
-scores[6] = new Array(20);
-scores[7] = new Array(20);
-scores[8] = new Array(20);
-scores[9] = new Array(20);
-scores[10] = new Array(20);
-scores[11] = new Array(20);
+scores[0] = [];
+scores[1] = [];
+scores[2] = [];
+scores[3] = [];
+scores[4] = [];
+scores[5] = [];
+scores[6] = [];
+scores[7] = [];
+scores[8] = [];
+scores[9] = [];
+scores[10] = [];
+scores[11] = [];
 
 
 
@@ -121,7 +121,7 @@ function setup(){
     qBox = new Sprite(-450, 4500, 500, 55);
 
     // creating button to save score
-    saveQuiz = new Sprite(4500, -675, 150, 30);
+    saveQuiz = new Sprite(-150, 575, 150, 30);
 }
 
 function draw(){
@@ -169,7 +169,6 @@ function draw(){
     if (saveQuiz.mouse.presses()) {
         returnToMenu();
     }
-
     */
 
     // Using selection to change the text on boxes depending on whether the user wants to go to the next question
@@ -353,7 +352,7 @@ function draw(){
     }
 
     else if (nextQ.mouse.presses() && index == 9) {
-        saveScore(unit);
+        saveScore();
     }
 
 
@@ -364,7 +363,13 @@ function draw(){
         score = score + 1;
     }
 
+    if (index == 9) {
+        nextQ.text = "Save Score";
+    }
+
+
     
+
 
     
     
@@ -538,69 +543,50 @@ function screenZero() {
 
 }
 
-function saveScore(unit) {
-    // saveQuiz.pos = { x: 150, y: 575 };
-    // nextQ.pos = {x:5000, y:-540};
+function saveScore() {
+    background("#b5838d");
+    aBox.pos = {x: -5500, y: 5500};
+    a2Box.pos = {x: 3000, y: -3750};
+    qBox.pos = {x: 450, y: -4760};
+    nextQ.pos = {x: -553, y: 1234};
 
+    // converting the integer values for the unit and the score into a string
     let newUnit = (unit+1).toString();
     let newScore = (score).toString();
 
-    for (i = 0; i <= 19; i++) {
-        if (scores[unit][i] != null) {
-            scores[unit][i] = newScore;
-        }
-    }
+    // initially getting the array for the scores from local storage
+    let setScores = localStorage.getItem(newUnit + " Scores: ");
 
-    let newScores = JSON.stringify(scores[unit]);
+    // checking whether the array that has been retrieved exists or not
+    // if it doesn't exist, the value will be null so create a new one
+    if (setScores == null){
+        let length = scores[unit].length;
+        scores[unit][length] = newScore;
+        
 
-
-    // save the score to local storage
-    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
-    localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
-
-    returnToMenu();
-
-    /*
-    // get array from local storage if it does exist
-    let setScores = localStorage.getItem("unit " + newUnit + " Scores: ");
-
-
-    let i = 0;
-    // checks whether the variable used to get the array is null
-    // if the array is null, the quiz has not already been done for that unit, so create a new array
-    if (setScores == null) {
-        // go to the maximum and find a free space in the array to store the score
-        for (i = 0; i <= 19; i=i+1) {
-            if (scores[unit][i] != null) {
-                scores[unit][i] = newScore;
-            }
-        }
-
-        // turn all the items in the array to a string
         let newScores = JSON.stringify(scores[unit]);
 
         // save the array to local storage
-        localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+        localStorage.setItem(newUnit + " Scores: ", newScores);
     }
 
-    // the array already exists so append with the new score
+    // if it does exist, update it and set it back into local storage
     else {
         let retScores = JSON.parse(setScores);
-        // go to the next free space
-        for (i = 0; i <= 19; i++) {
-            if (retScores[i] != null) {
-                retScores[i] = newScore;
-            }
-        }
+        let length = retScores.length;
+        retScores[length] = newScore;
 
         let newScores = JSON.stringify(retScores);
 
         // save to local storage
-        localStorage.setItem("unit " + newUnit + " Scores: ", newScores);
+        localStorage.setItem(newUnit + " Scores: ", newScores);
     }
-
-    */
     
 
+
+    // save the score to local storage
+    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+
+    text("Your final score was: " + newScore + "\nYour scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: ") + "\n This has been saved and\nyou can return to menu", width/2, height/2);
         
 }
