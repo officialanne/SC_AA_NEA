@@ -65,6 +65,7 @@ let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, b
 let returnMenu;
 let choice, unit, index;
 let screen = 0;
+let count = 0;
 
 let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
 let side = false;
@@ -121,7 +122,7 @@ function setup(){
     qBox = new Sprite(-450, 4500, 500, 55);
 
     // creating button to save score
-    saveQuiz = new Sprite(-150, 575, 150, 30);
+    saveQuiz = new Sprite(150, 575, 150, 30);
 }
 
 function draw(){
@@ -146,13 +147,9 @@ function draw(){
 
     showScore.text = "Current Score = " + score;
 
-    nextQ.text = "Go to next question";
+    nextQ.text = "Go to next question \nby choosing an answer";
 
     qBox.text = question;
-
-    saveQuiz.text = "Save Score";
-
-    
 
 
     // changing screens when the user clicks any of the boxes
@@ -165,212 +162,85 @@ function draw(){
         returnToMenu();
     }
 
-    /*
-    if (saveQuiz.mouse.presses()) {
-        returnToMenu();
-    }
-    */
 
-    // Using selection to change the text on boxes depending on whether the user wants to go to the next question
+    // Using selection to change the text on boxes each time the user answers a question
+    else if (aBox.mouse.presses() || a2Box.mouse.presses() && 0<=index<=9) {
+        // if the user answers correctly
+        if ((aBox.text == answer && aBox.mouse.presses()) || (a2Box.text == answer && a2Box.mouse.presses())){
+            // let them know
+            saveQuiz.text = "correct!";
+
+            // increment the score
+            score+=1;
+            
+            // go to next question with new random allocation of text
+            question = qs[unit][index+1];
+
+            answer = ans[unit][index+1];
+            wrongAns = ans2[unit][index+1];
+
+            let answersText = [answer, wrongAns];
+            aBox.text = random(answersText);
 
 
-    else if (nextQ.mouse.presses() && index == 0) {
-        question = qs[unit][1];
-
-        answer = ans[unit][1];
-        wrongAns = ans2[unit][1];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
+            if (aBox.text == answer) {
+                a2Box.text = wrongAns;
+            }
+            else if (aBox.text == wrongAns) {
+                a2Box.text = answer;
+            }
 
 
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
+            if (index <=8){
+                index = index + 1;
+            }
+            
+        } 
+
+        // if they answer incorrectly, let them have another go, but don't give them a new score
+        else{
+            // let them know
+            saveQuiz.text = "incorrect, have another go!"; 
+            
+            // same question but randomly switch text
+            question = qs[unit][index];
+
+            answer = ans[unit][index];
+            wrongAns = ans2[unit][index];
+
+            let answersText = [answer, wrongAns];
+            aBox.text = random(answersText);
+
+
+            if (aBox.text == answer) {
+                a2Box.text = wrongAns;
+                
+            }
+            else if (aBox.text == wrongAns) {
+                a2Box.text = answer;
+                
+            }
+
+            // cancel out the later addition of a point by subtracting now
+            score = score - 1;
         }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-
-
-        index = index + 1;
-
-
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 1) {
-        question = qs[unit][2];
-        answer = ans[unit][2];
-        wrongAns = ans2[unit][2];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 2) {
-        question = qs[unit][3];
-        answer = ans[unit][3];
-        wrongAns = ans2[unit][3];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
 
     }
+    
 
-    else if (nextQ.mouse.presses() && index == 3) {
-        question = qs[unit][4];
-        answer = ans[unit][4];
-        wrongAns = ans2[unit][4];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 4) {
-        question = qs[unit][5];
-        answer = ans[unit][5];
-        wrongAns = ans2[unit][5];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 5) {
-        question = qs[unit][6];
-        answer = ans[unit][6];
-        wrongAns = ans2[unit][6];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 6) {
-        question = qs[unit][7];
-        answer = ans[unit][7];
-        wrongAns = ans2[unit][7];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 7) {
-        question = qs[unit][8];
-        answer = ans[unit][8];
-        wrongAns = ans2[unit][8];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 8) {
-        question = qs[unit][9];
-        answer = ans[unit][9];
-        wrongAns = ans2[unit][9];
-
-        let answersText = [answer, wrongAns];
-        aBox.text = random(answersText);
-
-
-        if (aBox.text == answer) {
-            a2Box.text = wrongAns;
-        }
-        else if (aBox.text == wrongAns) {
-            a2Box.text = answer;
-        }
-        index = index + 1;
-
-
-    }
-
+    // last question
     else if (nextQ.mouse.presses() && index == 9) {
         saveScore();
     }
-
-
-    if (aBox.text == answer && aBox.mouse.presses()){
-        score = score + 1;
-    } 
-    else if (a2Box.text == answer && a2Box.mouse.presses()){
-        score = score + 1;
-    }
-
+    
     if (index == 9) {
         nextQ.text = "Save Score";
     }
 
-
-    
-
-
+    // don't let the score go below 0
+    if (score < -1){
+        score = -1;
+    }
     
     
 }
@@ -497,13 +367,6 @@ function displayQuiz(choice) {
         
     }
 
-    if (aBox.text == answer && aBox.mouse.presses()){
-        score = score + 1;
-    } 
-    else if (a2Box.text == answer && a2Box.mouse.presses()){
-        score = score + 1;
-    }
-
     
 }
 
@@ -524,7 +387,7 @@ function screenZero() {
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
-    saveQuiz.pos = {x:-6000, y: 4750};
+    saveQuiz.pos = {x:150, y: 575};
 
     background("#f2e8cf");
     
@@ -551,6 +414,9 @@ function saveScore() {
     nextQ.pos = {x: -553, y: 1234};
 
     // converting the integer values for the unit and the score into a string
+    if (score < 0){
+        score = 0;
+    }
     let newUnit = (unit+1).toString();
     let newScore = (score).toString();
 

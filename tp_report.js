@@ -28,9 +28,14 @@ intScores[9] = [];
 intScores[10] = [];
 intScores[11] = [];
 
-let length1, length2, length3, length4, length5, length6, length7, length8, length9, length10, length11, length12
-let total1, total2, total3, total4, total5, total6, total7, total8, total9, total10, total11, total12
-let avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12
+var toPractise = new Array();
+var toImprove = new Array();
+var wellDone = new Array();
+
+let length1, length2, length3, length4, length5, length6, length7, length8, length9, length10, length11, length12;
+let total1, total2, total3, total4, total5, total6, total7, total8, total9, total10, total11, total12;
+let avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12;
+let pos = 0;
 
 
 function setup(){
@@ -39,7 +44,7 @@ function setup(){
     background("#778DA9");
 
     // setting the x-axis to the units
-    var xValues = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12", "_"];
+    var xValues = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12", "Units"];
 
 
     // setting the y axis to the average score per unit
@@ -236,7 +241,7 @@ function setup(){
     }
 
     
-    var yValues = [avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12, 0];
+    var yValues = [avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12, 10];
 
     // colours per bar for the unit
     var barColors = ["red", "green", "blue", "orange", "brown", "red", "green", "blue", "orange", "brown", "purple", "yellow"];
@@ -256,12 +261,52 @@ function setup(){
           legend: {display: false},
           title: {
             display: true,
-            text: "Average Scores for Each Unit"
+            text: "Average Scores for Each Unit (out of 10)"
           }
         }
       });
+
+    // Adding recommendations based on scores
+    for (index = 0; index<=11; index=index+1){
+
+        // average = 0
+        if (yValues[index] == 0){
+            toPractise[toPractise.length] = (index+1);
+        }
+        
+        // average between 1 and 5
+        else if (yValues[index]<=5){
+            toImprove[toImprove.length] = index+1;
+        }
+
+        // average above 5
+        else if (5<yValues[index]<11){
+            wellDone[wellDone.length] = index+1
+        }
+    }
+
+
+    textSize(15);
+    fill("darkRed");
+    // Adding recommendations for units with an average score of 0
+    text("These units have an average score of 0: " + toPractise + "\n Test Your Knowledge using the quizzes", 250, 50);
+
+    fill("orange");
+    // Adding recommendations for units with average score <= 5
+    text("Units " + toImprove + " have an average score less than 5 -  \n Check out the summary notes to build up your knowledge", 250, 120);
+
+    fill("darkGreen");
+    // Adding recommendations for units with an average score of 0
+    text("These units have an average score above 5: " + wellDone + "\n Keep it up!", 250, 190);
+    
+    fill("black");
+    text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 250, 260);
+
 }
 
 function draw(){
     
+    
 }
+
+
