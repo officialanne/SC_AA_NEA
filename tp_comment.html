@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>NEA - Synchronise Home Page</title>
+
+    <!--Link to CSS for design-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--Link to p5 for canvas and screens for other features-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+
+    <!--Link to chart.js for chart drawing in p5-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    
+    <!--Link to js file-->
+    <script src="comment.js"></script>
+
+
+</head>
+    <body>
+        <header class="titles">
+            <h1 >Write a Comment</h1>
+        </header>
+
+        <nav id="navigation">
+            <ul>
+                <li class = "navigate"><a href="tp_home.html">Home Page</a></li>
+                <li class = "navigate"><a href="notes.html">Summary Notes</a></li>
+                <li class = "navigate"><a href="flash.html">Flashcards</a></li>
+                <li class = "navigate"><a href="quiz.html">Quizzes</a></li>
+                <li class = "navigate"><a href="p_report.html">Reports</a></li>
+                <li class = "navigate"><a href="tp_comment.html">Comments (Here)</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <style class = "bg">
+                body{
+                    background-color:#778DA9
+                }
+            </style>
+
+            <p>Feedback, Requests, Queries</p>
+
+            <form id="myForm">
+                Full name: <input id="userName" type="text" name="fname">
+                <br><br>
+                Email : <input id="userEmail" type="text" name="email">
+                <br><br>
+                <textarea id ="userComment" rows="4" cols="50" name="comment"> Enter comment here...</textarea>
+                <br><br>
+                <input type="button" onclick="myFunction()" value="Submit">
+                </form>
+                <h5>Submitted data :</h5>
+                <p id="data"></p>
+                <script>
+                function myFunction(){
+                let data = "";  let name = document.getElementById("userName").value
+                let email = document.getElementById("userEmail").value
+                let comment = document.getElementById("userComment").value
+                 
+                data = "User name : "+name+"<br/>User email : "+email+ "<br/>User comment : "+comment
+                 
+                document.getElementById("data").innerHTML = data  // display data to paragraph
+                }
+                </script>
+        </main>
+
+        
+        
+        
+
+
+
+    </body>
+</html>
