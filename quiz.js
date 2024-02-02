@@ -1,3 +1,5 @@
+
+
 // copy of arrays from flashcards
 var qs = new Array();
 qs[0] = new Array("qOne", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
