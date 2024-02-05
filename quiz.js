@@ -1,5 +1,3 @@
-
-
 // copy of arrays from flashcards
 var qs = new Array();
 qs[0] = new Array("qOne", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
@@ -60,8 +58,6 @@ scores[10] = [];
 scores[11] = [];
 
 
-
-
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
 let returnMenu;
@@ -83,13 +79,23 @@ function multChoice() {
     var i;
     for (i = 0; i < units.length; i++) {
         if (units[i].checked) {
-            topics[i] = i+1;
+            topics[topics.length] = (i+1).toString();
         }
     }
     numTopics = topics.length;
-    localStorage.setItem("number of units: ", JSON.stringify(numTopics));
-    localStorage.setItem("topic choices: ", JSON.stringify(topics));
-    alert("units = " + JSON.stringify(numTopics));
+    if (numTopics !=2){
+        topics.length = 0;
+        alert("please choose 2 units!");
+        event.preventDefault();
+        someBug();
+        return false;
+    }
+    else{
+        localStorage.setItem("number of units: ", numTopics.toString());
+        localStorage.setItem("topic choices: ", JSON.stringify(topics));
+        alert("units = " + JSON.stringify(numTopics));
+    }
+    
 }
 
 
@@ -474,3 +480,6 @@ function saveScore() {
     text("Your final score was: " + newScore + "\nYour scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: ") + "\n This has been saved and\nyou can return to menu", width/2, height/2);
         
 }
+
+
+
