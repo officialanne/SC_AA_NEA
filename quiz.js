@@ -74,7 +74,23 @@ let side = false;
 let score = 0;
 let endQuiz;
 
+var topics = new Array();
+var numTopics;
 
+
+function multChoice() {
+    var units = document.forms[0];
+    var i;
+    for (i = 0; i < units.length; i++) {
+        if (units[i].checked) {
+            topics[i] = i+1;
+        }
+    }
+    numTopics = topics.length;
+    localStorage.setItem("number of units: ", JSON.stringify(numTopics));
+    localStorage.setItem("topic choices: ", JSON.stringify(topics));
+    alert("units = " + JSON.stringify(numTopics));
+}
 
 
 

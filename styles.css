@@ -51,7 +51,7 @@ body, html {
 }
 
 .navigate a:hover {
-    background-color: #FF7D00
+    background-color: #FF7D00;
 }
 
 /* style the sign up form */
@@ -74,7 +74,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 
 /* Set a style for all buttons */
 button {
-    color: white;
+    color: #E0E1DD;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -84,7 +84,7 @@ button {
 }
   
 button:hover {
-opacity:1;
+    opacity:1;
 }
 
 /* Extra styles for the cancel button */
@@ -104,4 +104,8 @@ opacity:1;
     width: 50%;
     float: right;
     background-color: #344E41;
+}
+
+.clearfix {
+    background-color: #FF7D00;
 }

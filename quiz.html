@@ -27,7 +27,7 @@
 
     <nav id="navigation">
         <ul>
-            <li class="navigate"><a href="s_home.html">Main Page</a></li>
+            <li class="navigate"><a href="s_home.html">Home Page</a></li>
             <li class="navigate"><a href="notes.html">Summary Notes</a></li>
             <li class="navigate"><a href="flash.html">Flashcards </a></li>
             <li class="navigate"><a href="quiz.html">Quizzes (You are Here)</a></li>
@@ -56,46 +56,46 @@
     <hr>
     <h3>Want to practise multiple topics? Fill in the form below </h3>
     <div id = "quizform">
-        <form id = "q_form" onsubmit = "check()" action = "quiz_m.html">
+        <form id = "q_form" onsubmit = "multChoice()" action = "quiz_m.html">
             <div class = "container">
                 
                     <label for="choose">Topics</label>
                     <br>
-                    <input type="checkbox" id="topic1" name="unit1" value="one">
-                    <label for="topic1"> Unit 1</label><br>
+                    <input type="checkbox" id="topic1" name="units" value="1">
+                    <label for="unit1"> Unit 1</label><br>
 
-                    <input type="checkbox" id="topic2" name="unit2" value="two">
-                    <label for="topic2"> Unit 2</label><br>
+                    <input type="checkbox" id="topic2" name="units" value="2">
+                    <label for="unit2"> Unit 2</label><br>
 
-                    <input type="checkbox" id="topic3" name="unit3" value="three">
-                    <label for="topic3"> Unit 3</label><br>
+                    <input type="checkbox" id="topic3" name="units" value="3">
+                    <label for="unit3"> Unit 3</label><br>
 
-                    <input type="checkbox" id="topic1" name="unit1" value="four">
-                    <label for="topic4"> Unit 4</label><br>
+                    <input type="checkbox" id="topic4" name="units" value="4">
+                    <label for="unit4"> Unit 4</label><br>
 
-                    <input type="checkbox" id="topic2" name="unit2" value="two">
-                    <label for="topic5"> Unit 5</label><br>
+                    <input type="checkbox" id="topic5" name="units" value="5">
+                    <label for="unit5"> Unit 5</label><br>
 
-                    <input type="checkbox" id="topic3" name="unit3" value="three">
-                    <label for="topic6"> Unit 6</label><br>
+                    <input type="checkbox" id="topic6" name="units" value="6">
+                    <label for="unit6"> Unit 6</label><br>
 
-                    <input type="checkbox" id="topic1" name="unit1" value="one">
-                    <label for="topic7"> Unit 7</label><br>
+                    <input type="checkbox" id="topic7" name="units" value="7">
+                    <label for="unit7"> Unit 7</label><br>
 
-                    <input type="checkbox" id="topic2" name="unit2" value="two">
-                    <label for="topic8"> Unit 8</label><br>
+                    <input type="checkbox" id="topic8" name="units" value="8">
+                    <label for="unit8"> Unit 8</label><br>
 
-                    <input type="checkbox" id="topic3" name="unit3" value="three">
-                    <label for="topic9"> Unit 9</label><br>
+                    <input type="checkbox" id="topic9" name="units" value="9">
+                    <label for="unit9"> Unit 9</label><br>
 
-                    <input type="checkbox" id="topic1" name="unit1" value="one">
-                    <label for="topic10"> Unit 10</label><br>
+                    <input type="checkbox" id="topic10" name="units" value="10">
+                    <label for="unit10"> Unit 10</label><br>
 
-                    <input type="checkbox" id="topic2" name="unit2" value="two">
-                    <label for="topic11"> Unit 11</label><br>
+                    <input type="checkbox" id="topic11" name="units" value="11">
+                    <label for="unit11"> Unit 11</label><br>
 
-                    <input type="checkbox" id="topic3" name="unit3" value="three">
-                    <label for="topic12"> Unit 12</label><br>
+                    <input type="checkbox" id="topic12" name="units" value="12">
+                    <label for="unit12"> Unit 12</label><br>
 
                     <br>
     
@@ -103,11 +103,11 @@
                 
                     <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
             
-                    <div class="clearfix">
+                    <div>
 
-                        <button type="submit">Submit</button>
+                        <button class="clearfix" type="submit">Submit</button>
                         
-                        <button type="button" class="cancelbtn">Cancel</button>
+                        <button class="clearfix" onclick="multChoice()" type="button">Check Units</button>
 
                     </div>
             </div>
