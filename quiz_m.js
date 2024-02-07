@@ -81,45 +81,18 @@ var bothQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
 var bothAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
 var both2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
 
-class userChoice {
-    constructor(name, ques, rightAns, incorrect){
-        this.name = name;
-        this.ques = ques;
-        this.rightAns = rightAns;
-        this.incorrect = incorrect;
-    }
-
-    getName(){
-        return this.name;
-    }
-
-    getQ(){
-        return this.ques;
-    }
-
-    getAns(){
-        return this.rightAns;
-    }
-
-    getwAns(){
-        return this.incorrect;
-    }
-
+var qAndA = [];
+for (var i = 0; i < 20; i++) {
+    qAndA[i] = {
+        name: "name" + i.toString(),
+        ques: bothQs[i],
+        rightAns: bothAns[i],
+        incorrect: both2Ans[i]
+    };
 }
 
-var qAndA = new Array();
-for (k = 0; k<=19; k++){
-    qAndA[k] = new userChoice((k+1), bothQs[k], bothAns[k], both2Ans[k]);
-}
 
 var randomSelection = random(qAndA);
-
-// create  a new array, with each index creating a new object
-// each object consists of its both answers
-// after adding all, randomise the order into another new array
-// each object with have a name, which is a number from 1 to 20
-// then use the get methods to see whether correct
-// save the averages in both units
 
 
 function multChoice() {
@@ -300,11 +273,25 @@ function displayQuiz(choice) {
     side = false;
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
-    qBox.pos = {x: width / 2, y: height / 2 -100};
+    qBox.pos = { x: width / 2, y: height / 2 - 100 };
 
-    question = bothQs[index];
-    answer = bothAns[index];
-    wrongAns = both2Ans[index];
+
+    var qAndA = [];
+    for (var i = 0; i < 20; i++) {
+        qAndA[i] = {
+            name: "name" + i.toString(),
+            ques: bothQs[i],
+            rightAns: bothAns[i],
+            incorrect: both2Ans[i]
+        };
+    }
+
+    var randomQ = random(qAndA);
+  
+
+    question = randomQ[index].ques;
+    answer = randomQ[index].rightAns;
+    wrongAns = randomQ[index].incorrect;
 
     let answersText = [answer, wrongAns];
     aBox.text = random(answersText);
