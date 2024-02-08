@@ -61,7 +61,7 @@ scores[11] = [];
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
 let returnMenu;
-let unit, index;
+let index;
 let choice, choices;
 let screen = 0;
 let count = 0;
@@ -75,6 +75,7 @@ var topics = new Array();
 var numTopics;
 
 
+
 choices = localStorage.getItem("topic choices: ");
 choice = JSON.parse(choices);
 var bothQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
@@ -84,15 +85,20 @@ var both2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
 var qAndA = [];
 for (var i = 0; i < 20; i++) {
     qAndA[i] = {
-        name: "name" + i.toString(),
+        name: "name" + (i + 1),
         ques: bothQs[i],
         rightAns: bothAns[i],
         incorrect: both2Ans[i]
     };
 }
 
+for (let i = qAndA.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [qAndA[i], qAndA[j]] = [qAndA[j], qAndA[i]];
+} 
 
-var randomSelection = random(qAndA);
+
+
 
 
 function multChoice() {
@@ -117,6 +123,7 @@ function multChoice() {
     }
     
 }
+
 
 
 
@@ -149,6 +156,9 @@ function setup(){
 
     // creating button to save score
     saveQuiz = new Sprite(150, 575, 150, 30);
+
+    
+    
     
 }
 
@@ -168,11 +178,14 @@ function draw(){
 
     qBox.text = question;
 
+    
 
     // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {
         returnToMenu();
     }
+
+    
 
 
     // Using selection to change the text on boxes each time the user answers a question
@@ -186,9 +199,9 @@ function draw(){
             score+=1;
             
             // go to next question with new random allocation of text
-            question = bothQs[index+1];
-            answer = bothAns[index+1];
-            wrongAns = both2Ans[index+1];
+            question = qAndA[index+1].ques;
+            answer = qAndA[index+1].rightAns;
+            wrongAns = qAndA[index+1].incorrect;
 
             let answersText = [answer, wrongAns];
             aBox.text = random(answersText);
@@ -242,6 +255,8 @@ function draw(){
     else if (nextQ.mouse.presses() && index == 19) {
         saveScore();
     }
+
+    
     
     if (index == 19) {
         nextQ.text = "Save Score";
@@ -252,60 +267,44 @@ function draw(){
         score = -1;
     }
 
-    if (nextQ.mouse.presses() && screen == 0){
-        selectQuiz();
+    if (nextQ.mouse.presses() && screen == 0) {
+        displayQuiz();
     }
     
     
-}
-
-function selectQuiz(){
-    choices = localStorage.getItem("topic choices: ");
-    choice = JSON.parse(choices);
-    displayQuiz(choice);
-
+    
 }
 
 
-function displayQuiz(choice) {
-    unit = (parseInt(choice[0])) - 1;
+
+function displayQuiz() {
     index = 0;
     side = false;
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     qBox.pos = { x: width / 2, y: height / 2 - 100 };
 
+    var randomSelection = random(qAndA);
 
-    var qAndA = [];
-    for (var i = 0; i < 20; i++) {
-        qAndA[i] = {
-            name: "name" + i.toString(),
-            ques: bothQs[i],
-            rightAns: bothAns[i],
-            incorrect: both2Ans[i]
-        };
-    }
-
-    var randomQ = random(qAndA);
-  
-
-    question = randomQ[index].ques;
-    answer = randomQ[index].rightAns;
-    wrongAns = randomQ[index].incorrect;
+    question = randomSelection.ques;
+    answer = randomSelection.rightAns;
+    wrongAns = randomSelection.incorrect;
 
     let answersText = [answer, wrongAns];
     aBox.text = random(answersText);
 
-    
-    if (aBox.text == answer){
+
+    if (aBox.text == answer) {
         a2Box.text = wrongAns;
-        
+
     }
-    else if (aBox.text == wrongAns){
+    else if (aBox.text == wrongAns) {
         a2Box.text = answer;
-        
+
     }
 
+    return randomSelection;
+    
     
 }
 
@@ -381,11 +380,6 @@ function saveScore() {
 
     text("Your final score was: " + newScore + "\nYour scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: ") + "\n This has been saved and\nyou can return to menu", width/2, height/2);
         
-}
-
-function screenFour(){
-    background("#d4a373");
-
 }
 
 
