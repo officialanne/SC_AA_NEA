@@ -61,7 +61,7 @@ scores[11] = [];
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
 let returnMenu;
-let index;
+let index, unit;
 let choice, choices;
 let screen = 0;
 let count = 0;
@@ -75,14 +75,19 @@ var topics = new Array();
 var numTopics;
 
 
-
+// get the results from the form into an array
 choices = localStorage.getItem("topic choices: ");
 choice = JSON.parse(choices);
+
+//concatenate all the arrays into a singular array
 var bothQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
 var bothAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
 var both2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
 
+// create a new array that holds each question and answer
 var qAndA = [];
+
+// use a loop to create objects for each question and answer
 for (var i = 0; i < 20; i++) {
     qAndA[i] = {
         name: "name" + (i + 1),
@@ -92,6 +97,8 @@ for (var i = 0; i < 20; i++) {
     };
 }
 
+
+// Fisher-Yates Sorting algorithm
 for (let i = qAndA.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [qAndA[i], qAndA[j]] = [qAndA[j], qAndA[i]];
@@ -99,8 +106,7 @@ for (let i = qAndA.length - 1; i > 0; i--) {
 
 
 
-
-
+// repeated form validation for multiple unit seleection
 function multChoice() {
     var units = document.forms[0];
     var i;
@@ -166,7 +172,7 @@ function draw(){
 
 
     
-    // putting the text in the intro text box
+    // putting the text in the relevant boxes to help guide the user
     intro.text=("Put your knowledge to the test!");
 
 
@@ -199,22 +205,32 @@ function draw(){
             score+=1;
             
             // go to next question with new random allocation of text
-            question = qAndA[index+1].ques;
-            answer = qAndA[index+1].rightAns;
-            wrongAns = qAndA[index+1].incorrect;
+            if (index <=18){
 
-            let answersText = [answer, wrongAns];
-            aBox.text = random(answersText);
+                // let the boxes contain the next questions and answers
+                question = qAndA[index+1].ques;
+                answer = qAndA[index+1].rightAns;
+                wrongAns = qAndA[index+1].incorrect;
 
+                // array holding the correct and incorrect answer
+                let answersText = [answer, wrongAns];
 
+                // let one of the boxes hold a random of either the right or wrong answer
+                aBox.text = random(answersText);
+            }
+            
+
+            // if one box contains the right answer, let the other box have the incorrect answer
             if (aBox.text == answer) {
                 a2Box.text = wrongAns;
             }
+
+            //vice versa
             else if (aBox.text == wrongAns) {
                 a2Box.text = answer;
             }
 
-
+            // from the first to second to last question, allow the index to increase
             if (index <=18){
                 index = index + 1;
             }
@@ -227,14 +243,15 @@ function draw(){
             saveQuiz.text = "incorrect, have another go!"; 
             
             // same question but randomly switch text
-            question = bothQs[index];
-            answer = bothAns[index];
-            wrongAns = both2Ans[index];
+            question = qAndA[index].ques;
+            answer = qAndA[index].rightAns;
+            wrongAns = qAndA[index].incorrect;
 
+            // let one of the boxes hold a random of either the right or wrong answer
             let answersText = [answer, wrongAns];
             aBox.text = random(answersText);
 
-
+            // if one box contains the right answer, let the other box have the incorrect answer
             if (aBox.text == answer) {
                 a2Box.text = wrongAns;
                 
@@ -251,13 +268,12 @@ function draw(){
     }
     
 
-    // last question
+    // at the last question, the user is able to save their score
     else if (nextQ.mouse.presses() && index == 19) {
         saveScore();
     }
 
-    
-    
+    // indicate saving score to the user
     if (index == 19) {
         nextQ.text = "Save Score";
     }
@@ -267,6 +283,7 @@ function draw(){
         score = -1;
     }
 
+    // at the beginning, allow the user to begin quiz by pressing a button
     if (nextQ.mouse.presses() && screen == 0) {
         displayQuiz();
     }
@@ -277,18 +294,21 @@ function draw(){
 
 
 
+// function to display the quiz to the user
 function displayQuiz() {
+
+    // set the index to 0
     index = 0;
     side = false;
+
+    // reposition the question and answer boxes
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     qBox.pos = { x: width / 2, y: height / 2 - 100 };
 
-    var randomSelection = random(qAndA);
-
-    question = randomSelection.ques;
-    answer = randomSelection.rightAns;
-    wrongAns = randomSelection.incorrect;
+    question = qAndA[index].ques;
+    answer = qAndA[index].rightAns;
+    wrongAns = qAndA[index].incorrect;
 
     let answersText = [answer, wrongAns];
     aBox.text = random(answersText);
@@ -303,7 +323,6 @@ function displayQuiz() {
 
     }
 
-    return randomSelection;
     
     
 }
@@ -342,6 +361,7 @@ function saveScore() {
     if (score < 0){
         score = 0;
     }
+
     let newUnit = (unit+1).toString();
     let newScore = (score/2).toString();
 
