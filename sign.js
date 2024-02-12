@@ -32,6 +32,8 @@ function store(){
     console.log(inputPass);
     console.log(inputRole);
 
+    alert("sign up successful");
+
 }
 
 

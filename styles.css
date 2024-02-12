@@ -75,7 +75,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 /* Set a style for all buttons */
 button {
     color: #1B263B;
-    background-color: #344E41;
+    background-color: wheat;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -98,13 +98,13 @@ button:hover {
 .s_signup {
     width: 50%;
     float: left;
-    background-color: #1B263B;
+    background-color: green;
 }
 
 .tp_signup {
     width: 50%;
     float: right;
-    background-color: #344E41;
+    background-color: greenyellow;
 }
 
 .clearfix {
