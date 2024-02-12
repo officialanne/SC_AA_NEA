@@ -8,6 +8,8 @@ function foo(){
 
 function store(){
     inputEmail = document.getElementById("email").value;
+    // emcryption
+    inputEmail = Crypto.AES.encrypt(inputEmail, "palladian");
     localStorage.setItem("email", inputEmail);
 
     inputLname = document.getElementById("lname").value;
@@ -17,6 +19,9 @@ function store(){
     localStorage.setItem("fname", inputFname);
 
     inputPass = document.getElementById("pass").value;
+    //encrypt password
+
+    inputPass = Crypto.AES.encrypt(inputPass, "palladian");
     localStorage.setItem("pass", inputPass);
 
     inputRole = document.getElementById("role").value;
@@ -31,6 +36,8 @@ function store(){
     console.log(inputLname);
     console.log(inputPass);
     console.log(inputRole);
+
+
 
     alert("sign up successful");
 

@@ -8,6 +8,7 @@ function check(){
     console.log(storedLname);
     storedPw = localStorage.getItem("pass");
     console.log(storedPw);
+    storedPw = 
     storedRole = localStorage.getItem("role");
     console.log(storedRole);
 
