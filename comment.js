@@ -5,26 +5,43 @@ function checkComment(){
     console.log(storedFname);
     storedLname = localStorage.getItem("lname");
     console.log(storedLname);
+
+
     storedPw = localStorage.getItem("pass");
-    console.log(storedPw);
+
     storedRole = localStorage.getItem("role");
     console.log(storedRole);
 
 
     userfn = document.getElementById("ufname").value;
     userln = document.getElementById("ulname").value;
-    userpw = document.getElementById("pss").value;
+    
+    // encrpyt password to compare both encryptions
+    userpw = document.getElementById("pass").value;
+    userpw = CryptoJS.AES.encrypt(userpw, "palladian");
+    
     urole = document.getElementById("l_role").value;
-    userComment = document.getElementById("comment").value;
+
+    document.getElementById("pass").innerHTML = userpw;
 
     if(userfn == storedFname && userpw == storedPw && userln == storedLname && urole==storedRole){
         alert("your default email app will now be opened to send your email");
     }
     else{
-        alert("error");
+        alert("incorrect details entered, please try again");
+        event.preventDefault();
+        someBug();
+        return false;
     }
 
 }
+
+//decrypt
+    /*
+    storedPw = CryptoJS.AES.decrypt(storedPw, "palladian");
+    storedPw = storedPw.toString(CryptoJS.enc.Utf8);
+    console.log(storedPw);
+    */
 
 
 

@@ -16,6 +16,10 @@
     <!--Link to js file-->
     <script src="comment.js"></script>
 
+    <!--encryption-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
+
 
 </head>
     <body>
@@ -45,7 +49,7 @@
             <p>Submitting this form will open your default email app to send an email to neasynch@gmail.com</p>
             <hr>
 
-            <form id="l_form" action="mailto:neasynch@gmail.com" method="post" enctype="text/plain">
+            <form id="l_form" onsumbit = "checkComment()" action="mailto:neasynch@gmail.com" method="post" enctype="text/plain">
                 <label for="ufname"><b>First Name</b></label>
                 <input type="text" placeholder="Enter First Name" name="ufname" id = "ufname" required>
 

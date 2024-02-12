@@ -6,16 +6,28 @@ function check(){
     console.log(storedFname);
     storedLname = localStorage.getItem("lname");
     console.log(storedLname);
+
+
     storedPw = localStorage.getItem("pass");
+    
+    //decrypt
+    /*
+    storedPw = CryptoJS.AES.decrypt(storedPw, "palladian");
+    storedPw = storedPw.toString(CryptoJS.enc.Utf8);
     console.log(storedPw);
-    storedPw = 
+    */
+
     storedRole = localStorage.getItem("role");
     console.log(storedRole);
 
 
     userfn = document.getElementById("ufname").value;
     userln = document.getElementById("ulname").value;
-    userpw = document.getElementById("pss").value;
+
+    // encrpyt password to compare both encryptions
+    userpw = document.getElementById("pass").value;
+    userpw = CryptoJS.AES.encrypt(userpw, "palladian");
+
     urole = document.getElementById("l_role").value;
 
     if(userfn == storedFname && userpw == storedPw && userln == storedLname && urole==storedRole){
