@@ -22,6 +22,9 @@ function check(){
     }
     else{
         alert("error");
+        event.preventDefault();
+        someBug();
+        return false;
     }
 
 
