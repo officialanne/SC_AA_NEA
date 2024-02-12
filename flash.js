@@ -79,7 +79,13 @@ function setup(){
 
 function draw(){
     // putting the text in the intro text box
-    intro.text=("Short form notes to catch up");
+    if (unit !=null){
+        intro.text=("Short form notes to catch up on unit " + (unit + 1).toString());
+    }
+
+    else {
+        intro.text=("Short form notes to catch up"); 
+    }
 
     // adding labels to the boxes
     box1.text = box_text[0];

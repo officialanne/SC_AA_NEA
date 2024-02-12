@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>NEA - Synchronise Home Page</title>
+
+    <!--Link to CSS for design-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--Link to p5 for canvas and screens for other features-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+
+    <!--Link to chart.js for chart drawing in p5-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    
+    <!--Link to js file-->
+    <script src="comment.js"></script>
+
+
+</head>
+    <body>
+        <header class="titles">
+            <h1 >Write a Comment</h1>
+        </header>
+
+        <nav id="navigation">
+            <ul>
+                <li class = "navigate"><a href="s_home.html">Home Page</a></li>
+                <li class = "navigate"><a href="notes.html">Summary Notes</a></li>
+                <li class = "navigate"><a href="flash.html">Flashcards</a></li>
+                <li class = "navigate"><a href="quiz.html">Quizzes</a></li>
+                <li class = "navigate"><a href="p_report.html">Reports</a></li>
+                <li class = "navigate"><a href="tp_comment.html">Comments (Here)</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <style class = "bg">
+                body{
+                    background-color:#778DA9
+                }
+            </style>
+
+            <h2>Comments, Feedback, Queries</h2>
+            <p>Submitting this form will open your default email app to send an email to neasynch@gmail.com</p>
+            <hr>
+
+            <form id="l_form" action="mailto:neasynch@gmail.com" method="post" enctype="text/plain">
+                <label for="ufname"><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" name="ufname" id = "ufname" required>
+
+                <label for="ulname"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" name="ulname" id = "ulname" required>
+        
+                <label for="pw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pw" id="pss" required>
+
+                <label for="l_role"><b>Role</b></label>
+                <input type="text" placeholder="Enter Role" name="l_role" id = "l_role" required>
+                
+                <label for="comment"><b>Comment</b></label>
+                <input type="text" placeholder="Enter Comment" name="comment" id = "comment" required>
+
+    
+
+                <div class="clearfix">
+                    <button type="submit" onclick="checkComment()" >Send Email</button>
+                    <button type="reset" class="cancelbtn">Cancel</button>
+                </div>
+
+            </form>
+                
+        </main>
+
+        
+        
+        
+
+
+
+    </body>
+</html>
