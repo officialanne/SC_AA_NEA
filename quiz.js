@@ -35,8 +35,8 @@ ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA3
 ans2[3] = new Array("aA41", "aA42", "aA43", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
 ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
 ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "aA66", "aA67", "aA68", "aA69", "aA610");
-ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "a76", "aA77", "aA78", "aA79", "aA710");
-ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "a86", "aA87", "aA88", "aA89", "aA810");
+ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "aA76", "aA77", "aA78", "aA79", "aA710");
+ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "aA86", "aA87", "aA88", "aA89", "aA810");
 ans2[8] = new Array("aA91", "aA92", "aA93", "aA94", "aA95", "aA96", "aA97", "aA98", "aA99", "aA910");
 ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107", "aA108", "aA109", "aA1010");
 ans2[10] = new Array("aA111", "aA112", "aA113", "aA114", "aA115", "aA116", "aA117", "aA118", "aA119", "aA1110");
@@ -74,6 +74,13 @@ var topics = new Array();
 var numTopics;
 
 
+
+// create a new array that holds each question and answer
+var qAndA = [];
+
+
+
+
 function multChoice() {
     var units = document.forms[0];
     var i;
@@ -83,9 +90,9 @@ function multChoice() {
         }
     }
     numTopics = topics.length;
-    if (numTopics !=2){
+    if (numTopics <2 || numTopics >3){
         topics.length = 0;
-        alert("please choose 2 units!");
+        alert("please choose 2 or 3 units!");
         event.preventDefault();
         someBug();
         return false;
@@ -197,14 +204,17 @@ function draw(){
             // increment the score
             score+=1;
             
-            // go to next question with new random allocation of text
-            question = qs[unit][index+1];
+            if (index <=8){
+                // go to next question with new random allocation of text
+                question = qAndA[index+1].ques;
 
-            answer = ans[unit][index+1];
-            wrongAns = ans2[unit][index+1];
+                answer = qAndA[index+1].rightAns;
+                wrongAns = qAndA[index+1].incorrect;
 
-            let answersText = [answer, wrongAns];
-            aBox.text = random(answersText);
+                let answersText = [answer, wrongAns];
+                aBox.text = random(answersText);
+            }
+            
 
 
             if (aBox.text == answer) {
@@ -227,10 +237,10 @@ function draw(){
             saveQuiz.text = "incorrect, have another go!"; 
             
             // same question but randomly switch text
-            question = qs[unit][index];
+            question = qAndA[index].ques;
 
-            answer = ans[unit][index];
-            wrongAns = ans2[unit][index];
+            answer = qAndA[index].rightAns;
+            wrongAns = qAndA[index].incorrect;
 
             let answersText = [answer, wrongAns];
             aBox.text = random(answersText);
@@ -374,9 +384,29 @@ function displayQuiz(choice) {
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     qBox.pos = {x: width / 2, y: height / 2 -100};
-    question = qs[unit][index];
-    answer = ans[unit][index];
-    wrongAns = ans2[unit][index];
+
+    
+    // use a loop to create objects for each question and answer
+    for (var i = 0; i < 10; i++) {
+        qAndA[i] = {
+            name: "name" + (i + 1),
+            ques: qs[unit][i],
+            rightAns: ans[unit][i],
+            incorrect: ans2[unit][i]
+        };
+    }
+
+
+    // Fisher-Yates Sorting algorithm
+    for (let i = qAndA.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [qAndA[i], qAndA[j]] = [qAndA[j], qAndA[i]];
+    } 
+
+
+    question = qAndA[index].ques;
+    answer = qAndA[index].rightAns;
+    wrongAns = qAndA[index].incorrect;
 
     let answersText = [answer, wrongAns];
     aBox.text = random(answersText);

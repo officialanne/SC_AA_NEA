@@ -41,30 +41,51 @@
                 }
             </style>
 
-            <p>Feedback, Requests, Queries</p>
+            <h2>Comments, Feedback, Queries</h2>
+            <p>Submitting this form will open your default email app to send an email to neasynch@gmail.com</p>
+            <hr>
 
-            <form id="myForm">
-                Full name: <input id="userName" type="text" name="fname">
-                <br><br>
-                Email : <input id="userEmail" type="text" name="email">
-                <br><br>
-                <textarea id ="userComment" rows="4" cols="50" name="comment"> Enter comment here...</textarea>
-                <br><br>
-                <input type="button" onclick="myFunction()" value="Submit">
-                </form>
+            <form id="l_form" action="mailto:neasynch@gmail.com" method="post" enctype="text/plain">
+                <label for="ufname"><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" name="ufname" id = "ufname" required>
+
+                <label for="ulname"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" name="ulname" id = "ulname" required>
+        
+                <label for="pw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pw" id="pss" required>
+
+                <label for="l_role"><b>Role</b></label>
+                <input type="text" placeholder="Enter Role" name="l_role" id = "l_role" required>
+                
+                <label for="comment"><b>Comment</b></label>
+                <input type="text" placeholder="Enter Comment" name="comment" id = "comment" required>
+
+    
+
+                <div class="clearfix">
+                    <button type="submit" onclick="checkComment()" >Send Email</button>
+                    <button type="reset" class="cancelbtn">Cancel</button>
+                </div>
+
+            </form>
+
+            <!--
                 <h5>Submitted data :</h5>
                 <p id="data"></p>
                 <script>
                 function myFunction(){
-                let data = "";  let name = document.getElementById("userName").value
-                let email = document.getElementById("userEmail").value
-                let comment = document.getElementById("userComment").value
+                let data = "";  let name = document.getElementById("Name").value
+                let email = document.getElementById("Email").value
+                let comment = document.getElementById("Message").value
                  
                 data = "User name : "+name+"<br/>User email : "+email+ "<br/>User comment : "+comment
                  
                 document.getElementById("data").innerHTML = data  // display data to paragraph
                 }
                 </script>
+            -->
+                
         </main>
 
         

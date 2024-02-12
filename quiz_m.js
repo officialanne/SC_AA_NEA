@@ -34,9 +34,9 @@ ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "aA27", "aA2
 ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
 ans2[3] = new Array("aA41", "aA42", "aA43", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
 ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
-ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "a66", "aA67", "aA68", "aA69", "aA610");
-ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "a76", "aA77", "aA78", "aA79", "aA710");
-ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "a86", "aA87", "aA88", "aA89", "aA810");
+ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "aA66", "aA67", "aA68", "aA69", "aA610");
+ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "aA76", "aA77", "aA78", "aA79", "aA710");
+ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "aA86", "aA87", "aA88", "aA89", "aA810");
 ans2[8] = new Array("aA91", "aA92", "aA93", "aA94", "aA95", "aA96", "aA97", "aA98", "aA99", "aA910");
 ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107", "aA108", "aA109", "aA1010");
 ans2[10] = new Array("aA111", "aA112", "aA113", "aA114", "aA115", "aA116", "aA117", "aA118", "aA119", "aA1110");
@@ -79,21 +79,39 @@ var numTopics;
 choices = localStorage.getItem("topic choices: ");
 choice = JSON.parse(choices);
 
-//concatenate all the arrays into a singular array
-var bothQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
-var bothAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
-var both2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
+numTopics = localStorage.getItem("number of units: ");
+numTopics = parseInt(numTopics, 10);
+
+if (numTopics == 2){
+    //concatenate all the arrays into a singular array
+    var allQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
+    var allAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
+    var all2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
+}
+
+else if (numTopics ==3){
+    //concatenate all the arrays into a singular array
+    var allQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
+    allQs = allQs.concat(qs[choice[2]-1]);
+
+    var allAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
+    allAns = allAns.concat(ans[choice[2]-1]);
+
+    var all2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
+    all2Ans = all2Ans.concat(ans2[choice[2]-1]);
+}
+
 
 // create a new array that holds each question and answer
 var qAndA = [];
 
 // use a loop to create objects for each question and answer
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < (numTopics*10); i++) {
     qAndA[i] = {
         name: "name" + (i + 1),
-        ques: bothQs[i],
-        rightAns: bothAns[i],
-        incorrect: both2Ans[i]
+        ques: allQs[i],
+        rightAns: allAns[i],
+        incorrect: all2Ans[i]
     };
 }
 
@@ -116,7 +134,7 @@ function multChoice() {
         }
     }
     numTopics = topics.length;
-    if (numTopics < 2){
+    if (numTopics <2 || numTopics >3){
         alert("please choose at least 2 units!");
         event.preventDefault();
         someBug();
@@ -173,7 +191,7 @@ function draw(){
 
     
     // putting the text in the relevant boxes to help guide the user
-    intro.text=("Put your knowledge to the test!");
+    intro.text=("Put your knowledge to the test with " + ((localStorage.getItem("number of units: "))*10).toString() + " Questions");
 
 
     returnMenu.text = "Return to \n menu";
@@ -205,7 +223,7 @@ function draw(){
             score+=1;
             
             // go to next question with new random allocation of text
-            if (index <=18){
+            if (index <=((numTopics*10)-2)){
 
                 // let the boxes contain the next questions and answers
                 question = qAndA[index+1].ques;
@@ -231,7 +249,7 @@ function draw(){
             }
 
             // from the first to second to last question, allow the index to increase
-            if (index <=18){
+            if (index <=((numTopics*10)-2)){
                 index = index + 1;
             }
             
@@ -269,12 +287,12 @@ function draw(){
     
 
     // at the last question, the user is able to save their score
-    else if (nextQ.mouse.presses() && index == 19) {
+    else if (nextQ.mouse.presses() && index == ((numTopics*10)-1)) {
         saveScore();
     }
 
     // indicate saving score to the user
-    if (index == 19) {
+    if (index == ((numTopics*10)-1)) {
         nextQ.text = "Save Score";
     }
 
@@ -283,11 +301,16 @@ function draw(){
         score = -1;
     }
 
+    // don't let score go above (the number of quizzes x 10)
+    // this is the total number of questions for any given selection
+    if (score > ((localStorage.getItem("number of units: "))*10)){
+        score = ((localStorage.getItem("number of units: "))*10);
+    }
+
     // at the beginning, allow the user to begin quiz by pressing a button
     if (nextQ.mouse.presses() && screen == 0) {
         displayQuiz();
     }
-    
     
     
 }
@@ -357,48 +380,62 @@ function saveScore() {
     qBox.pos = {x: 450, y: -4760};
     nextQ.pos = {x: -553, y: 1234};
 
-    // converting the integer values for the unit and the score into a string
+    // creating new scores to save based on user scores
     if (score < 0){
         score = 0;
     }
 
-    let newUnit = (unit+1).toString();
-    let newScore = (score/2).toString();
-
-    // initially getting the array for the scores from local storage
-    let setScores = localStorage.getItem(newUnit + " Scores: ");
-
-    // checking whether the array that has been retrieved exists or not
-    // if it doesn't exist, the value will be null so create a new one
-    if (setScores == null){
-        let length = scores[unit].length;
-        scores[unit][length] = newScore;
-        
-
-        let newScores = JSON.stringify(scores[unit]);
-
-        // save the array to local storage
-        localStorage.setItem(newUnit + " Scores: ", newScores);
+    else if (score > 0) {
+        score = score / numTopics;
+        score = Math.trunc(score);
     }
 
-    // if it does exist, update it and set it back into local storage
-    else {
-        let retScores = JSON.parse(setScores);
-        let length = retScores.length;
-        retScores[length] = newScore;
+    // using a for loop that goes up to the number of topics the user chose
+    // each time the loop is executed, the next index in the array of choices is reached
+    // for this choice, the average score is saved
+    for (var count = 0; count < numTopics; count ++){
+        let newUnit = (choice[count]).toString();
+        let newScore = (score).toString();
 
-        let newScores = JSON.stringify(retScores);
+        // initially getting the array for the scores from local storage
+        let setScores = localStorage.getItem(newUnit + " Scores: ");
 
-        // save to local storage
-        localStorage.setItem(newUnit + " Scores: ", newScores);
-    }
-    
+        // checking whether the array that has been retrieved exists or not
+        // if it doesn't exist, the value will be null so create a new one
+        if (setScores == null){
+            let length = scores[choice[count]-1].length;
+            scores[choice[count]-1][length] = newScore;
+            
+
+            let newScores = JSON.stringify(scores[choice[count]-1]);
+
+            // save the array to local storage
+            localStorage.setItem(newUnit + " Scores: ", newScores);
+        }
+
+        // if it does exist, update it and set it back into local storage
+        else {
+            let retScores = JSON.parse(setScores);
+            let length = retScores.length;
+            retScores[length] = newScore;
+
+            let newScores = JSON.stringify(retScores);
+
+            // save to local storage
+            localStorage.setItem(newUnit + " Scores: ", newScores);
+        }
+
+        // save the score to local storage
+        localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+
+        text("Your scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: "), width/2, (height/2 + ((count + 1) * 10)));
+
+    }    
 
 
-    // save the score to local storage
-    localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
+    text("Your average score was: " + newScore + "\n This has been saved and\nyou can return to menu", width/2, (height/2 + 70));
 
-    text("Your final score was: " + newScore + "\nYour scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: ") + "\n This has been saved and\nyou can return to menu", width/2, height/2);
+
         
 }
 

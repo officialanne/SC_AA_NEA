@@ -74,7 +74,8 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 
 /* Set a style for all buttons */
 button {
-    color: #E0E1DD;
+    color: #1B263B;
+    background-color: #344E41;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -107,5 +108,5 @@ button:hover {
 }
 
 .clearfix {
-    background-color: #FF7D00;
+    background-color: #E0E1DD;
 }
