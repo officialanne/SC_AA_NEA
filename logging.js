@@ -11,11 +11,11 @@ function check(){
     storedPw = localStorage.getItem("pass");
     
     //decrypt
-    /*
     storedPw = CryptoJS.AES.decrypt(storedPw, "palladian");
     storedPw = storedPw.toString(CryptoJS.enc.Utf8);
     console.log(storedPw);
-    */
+
+    
 
     storedRole = localStorage.getItem("role");
     console.log(storedRole);
@@ -23,20 +23,23 @@ function check(){
 
     userfn = document.getElementById("ufname").value;
     userln = document.getElementById("ulname").value;
-
-    // encrpyt password to compare both encryptions
-    userpw = document.getElementById("pass").value;
-    userpw = CryptoJS.AES.encrypt(userpw, "palladian");
-
     urole = document.getElementById("l_role").value;
+
+    
+    userpw = document.getElementById("pass").value;
+    console.log(userpw);
+
+    
+    
 
     if(userfn == storedFname && userpw == storedPw && userln == storedLname && urole==storedRole){
         alert("you are now logged in");
+        
     }
     else{
         alert("error");
         event.preventDefault();
-        someBug();
+        //someBug();
         return false;
     }
 

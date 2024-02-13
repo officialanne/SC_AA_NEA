@@ -198,9 +198,15 @@ function draw(){
 
     showScore.text = "Current Score = " + score;
 
-    nextQ.text = "Click here to begin the quiz";
 
     qBox.text = question;
+
+    if (screen == 0){
+        nextQ.text = "Click here to begin the quiz";
+    }
+    if (index >0){
+        nextQ.text = "Choose your answer by \nclicking the box";
+    }
 
     
 
@@ -380,6 +386,7 @@ function saveScore() {
     qBox.pos = {x: 450, y: -4760};
     nextQ.pos = {x: -553, y: 1234};
 
+
     // creating new scores to save based on user scores
     if (score < 0){
         score = 0;
@@ -429,12 +436,9 @@ function saveScore() {
         localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
 
         text("Your scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: "), width/2, (height/2 + ((count + 1) * 10)));
+        text("Your average score was: " + newScore + "\n This has been saved and\nyou can return to menu", width/2, 500);
 
     }    
-
-
-    text("Your average score was: " + newScore + "\n This has been saved and\nyou can return to menu", width/2, (height/2 + 70));
-
 
         
 }

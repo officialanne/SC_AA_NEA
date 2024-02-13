@@ -257,6 +257,31 @@ function draw(){
 
             // cancel out the later addition of a point by subtracting now
             score = score - 1;
+
+            if ((aBox.text != answer && aBox.mouse.presses()) || (a2Box.text != answer && a2Box.mouse.presses())){
+                // let them know
+                saveQuiz.text = "3rd chance!"; 
+                
+                // same question but randomly switch text
+                question = qAndA[index].ques;
+                answer = qAndA[index].rightAns;
+                wrongAns = qAndA[index].incorrect;
+
+                // let one of the boxes hold a random of either the right or wrong answer
+                let answersText = [answer, wrongAns];
+                aBox.text = random(answersText);
+
+                // if one box contains the right answer, let the other box have the incorrect answer
+                if (aBox.text == answer) {
+                    a2Box.text = wrongAns;
+                    
+                }
+                else if (aBox.text == wrongAns) {
+                    a2Box.text = answer;
+                    
+                }
+
+            }
         }
 
     }

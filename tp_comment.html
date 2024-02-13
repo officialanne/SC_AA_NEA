@@ -46,18 +46,18 @@
             </style>
 
             <h2>Comments, Feedback, Queries</h2>
-            <p>Submitting this form will open your default email app to send an email to neasynch@gmail.com</p>
+            <p>Submitting this form will open your default email app to send an email, which will then be uploaded!</p>
             <hr>
 
-            <form id="l_form" onsumbit = "checkComment()" action="mailto:neasynch@gmail.com" method="post" enctype="text/plain">
+            <form id="l_form" onsubmit="checkComment()" action="mailto:neasynch@gmail.com" method="post" enctype="application/x-www-form-urlencoded">
                 <label for="ufname"><b>First Name</b></label>
                 <input type="text" placeholder="Enter First Name" name="ufname" id = "ufname" required>
 
                 <label for="ulname"><b>Last Name</b></label>
                 <input type="text" placeholder="Enter Last Name" name="ulname" id = "ulname" required>
         
-                <label for="pw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="pw" id="pss" required>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="pass" required>
 
                 <label for="l_role"><b>Role</b></label>
                 <input type="text" placeholder="Enter Role" name="l_role" id = "l_role" required>
@@ -68,7 +68,8 @@
     
 
                 <div class="clearfix">
-                    <button type="submit" onclick="checkComment()" >Send Email</button>
+                    <button onclick="checkComment()" type="button">Check Details</button>
+                    <button type="submit" >Send Email</button>
                     <button type="reset" class="cancelbtn">Cancel</button>
                 </div>
 

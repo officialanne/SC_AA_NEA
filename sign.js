@@ -22,6 +22,7 @@ function store(){
     //encrypt password
 
     inputPass = CryptoJS.AES.encrypt(inputPass, "palladian");
+    inputPass = inputPass.toString();
     localStorage.setItem("pass", inputPass);
 
     inputRole = document.getElementById("role").value;
