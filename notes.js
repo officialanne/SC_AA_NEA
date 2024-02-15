@@ -3,11 +3,12 @@ let choice;
 let screen = 0;
 let returnMenu;
 let intro_text = "Study these notes to help catch up on content";
-let unitNotes = ["FDE Cycle = Fetch, Decode, Execute", "Memory Management", "The Waterfall Model", "Asymmetric Encryption", "Structure of the Internet", "Binary Arithmetic", "Abstract Data Types", "Boolean Algebra", "The Data Protection Act", "Thinking Abstractly", "Iteration", "A* Algorithm"];
+let unitNotes = ["Components of a Computer", "Systems Software", "Software Development", "Exchanging Data", "Networks and Web Technologies", "Data Types", "Data Structures", "Boolean Algebra", "Legal, Moral, Cultural and Ethical Issues", "Elements of Computational Thinking", "Programming Techniques", "Algorithms"];
 let unitFrame = ["Here are the notes for unit ", "Key terms and definitions: ", "Key advantages: ", "Key disadvantages: "];
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
-let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
-
+let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12;
+let textBox1, textBox2, textBox3;
+let numSubtopics = 2;
 
 function setup() {
 
@@ -15,6 +16,7 @@ function setup() {
     textAlign(CENTER);
     createCanvas(1000, 600);
     background("#e0e1dd");
+    textSize(20);
 
     // creating intro text box
     intro = new Sprite(width/2, 50, 500, 55);
@@ -39,6 +41,10 @@ function setup() {
     box10 = new boxes.Sprite(375, 500, 150, 75);
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
+
+    textBox1 = new boxes.Sprite(-1000, 1000, 300, 400);
+    textBox2 = new boxes.Sprite(1000, -1000, 300, 400);
+    textBox3 = new boxes.Sprite(1500, -1500, 300, 400);
     
     
 }
@@ -46,7 +52,12 @@ function setup() {
 function draw(){
     
     // putting the text in the intro text box
-    intro.text=(intro_text);
+    if (choice == null || screen == 0){
+        intro.text=(intro_text);
+    }
+    else{
+        intro.text = ("Study Unit " + choice.toString() + " - " + unitNotes[choice-1]);
+    }
 
     // adding labels to the boxes
     box1.text = box_text[0];
@@ -71,6 +82,10 @@ function draw(){
     // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {
         returnToMenu();
+    }
+
+    if (choice == 1){
+        textBox1.text = ("The ALU carries out arithmetic\nand boolean calculations\n\n The CU sends signals\nto other comoponents");
     }
     
     
@@ -101,11 +116,15 @@ function screenZero() {
     box11.pos = { x: 625, y: 500 };
     box12.pos = { x: 850, y: 500 };
 
+    textBox1.pos = {x: 1000, y: -1000};
+    textBox2.pos = {x: -1000, y: 1000};
+    textBox3.pos = {x: 1500, y: -1500};
+
 }
 
 // function to reposition buttons and change the screen to display notes for a unit
 function selectUnit() {
-    
+    screen = 1;
     //reposition buttons
     box1.pos = { x: 3000, y: 3000 };
     box2.pos = { x: 3500, y: 3500 };
@@ -125,80 +144,124 @@ function selectUnit() {
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Here are the notes for unit 1", width/2, height/2);
+        text("Structure and Function \nof the Processor", 175, 150);
+        text("Types of Processor", width/2, 150);
+        text("Input, Output and Storage", 825, 150);
+        numSubtopics = 3;
+
+
     }
     if (box2.mouse.presses()) {
         choice = 2;
         background("#f2d0a9");
-        text("Here are the notes for unit 2", width/2, height/2);
+        text("Systems Software", 250, 150);
+        text("Applications Generation", 750, 150);
+        numSubtopics = 2;
+
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
         background("#d88c9a");
-        text("Here are the notes for unit 3", width/2, height/2);
+        text("Software Development", 250, 150);
+        text("Types of Programming Language", 750, 150);
+        numSubtopics = 2;
     }
 
     else if (box4.mouse.presses()) {
         choice = 4;
         background("#84a98c");
-        text("Here are the notes for unit 4", width / 2, height / 2);
+        text("Compression, Encryption and Hashing", 250, 150);
+        text("Databases", 750, 150);
+        numSubtopics = 2;
     }
 
     else if (box5.mouse.presses()) {
         choice = 5;
         background("#f2d0a9");
-        text("Here are the notes for unit 5", width / 2, height / 2);
+        text("Networks", 250, 150);
+        text("Web Technologies", 750, 150);
+        numSubtopics = 2;
     }
 
     else if (box6.mouse.presses()) {
         choice = 6;
         background("#d88c9a");
-        text("Here are the notes for unit 6", width / 2, height / 2);
+        text("Data Types and \nCharacter Sets", 175, 150);
+        text("Binary Arithmetic", width/2, 150);
+        text("Bitwise Manipulation \nand Masks", 825, 150);
+        numSubtopics = 3;
     }
 
     else if (box7.mouse.presses()) {
         choice = 7;
         background("#84a98c");
-        text("Here are the notes for unit 7", width / 2, height / 2);
+        text("Arrays, Records, \nLists, Tuples", 250, 150);
+        text("Structures to Store Data", 750, 150);
+        numSubtopics = 2;
     }
 
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
-        text("Here are the notes for unit 8", width / 2, height / 2);
+        text("Boolean Logic & \nLogic Gates", 175, 150);
+        text("Manipulate, Derive or Simplify \nExpressions / Statements", width/2, 150);
+        text("D Type Flip Flops, \nHalf and Full Adders", 825, 150);
+        numSubtopics = 3;
     }
 
     else if (box9.mouse.presses()) {
         choice = 9;
         background("#d88c9a");
-        text("Here are the notes for unit 9", width / 2, height / 2);
+        text("Computing Related Legislation", 250, 150);
+        text("Moral and Ethical Issues", 750, 150);
+        numSubtopics = 2;
     }
 
     else if (box10.mouse.presses()) {
         choice = 10;
         background("#84a98c");
-        text("Here are the notes for unit 10", width / 2, height / 2);
+        text("Computational Thinking", 250, 150);
+        text("Computational Methods", 750, 150);
+        numSubtopics = 2;
+
     }
 
     else if (box11.mouse.presses()) {
         choice = 11;
         background("#f2d0a9");
-        text("Here are the notes for unit 11", width / 2, height / 2);
+        text("Programming Contructs & \nTechniques", 175, 150);
+        text("Modularity", width/2, 150);
+        text("IDEs", 825, 150);
+
+        numSubtopics = 3;
     }
 
     else if (box12.mouse.presses()) { 
         choice = 12;
         background("#d88c9a");
-        text("Here are the notes for unit 12", width / 2, height / 2);
+        text("Efficiency of Algorithms", 250, 150);
+        text("Standard Algorithms", 750, 150);
+        numSubtopics = 2;
     }
 
     // return choice to display that unit's notes
-    displayNotes(choice);
+    displayNotes(numSubtopics);
 
 }
 
+
 // function to display notes depending on user click
-function displayNotes(choice){
-    text(unitNotes[choice-1], width/2, height/2 + 100);
+function displayNotes(numSubtopics){
+    if (numSubtopics == 2){
+        textBox1.pos = {x: width/2 - 250, y: 385};
+        textBox2.pos = {x: width/2 + 250, y: 385};
+    }
+
+   if (numSubtopics == 3){
+        textBox1.pos = {x: width/2 - 325, y: 385};
+        textBox2.pos = {x: width/2, y: 385};
+        textBox3.pos = {x: width/2 + 325, y: 385};
+
+    }
 }
