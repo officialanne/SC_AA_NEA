@@ -1,5 +1,5 @@
 var qs = new Array();
-qs[0] = new Array("qOne", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
+qs[0] = new Array("What happens during the Fetch part\nof the FDE cycle?", "Name three differences between the\nvon Neumann and Harvard Architectures", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
 qs[1] = new Array("q21", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
 qs[2] = new Array("q31", "q32", "q33", "q34", "q35", "q36", "q37", "q38", "q39", "q310");
 qs[3] = new Array("q41", "q42", "q43", "q44", "q45", "q46", "q47", "q48", "q49", "q410");
@@ -13,7 +13,7 @@ qs[10] = new Array("q111", "q112", "q113", "q114", "q115", "q116", "q117", "q118
 qs[11]= new Array("q121", "q122", "q123", "q124", "q125", "q126", "q127", "q128", "q129", "q1210");
 
 var ans = new Array();
-ans[0] = new Array("a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
+ans[0] = new Array("The PC is checked and copied to the MAR\nThe data at the MAR address is copied\ninto the MDR", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
 ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
 ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
 ans[3] = new Array("a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
@@ -29,6 +29,7 @@ ans[11]= new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a128
 
 
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
+let unitNotes = ["Components of a Computer", "Systems Software", "Software Development", "Exchanging Data", "Networks and Web Technologies", "Data Types", "Data Structures", "Boolean Algebra", "Legal, Moral, Cultural and Ethical Issues", "Elements of Computational Thinking", "Programming Techniques", "Algorithms"];
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
 let returnMenu;
 let choice, unit, index;
@@ -36,6 +37,7 @@ let screen = 0;
 
 let flip, nextQ, answer, question,aBox;
 let side = false;
+let numBox;
 
 
 
@@ -44,6 +46,7 @@ function setup(){
     textAlign(CENTER);
     createCanvas(1000, 600);
     background("purple");
+    textSize(20);
 
     // creating intro text box
     intro = new Sprite(width/2, 50, 500, 55);
@@ -73,14 +76,16 @@ function setup(){
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
 
-    aBox = new Sprite(-5500, 5500, 200, 200);
+    aBox = new Sprite(-5500, 5500, 400, 200);
+
+    numBox = new Sprite(5500, -5500, 250, 50);
     
 }
 
 function draw(){
     // putting the text in the intro text box
     if (unit !=null){
-        intro.text=("Short form notes to catch up on unit " + (unit + 1).toString());
+        intro.text=("Catch up on unit " + (unit + 1).toString() + " - " + unitNotes[unit]);
     }
 
     else {
@@ -102,7 +107,8 @@ function draw(){
     box12.text = box_text[11];
     returnMenu.text = "Return to \n menu";
     flip.text = "Flip Sides";
-    nextQ.text = "Go to next question";
+    nextQ.text = "Next Card";
+    numBox.text = "Your are viewing card " + (index+1).toString();
 
     // changing screens when the user clicks any of the boxes
     if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
@@ -113,6 +119,7 @@ function draw(){
     if (returnMenu.mouse.presses()) {
         returnToMenu();
     }
+
 
 
     
@@ -192,9 +199,6 @@ function draw(){
 
 
 
-
-    
-
     
     
 }
@@ -220,72 +224,60 @@ function selectCards(){
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Here are the cards unit for 1", width / 2, height / 2 - 175);
     }
     if (box2.mouse.presses()) {
         choice = 2;
         background("#f2d0a9");
-        text("Here are the cards for unit 2", width/2, height/2);
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
         background("#d88c9a");
-        text("Here are the cards for unit 3", width/2, height/2);
     }
 
     else if (box4.mouse.presses()) {
         choice = 4;
         background("#84a98c");
-        text("Here are the cards for unit 4", width / 2, height / 2);
     }
 
     else if (box5.mouse.presses()) {
         choice = 5;
         background("#f2d0a9");
-        text("Here are the cards for unit 5", width / 2, height / 2);
     }
 
     else if (box6.mouse.presses()) {
         choice = 6;
         background("#d88c9a");
-        text("Here are the cards for unit 6", width / 2, height / 2);
     }
 
     else if (box7.mouse.presses()) {
         choice = 7;
         background("#84a98c");
-        text("Here are the cards for unit 7", width / 2, height / 2);
     }
 
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
-        text("Here are the cards for unit 8", width / 2, height / 2);
     }
 
     else if (box9.mouse.presses()) {
         choice = 9;
         background("#d88c9a");
-        text("Here are the cards for unit 9", width / 2, height / 2);
     }
 
     else if (box10.mouse.presses()) {
         choice = 10;
         background("#84a98c");
-        text("Here are the cards for unit 10", width / 2, height / 2);
     }
 
     else if (box11.mouse.presses()) {
         choice = 11;
         background("#f2d0a9");
-        text("Here are the cards for unit 11", width / 2, height / 2);
     }
 
     else if (box12.mouse.presses()) {
         choice = 12;
         background("#d88c9a");
-        text("Here are the cards for unit 12", width / 2, height / 2);
     }
 
     // return choice to display that unit's notes
@@ -300,12 +292,9 @@ function displayCards(choice) {
     index = 0;
     side = false;
     aBox.pos = { x: width / 2, y: height / 2 + 100 };
+    numBox.pos = {x: width/2, y: height/2-150};
     question = qs[unit][index];
     answer = ans[unit][index];
-
-    if (index == 9){
-        aBox.pos = {x: -5500, y: 5500};
-    }
     
 }
 
@@ -323,6 +312,8 @@ function screenZero() {
     index = 0;
     unit = 0;
     aBox.pos = {x: -5500, y: 5500};
+    numBox.pos = {x: 5500, y: -5500};
+    aBox.text = "";
     background("#f2e8cf");
     
     box1.pos = { x: 150, y: 175 };

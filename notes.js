@@ -83,10 +83,6 @@ function draw(){
     if (returnMenu.mouse.presses()) {
         returnToMenu();
     }
-
-    if (choice == 1){
-        textBox1.text = ("The ALU carries out arithmetic\nand boolean calculations\n\n The CU sends signals\nto other comoponents");
-    }
     
     
 
@@ -148,7 +144,9 @@ function selectUnit() {
         text("Types of Processor", width/2, 150);
         text("Input, Output and Storage", 825, 150);
         numSubtopics = 3;
-
+        textBox1.text = ("The ALU carries out arithmetic\nand boolean calculations\n\n The CU manages the execution\nof instructions\n\nRegisters are tiny areas of very\nfast memory to store data\ninside the CPU and include the\nPC, Accumulator, MAR, MDR\nand the CIR\n\nBuses are a parallel set of wires\nconnecting components, including\nthe data, address and control bus");
+        textBox2.text = ("CISC processors have complex\ninstructions which execute in a\nfew machine cycles\n\nRISC processors are simple and\ncheap, enabling pipelining but\nuse more RAM\n\nMulticore processors are a single\nchip containing several\nindependent CPUs\n\nParallel Systems are the use of\nseveral processors simultaneously\nto perform a job split into tasks");
+        textBox3.text = ("An input device accepts data\npresented in machine-readable\nform and passes it into a\ncomputer system\n\nAn output device converts signals\nor data from the computer into\nhuman-readable form\n\nRAM is used to store programs\nand data in use temporarily\nIt is volatile and faster to access\nthan ROM\n\nROM is read-only and non-volatile\nIt stores the bootstrap and BIOS");
 
     }
     if (box2.mouse.presses()) {
@@ -157,6 +155,8 @@ function selectUnit() {
         text("Systems Software", 250, 150);
         text("Applications Generation", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("An operating system is a set of\nprograms that manages the\ncomputer for the user\n\nMemory management includes\npaging, segmentation and\nvirtual memory\n\nAn interrupt is a signal generated\nby sources that causes a break\nin the execution\n\nScheduling includes round robin,\nfirst come first served, multi-level\nfeedback queues, shortest job first\nand shortest remaining time");
+
 
     }
 

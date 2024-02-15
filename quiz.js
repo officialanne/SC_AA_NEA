@@ -1,12 +1,12 @@
 // copy of arrays from flashcards
 var qs = new Array();
-qs[0] = new Array("qOne", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
+qs[0] = new Array("How is data fetched in the FDE cycle?", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
 qs[1] = new Array("q21", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
 qs[2] = new Array("q31", "q32", "q33", "q34", "q35", "q36", "q37", "q38", "q39", "q310");
 qs[3] = new Array("q41", "q42", "q43", "q44", "q45", "q46", "q47", "q48", "q49", "q410");
 qs[4] = new Array("q51", "q52", "q53", "q54", "q55", "q56", "q57", "q58", "q59", "q510");
 qs[5] = new Array("q61", "q62", "q63", "q64", "q65", "q66", "q67", "q68", "q69", "q610");
-qs[6] = new Array("q71", "q72", "q73", "q74", "q75", "q76", "q77", "q78", "q79", "q710");
+qs[6] = new Array("q71", "q72", "q73", "q74", "What is a Stack?", "q76", "q77", "q78", "q79", "q710");
 qs[7] = new Array("q81", "q82", "q83", "q84", "q85", "q86", "q87", "q88", "q89", "q810");
 qs[8] = new Array("q91", "q92", "q93", "q94", "q95", "q96", "q97", "q98", "q99", "q910");
 qs[9] = new Array("q101", "q102", "q103", "q104", "q105", "q106", "q107", "q108", "q109", "q1010");
@@ -14,13 +14,13 @@ qs[10] = new Array("q111", "q112", "q113", "q114", "q115", "q116", "q117", "q118
 qs[11]= new Array("q121", "q122", "q123", "q124", "q125", "q126", "q127", "q128", "q129", "q1210");
 
 var ans = new Array();
-ans[0] = new Array("a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
+ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
 ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
 ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
 ans[3] = new Array("a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
 ans[4] = new Array("a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a510");
 ans[5] = new Array("a61", "a62", "a63", "a64", "a65", "a66", "a67", "a68", "a69", "a610");
-ans[6] = new Array("a71", "a72", "a73", "a74", "a75", "a76", "a77", "a78", "a79", "a710");
+ans[6] = new Array("a71", "a72", "a73", "a74", "A dynamic data\nstructure\nFirst in Last Out", "a76", "a77", "a78", "a79", "a710");
 ans[7] = new Array("a81", "a82", "a83", "a84", "a85", "a86", "a87", "a88", "a89", "a810");
 ans[8] = new Array("a91", "a92", "a93", "a94", "a95", "a96", "a97", "a98", "a99", "a910");
 ans[9] = new Array("a101", "a102", "a103", "a104", "a105", "a106", "a107", "a108", "a109", "a1010");
@@ -29,13 +29,13 @@ ans[11] = new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a12
 
 // additional arrays to store other answer and score
 var ans2 = new Array();
-ans2[0] = new Array("aA1", "aA2", "aA3", "aA4", "aA5", "aA6", "aA7", "aA8", "aA9", "aA10");
+ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "aA2", "aA3", "aA4", "aA5", "aA6", "aA7", "aA8", "aA9", "aA10");
 ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "aA27", "aA28", "aA29", "aA210");
 ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
 ans2[3] = new Array("aA41", "aA42", "aA43", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
 ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
 ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "aA66", "aA67", "aA68", "aA69", "aA610");
-ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "aA75", "aA76", "aA77", "aA78", "aA79", "aA710");
+ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "A dynamic data\nstructure\nFirst in First Out", "aA76", "aA77", "aA78", "aA79", "aA710");
 ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "aA86", "aA87", "aA88", "aA89", "aA810");
 ans2[8] = new Array("aA91", "aA92", "aA93", "aA94", "aA95", "aA96", "aA97", "aA98", "aA99", "aA910");
 ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107", "aA108", "aA109", "aA1010");
@@ -100,7 +100,7 @@ function multChoice() {
     else{
         localStorage.setItem("number of units: ", numTopics.toString());
         localStorage.setItem("topic choices: ", JSON.stringify(topics));
-        alert("units = " + JSON.stringify(numTopics));
+        alert("units = " + JSON.stringify(numTopics) + ", selection = " + JSON.stringify(topics));
     }
     
 }
@@ -112,6 +112,7 @@ function setup(){
     textAlign(CENTER);
     createCanvas(1000, 600);
     background("purple");
+    textSize(20);
 
     // creating intro text box
     intro = new Sprite(width/2, 50, 500, 55);
@@ -120,8 +121,8 @@ function setup(){
     returnMenu = new Sprite(150, 50, 150, 50);
 
     // button to change sides
-    showScore = new Sprite (850, 50, 150, 50);
-    nextQ = new Sprite(850, 575, 150, 30);
+    showScore = new Sprite (850, 50, 175, 50);
+    nextQ = new Sprite(850, 575, 175, 30);
 
     // button to end quiz
     endQuiz = new Sprite(-6000, 6000, 150, 30);
@@ -178,7 +179,7 @@ function draw(){
 
     showScore.text = "Current Score = " + score;
 
-    nextQ.text = "Go to next question \nby choosing an answer";
+    nextQ.text = "Choose an answer";
 
     qBox.text = question;
 

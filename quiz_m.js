@@ -143,7 +143,7 @@ function multChoice() {
     else{
         localStorage.setItem("number of units: ", numTopics.toString());
         localStorage.setItem("topic choices: ", JSON.stringify(topics));
-        alert("units = " + JSON.stringify(numTopics));
+        alert("units = " + JSON.stringify(numTopics) + ", selection = " + JSON.stringify(topics));
     }
     
 }
@@ -156,6 +156,7 @@ function setup(){
     textAlign(CENTER);
     createCanvas(1000, 600);
     background("purple");
+    textSize(20);
 
     // creating intro text box
     intro = new Sprite(width/2, 50, 500, 55);
@@ -165,7 +166,7 @@ function setup(){
 
     // button to change sides
     showScore = new Sprite (850, 50, 150, 50);
-    nextQ = new Sprite(850, 575, 150, 30);
+    nextQ = new Sprite(850, 575, 175, 30);
 
     // button to end quiz
     endQuiz = new Sprite(-6000, 6000, 150, 30);
@@ -196,16 +197,16 @@ function draw(){
 
     returnMenu.text = "Return to \n menu";
 
-    showScore.text = "Current Score = " + score;
+    showScore.text = "Score = " + score;
 
 
     qBox.text = question;
 
     if (screen == 0){
-        nextQ.text = "Click here to begin the quiz";
+        nextQ.text = "Begin";
     }
     if (index >0){
-        nextQ.text = "Choose your answer by \nclicking the box";
+        nextQ.text = "Choose your answer";
     }
 
     
