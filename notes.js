@@ -42,9 +42,9 @@ function setup() {
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
 
-    textBox1 = new boxes.Sprite(-1000, 1000, 300, 400);
-    textBox2 = new boxes.Sprite(1000, -1000, 300, 400);
-    textBox3 = new boxes.Sprite(1500, -1500, 300, 400);
+    textBox1 = new boxes.Sprite(-1000, 1000, 305, 400);
+    textBox2 = new boxes.Sprite(1000, -1000, 305, 400);
+    textBox3 = new boxes.Sprite(1500, -1500, 305, 400);
     
     
 }
@@ -156,7 +156,7 @@ function selectUnit() {
         text("Applications Generation", 750, 150);
         numSubtopics = 2;
         textBox1.text = ("An operating system is a set of\nprograms that manages the\ncomputer for the user\n\nMemory management includes\npaging, segmentation and\nvirtual memory\n\nAn interrupt is a signal generated\nby sources that causes a break\nin the execution\n\nScheduling includes round robin,\nfirst come first served, multi-level\nfeedback queues, shortest job first\nand shortest remaining time");
-
+        textBox2.text = ("Software can be systems software\nand applications software\n\nSystems software enables the\nmachine to perform tasks\nrequested by the user\nThese include the OS, utility\nprograms, libraries, translators\nand device drivers\n\nApplications software benefit the\nuser and can be general-purpose\nor special purpose\nThe software can be off-the-shelf\nor bespoke");
 
     }
 
@@ -166,6 +166,9 @@ function selectUnit() {
         text("Software Development", 250, 150);
         text("Types of Programming Language", 750, 150);
         numSubtopics = 2;
+
+        textBox1.text = ("Diffferent methodologies include\nthe waterfall lifecycle, agile\nmethodologies, extreme\nprogramming, the spiral model and\nrapid application development\n\nAgile methodoligies are\nadaptable whilst the others are\nbest suited for well-defined, simple\n and short-term projects\n\nAn algorithm is a set of\ninstructions to solve a problem\nin finite steps. A good algorithm\nallows invalid inputs,\nterminates and is efficient");
+        textBox2.text = ("A programming paradigm is a way\nof programming to\solve a problem\nThese include procedural, OOP,\ndeclarative and functional\n\nAssembly language is a low\nlevel language that uses\nmnemonics to represent machine\ncode instructions. Addressing\nmodes include immediate,\ndirect, indirect and indexed\n\nObject-oriented languages use\nclasses, objects, methods,\nattributes, inheritance\nencapsulation and polymorphism");
     }
 
     else if (box4.mouse.presses()) {
@@ -174,6 +177,8 @@ function selectUnit() {
         text("Compression, Encryption and Hashing", 250, 150);
         text("Databases", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("Lossy compression removes non-\nessential data and results in a\nlarger file size reduction\n\nLossless compression retains all\ninformation to replicate the file\nand no data is lost\n\nSymmetric encryption uses the\n same key to encrypt and decrypt\ndata, which is also transferred\n\nA hashing function provides a\nmapping between an input and\n a fixed length output and\nis one-way");
+        textBox2.text = ("A relational database has entities\nrepresented by tables (relations)\nwhich have relationships\n\nNormalisation to 3NF ensures no\nattributes are repeated, there are\nno partial dependencies and\nno non-key dependencies\n\nSQL is a declarative language\nused for querying and updating\nrelational database tables\n\nACID is a set of properties which\nare Atomicity, Consistency,\nIsolation and Durability");
     }
 
     else if (box5.mouse.presses()) {
@@ -182,6 +187,8 @@ function selectUnit() {
         text("Networks", 250, 150);
         text("Web Technologies", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("");
+        textBox2.text = ("");
     }
 
     else if (box6.mouse.presses()) {
@@ -191,6 +198,9 @@ function selectUnit() {
         text("Binary Arithmetic", width/2, 150);
         text("Bitwise Manipulation \nand Masks", 825, 150);
         numSubtopics = 3;
+        textBox1.text = ("");
+        textBox2.text = ("");
+        textBox3.text = ("");
     }
 
     else if (box7.mouse.presses()) {
@@ -199,6 +209,8 @@ function selectUnit() {
         text("Arrays, Records, \nLists, Tuples", 250, 150);
         text("Structures to Store Data", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("");
+        textBox2.text = ("");
     }
 
     else if (box8.mouse.presses()) {
@@ -208,6 +220,9 @@ function selectUnit() {
         text("Manipulate, Derive or Simplify \nExpressions / Statements", width/2, 150);
         text("D Type Flip Flops, \nHalf and Full Adders", 825, 150);
         numSubtopics = 3;
+        textBox1.text = ("");
+        textBox2.text = ("");
+        textBox3.text = ("");
     }
 
     else if (box9.mouse.presses()) {
@@ -216,6 +231,8 @@ function selectUnit() {
         text("Computing Related Legislation", 250, 150);
         text("Moral and Ethical Issues", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("");
+        textBox2.text = ("");
     }
 
     else if (box10.mouse.presses()) {
@@ -224,6 +241,8 @@ function selectUnit() {
         text("Computational Thinking", 250, 150);
         text("Computational Methods", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("");
+        textBox2.text = ("");
 
     }
 
@@ -235,6 +254,9 @@ function selectUnit() {
         text("IDEs", 825, 150);
 
         numSubtopics = 3;
+        textBox1.text = ("");
+        textBox2.text = ("");
+        textBox3.text = ("");
     }
 
     else if (box12.mouse.presses()) { 
@@ -243,6 +265,8 @@ function selectUnit() {
         text("Efficiency of Algorithms", 250, 150);
         text("Standard Algorithms", 750, 150);
         numSubtopics = 2;
+        textBox1.text = ("");
+        textBox2.text = ("");
     }
 
     // return choice to display that unit's notes

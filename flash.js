@@ -1,8 +1,8 @@
 var qs = new Array();
 qs[0] = new Array("What happens during the Fetch part\nof the FDE cycle?", "Name three differences between the\nvon Neumann and Harvard Architectures", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
-qs[1] = new Array("q21", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
-qs[2] = new Array("q31", "q32", "q33", "q34", "q35", "q36", "q37", "q38", "q39", "q310");
-qs[3] = new Array("q41", "q42", "q43", "q44", "q45", "q46", "q47", "q48", "q49", "q410");
+qs[1] = new Array("Define utility programs / software \nand give an example", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
+qs[2] = new Array("Describe Extreme Programming (XP)", "q32", "q33", "q34", "q35", "q36", "q37", "q38", "q39", "q310");
+qs[3] = new Array("What is Asymmetric Encryption?", "Give 3 Characteristics of an Ideal\nCryptograpic Hash Function", "What is Record Locking?", "q44", "q45", "q46", "q47", "q48", "q49", "q410");
 qs[4] = new Array("q51", "q52", "q53", "q54", "q55", "q56", "q57", "q58", "q59", "q510");
 qs[5] = new Array("q61", "q62", "q63", "q64", "q65", "q66", "q67", "q68", "q69", "q610");
 qs[6] = new Array("q71", "q72", "q73", "q74", "q75", "q76", "q77", "q78", "q79", "q710");
@@ -13,10 +13,10 @@ qs[10] = new Array("q111", "q112", "q113", "q114", "q115", "q116", "q117", "q118
 qs[11]= new Array("q121", "q122", "q123", "q124", "q125", "q126", "q127", "q128", "q129", "q1210");
 
 var ans = new Array();
-ans[0] = new Array("The PC is checked and copied to the MAR\nThe data at the MAR address is copied\ninto the MDR", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
-ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
-ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
-ans[3] = new Array("a41", "a42", "a43", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
+ans[0] = new Array("The PC is checked and copied to the MAR\nThe data at the MAR address is copied\ninto the MDR", "Instructions and data are held in separate\nmemories in the Harvard Architecture\n\nOne bus is used to transfer data and\ninstructions in the von Neumann architecture\n\nvon Neumann archtecture is used in\nconventional processors", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
+ans[1] = new Array("Utility software optimise computer\nperformance, such as:\nbackups, compression, encryption,\ndefragmentation and virus checking", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
+ans[2] = new Array("An agile methodology intended to\nimprove software quality and\nresponsiveness to changing customer\nrequements\nThe stages are extreme planning, extreme\ndesigning, extreme programming,\nextreme testing and acceptance testing", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
+ans[3] = new Array("A pair of keys (public and private) is used\nto encrypt and decrypt a message securely\nThe public key encrypts the data but cannot\ndecrypt it\nThe private key is used for decryption", "Fast to compute hash\n\nImpossible to regenrate a message from\nits hash value\n\nNo collisions", "A technique of preventing\nsimultaneuos access to data in a\ndatabse\n\nA record is locked whenever a user retrieves\nit for editing or updating", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
 ans[4] = new Array("a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a510");
 ans[5] = new Array("a61", "a62", "a63", "a64", "a65", "a66", "a67", "a68", "a69", "a610");
 ans[6] = new Array("a71", "a72", "a73", "a74", "a75", "a76", "a77", "a78", "a79", "a710");
