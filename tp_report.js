@@ -40,7 +40,7 @@ let pos = 0;
 
 function setup(){
     textAlign(CENTER);
-    createCanvas(1000, 300);
+    createCanvas(500, 300);
     background("#778DA9");
 
     // setting the x-axis to the units
@@ -289,20 +289,28 @@ function setup(){
     textSize(15);
     fill("darkRed");
     // Adding recommendations for units with an average score of 0
-    text("These units have an average score of 0: " + toPractise + "\n Test Your Knowledge using the quizzes", 550, 50);
+    text("These units have an average score of 0: " + toPractise + "\n Test Your Knowledge using the quizzes", 250, 50);
 
     fill("orange");
     // Adding recommendations for units with average score <= 5
-    text("Units " + toImprove + " have an average score less than 5 -  \n Check out the summary notes to build up your knowledge", 550, 120);
+    text("Units " + toImprove + " have an average score less than 5 -  \n Check out the summary notes to build up your knowledge", 250, 120);
 
     fill("darkGreen");
     // Adding recommendations for units with an average score of 0
-    text("These units have an average score above 5: " + wellDone + "\n Keep it up!", 550, 190);
+    text("These units have an average score above 5: " + wellDone + "\n Keep it up!", 250, 190);
     
     fill("black");
-    text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 550, 260);
+    text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 250, 260);
 
     var ctx = document.getElementById("examChart").getContext("2d");
+
+    var avgAll = 0;
+    var avgAllTotal = 0;
+    for (i = 0; i<12; i++){
+        avgAllTotal = avgAllTotal + yValues[i];
+    }
+    avgAll = avgAllTotal/12;
+    localStorage.setItem("all averge scores", avgAll.toString());
 
     var myChart = new Chart(ctx, {
     type: 'line',
@@ -319,15 +327,19 @@ function setup(){
         label: 'Demo',
         data: [{
             t: '2024-02-16T13:03:00Z',
-            y: 12
+            y: 4
             },
             {
             t: '2024-03-16T13:02:00Z',
-            y: 21
+            y: avgAll
             },
             {
-            t: '2024-04-16T14:12:00Z',
-            y: 32
+            t: '2024-04-16T13:02:00Z',
+            y: avgAll + 1
+            },
+            {
+            t: '2024-05-16T14:12:00Z',
+            y: avgAll + 2
             }
         ],
         backgroundColor: [
@@ -351,6 +363,7 @@ function setup(){
     }
     });
 
+    /*
     dataX = [[2000, 2000.5, 2001, 2002, 2003, 2004, 2005], [2000, 2001, 2002, 2003, 2004, 2005]]
     dataY = [[20, 50, 40, 60, 80, 100, 120], [150, 75, 32, 14, 7, 3.5]]
     data = []
@@ -368,13 +381,15 @@ function setup(){
         
     chart = new LineChart(data, colors, lineLabels, 250, 250, 5, 5, [min(dataX.flat()), max(dataX.flat())], [0, 200]);
     //[min(dataY.flat()), max(dataY.flat())]
+    */
 }
 
 function draw(){
-    chart.show();
+    //chart.show();
     
 }
 
+/*
 function LineChart(data, colors, lineLabels, w, h, x, y, xRange, yRange) {
     this.padding = 30
     this.data = data // [[]]
@@ -486,7 +501,7 @@ function LineChart(data, colors, lineLabels, w, h, x, y, xRange, yRange) {
       pop()
     }
   }
-
+*/
 
 
 
