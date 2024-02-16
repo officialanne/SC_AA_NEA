@@ -42,9 +42,9 @@ function setup() {
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
 
-    textBox1 = new boxes.Sprite(-1000, 1000, 305, 400);
-    textBox2 = new boxes.Sprite(1000, -1000, 305, 400);
-    textBox3 = new boxes.Sprite(1500, -1500, 305, 400);
+    textBox1 = new boxes.Sprite(-1000, 1000, 300, 400);
+    textBox2 = new boxes.Sprite(1000, -1000, 300, 400);
+    textBox3 = new boxes.Sprite(1500, -1500, 300, 400);
     
     
 }
@@ -145,7 +145,7 @@ function selectUnit() {
         text("Input, Output and Storage", 825, 150);
         numSubtopics = 3;
         textBox1.text = ("The ALU carries out arithmetic\nand boolean calculations\n\n The CU manages the execution\nof instructions\n\nRegisters are tiny areas of very\nfast memory to store data\ninside the CPU and include the\nPC, Accumulator, MAR, MDR\nand the CIR\n\nBuses are a parallel set of wires\nconnecting components, including\nthe data, address and control bus");
-        textBox2.text = ("CISC processors have complex\ninstructions which execute in a\nfew machine cycles\n\nRISC processors are simple and\ncheap, enabling pipelining but\nuse more RAM\n\nMulticore processors are a single\nchip containing several\nindependent CPUs\n\nParallel Systems are the use of\nseveral processors simultaneously\nto perform a job split into tasks");
+        textBox2.text = ("CISC processors have complex\ninstructions which execute in a\nfew machine cycles\n\nRISC processors are simple and\ncheap, enabling pipelining but\nuse more RAM\n\nMulticore processors are a single\nchip containing several\nindependent CPUs\n\nParallel Systems are the\nsimultaneous use of several\nprocessors to perform a job\nsplit into tasks");
         textBox3.text = ("An input device accepts data\npresented in machine-readable\nform and passes it into a\ncomputer system\n\nAn output device converts signals\nor data from the computer into\nhuman-readable form\n\nRAM is used to store programs\nand data in use temporarily\nIt is volatile and faster to access\nthan ROM\n\nROM is read-only and non-volatile\nIt stores the bootstrap and BIOS");
 
     }
@@ -155,7 +155,7 @@ function selectUnit() {
         text("Systems Software", 250, 150);
         text("Applications Generation", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("An operating system is a set of\nprograms that manages the\ncomputer for the user\n\nMemory management includes\npaging, segmentation and\nvirtual memory\n\nAn interrupt is a signal generated\nby sources that causes a break\nin the execution\n\nScheduling includes round robin,\nfirst come first served, multi-level\nfeedback queues, shortest job first\nand shortest remaining time");
+        textBox1.text = ("An operating system is a set of\nprograms that manages the\ncomputer for the user\n\nMemory management includes\npaging, segmentation and\nvirtual memory\n\nAn interrupt is a signal generated\nby sources that causes a break\nin the execution\n\nScheduling includes round robin,\nfirst come first served, multi-level\nfeedback queues, shortest job\nfirst and shortest remaining time");
         textBox2.text = ("Software can be systems software\nand applications software\n\nSystems software enables the\nmachine to perform tasks\nrequested by the user\nThese include the OS, utility\nprograms, libraries, translators\nand device drivers\n\nApplications software benefit the\nuser and can be general-purpose\nor special purpose\nThe software can be off-the-shelf\nor bespoke");
 
     }
@@ -167,7 +167,7 @@ function selectUnit() {
         text("Types of Programming Language", 750, 150);
         numSubtopics = 2;
 
-        textBox1.text = ("Diffferent methodologies include\nthe waterfall lifecycle, agile\nmethodologies, extreme\nprogramming, the spiral model and\nrapid application development\n\nAgile methodoligies are\nadaptable whilst the others are\nbest suited for well-defined, simple\n and short-term projects\n\nAn algorithm is a set of\ninstructions to solve a problem\nin finite steps. A good algorithm\nallows invalid inputs,\nterminates and is efficient");
+        textBox1.text = ("Diffferent methodologies include\nthe waterfall lifecycle, agile\nmethodologies, extreme\nprogramming, the spiral model\nand rapid application development\n\nAgile methodoligies are\nadaptable whilst the others are\nbest suited for well-defined,\nsimple and short-term projects\n\nAn algorithm is a set of\ninstructions to solve a problem\nin finite steps. A good algorithm\nallows invalid inputs,\nterminates and is efficient");
         textBox2.text = ("A programming paradigm is a way\nof programming to\solve a problem\nThese include procedural, OOP,\ndeclarative and functional\n\nAssembly language is a low\nlevel language that uses\nmnemonics to represent machine\ncode instructions. Addressing\nmodes include immediate,\ndirect, indirect and indexed\n\nObject-oriented languages use\nclasses, objects, methods,\nattributes, inheritance\nencapsulation and polymorphism");
     }
 
@@ -187,8 +187,8 @@ function selectUnit() {
         text("Networks", 250, 150);
         text("Web Technologies", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("");
-        textBox2.text = ("");
+        textBox1.text = ("AN IP address is a unique\naddress that is assinged to a\nnetwork device. Routers use this\naddress to direct data packets\n\nWANs are spread over a large\ngeographical area. LANS consist\nof devices in a single site\n\nThe TCP/IP stack has four layers:\nApplication, Transport, Internet\nand Link\n\nNetwork security includes the\nuse of firewalls, proxies and\nencryption.");
+        textBox2.text = ("HTML describes the content\nand structure of a web page\n\nCSS describes the layout and\nstyles of a web page, including\nthe use of identifiers and classes\n\nJavaScript is used to add\ninteractivity to websites and\nis interpreted\n\nSearch engine indexing uses a\nweb crawler to link to nearly all\nweb pages on the internet");
     }
 
     else if (box6.mouse.presses()) {
