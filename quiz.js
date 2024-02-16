@@ -158,6 +158,101 @@ function setup(){
 }
 
 function draw(){
+
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)){
+        box1.color = "blue";
+    }
+    else {
+        box1.color = "purple";
+    }
+    
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)){
+        box5.color = "blue";
+    }
+    else {
+        box5.color = "yellow";
+    }
+    
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)){
+        box9.color = "blue";
+    }
+    else {
+        box9.color = "pink";
+    }
+
+    
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)){
+        box2.color = "blue";
+    }
+    else {
+        box2.color = "majenta";
+    }
+    
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)){
+        box6.color = "blue";
+    }
+    else {
+        box6.color = "brown";
+    }
+    
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)){
+        box10.color = "blue";
+    }
+    else {
+        box10.color = "green";
+    }
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)){
+        box3.color = "blue";
+    }
+    else {
+        box3.color = "red";
+    }
+    
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)){
+        box7.color = "blue";
+    }
+    else {
+        box7.color = "blueviolet";
+    }
+    
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)){
+        box11.color = "blue";
+    }
+    else {
+        box11.color = "darkcyan";
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)){
+        box4.color = "blue";
+    }
+    else {
+        box4.color = "darkseagreen";
+    }
+    
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)){
+        box8.color = "blue";
+    }
+    else {
+        box8.color = "khaki";
+    }
+    
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)){
+        box12.color = "blue";
+    }
+    else {
+        box12.color = "olive";
+    }
+
     // putting the text in the intro text box
     intro.text=("Put your knowledge to the test!");
 

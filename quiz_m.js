@@ -189,6 +189,7 @@ function setup(){
 
 function draw(){
 
+    
 
     
     // putting the text in the relevant boxes to help guide the user
