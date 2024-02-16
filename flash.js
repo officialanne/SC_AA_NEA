@@ -78,7 +78,10 @@ function setup(){
 
     aBox = new Sprite(-5500, 5500, 400, 200);
 
-    numBox = new Sprite(5500, -5500, 250, 50);
+    numBox = new Sprite(5500, -5500, 275, 50);
+
+    //button to go to previous quesiton
+    prevQ = new Sprite(150, 575, 150, 30);
     
 }
 
@@ -182,9 +185,11 @@ function draw(){
         intro.text=("Catch up on unit " + (unit + 1).toString() + " - " + unitNotes[unit]);
     }
 
-    else {
+    
+    else{
         intro.text=("Short form notes to catch up"); 
     }
+
 
     // adding labels to the boxes
     box1.text = box_text[0];
@@ -202,7 +207,8 @@ function draw(){
     returnMenu.text = "Return to \n menu";
     flip.text = "Flip Sides";
     nextQ.text = "Next Card";
-    numBox.text = "Your are viewing card " + (index+1).toString();
+    numBox.text = "Your are viewing card " + (index+1).toString() + " of 10";
+    prevQ.text = "Previous Card"
 
     // changing screens when the user clicks any of the boxes
     if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
@@ -213,8 +219,6 @@ function draw(){
     if (returnMenu.mouse.presses()) {
         returnToMenu();
     }
-
-
 
     
 
@@ -228,69 +232,21 @@ function draw(){
         side = false;
     }
 
-    else if (nextQ.mouse.presses() && index == 0) {
-        question = qs[unit][1];
-        answer = ans[unit][1];
+    else if (nextQ.mouse.presses() && (index >=0 && index <=8)){
+        question = qs[unit][index+1];
+        answer = ans[unit][index+1];
+        aBox.text = qs[unit][index+1];
+        side = true;
         index = index + 1;
-
     }
 
-    else if (nextQ.mouse.presses() && index == 1) {
-        question = qs[unit][2];
-        answer = ans[unit][2];
-        index = index + 1;
-
+    else if (prevQ.mouse.presses() && (index >=1 && index <=9)){
+        question = qs[unit][index-1];
+        answer = ans[unit][index-1];
+        aBox.text = qs[unit][index-1];
+        side = true;
+        index = index - 1;
     }
-
-    else if (nextQ.mouse.presses() && index == 2) {
-        question = qs[unit][3];
-        answer = ans[unit][3];
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 3) {
-        question = qs[unit][4];
-        answer = ans[unit][4];
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 4) {
-        question = qs[unit][5];
-        answer = ans[unit][5];
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 5) {
-        question = qs[unit][6];
-        answer = ans[unit][6];
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 6) {
-        question = qs[unit][7];
-        answer = ans[unit][7];
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 7) {
-        question = qs[unit][8];
-        answer = ans[unit][8];
-        index = index + 1;
-
-    }
-
-    else if (nextQ.mouse.presses() && index == 8) {
-        question = qs[unit][9];
-        answer = ans[unit][9];
-        index = index + 1;
-
-    }
-
 
 
     
@@ -384,11 +340,15 @@ function selectCards(){
 function displayCards(choice) {
     unit = choice - 1;
     index = 0;
-    side = false;
+    screen = 1;
+    
     aBox.pos = { x: width / 2, y: height / 2 + 100 };
     numBox.pos = {x: width/2, y: height/2-150};
     question = qs[unit][index];
     answer = ans[unit][index];
+
+    aBox.text = question;
+    side = true;
     
 }
 
@@ -405,6 +365,7 @@ function screenZero() {
     screen = 0;
     index = 0;
     unit = 0;
+    unit = null;
     aBox.pos = {x: -5500, y: 5500};
     numBox.pos = {x: 5500, y: -5500};
     aBox.text = "";

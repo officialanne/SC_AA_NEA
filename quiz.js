@@ -122,7 +122,7 @@ function setup(){
 
     // button to change sides
     showScore = new Sprite (850, 50, 175, 50);
-    nextQ = new Sprite(850, 575, 175, 30);
+    nextQ = new Sprite(850, 570, 175, 50);
 
     // button to end quiz
     endQuiz = new Sprite(-6000, 6000, 150, 30);
@@ -154,7 +154,7 @@ function setup(){
     qBox = new Sprite(-450, 4500, 500, 55);
 
     // creating button to save score
-    saveQuiz = new Sprite(150, 575, 150, 30);
+    saveQuiz = new Sprite(150, 570, 150, 50);
 }
 
 function draw(){
@@ -254,7 +254,16 @@ function draw(){
     }
 
     // putting the text in the intro text box
-    intro.text=("Put your knowledge to the test!");
+    if (unit !=null){
+        intro.text=("Practice unit " + (unit + 1).toString());
+        nextQ.text = "Select an answer\nout of the two";
+    }
+
+    
+    else{
+        intro.text=("Put your knowledge to the test!"); 
+        nextQ.text = "Choose a unit";
+    }
 
     // adding labels to the boxes
     box1.text = box_text[0];
@@ -270,11 +279,11 @@ function draw(){
     box11.text = box_text[10];
     box12.text = box_text[11];
 
-    returnMenu.text = "Return to \n menu";
+    returnMenu.text = "Return to \nmenu";
 
     showScore.text = "Current Score = " + score;
 
-    nextQ.text = "Choose an answer";
+    
 
     qBox.text = question;
 
@@ -330,7 +339,7 @@ function draw(){
         // if they answer incorrectly, let them have another go, but don't give them a new score
         else{
             // let them know
-            saveQuiz.text = "incorrect, have another go!"; 
+            saveQuiz.text = "incorrect, have\nanother go!"; 
             
             // same question but randomly switch text
             question = qAndA[index].ques;
@@ -353,31 +362,6 @@ function draw(){
 
             // cancel out the later addition of a point by subtracting now
             score = score - 1;
-
-            if ((aBox.text != answer && aBox.mouse.presses()) || (a2Box.text != answer && a2Box.mouse.presses())){
-                // let them know
-                saveQuiz.text = "3rd chance!"; 
-                
-                // same question but randomly switch text
-                question = qAndA[index].ques;
-                answer = qAndA[index].rightAns;
-                wrongAns = qAndA[index].incorrect;
-
-                // let one of the boxes hold a random of either the right or wrong answer
-                let answersText = [answer, wrongAns];
-                aBox.text = random(answersText);
-
-                // if one box contains the right answer, let the other box have the incorrect answer
-                if (aBox.text == answer) {
-                    a2Box.text = wrongAns;
-                    
-                }
-                else if (aBox.text == wrongAns) {
-                    a2Box.text = answer;
-                    
-                }
-
-            }
         }
 
     }
@@ -389,7 +373,7 @@ function draw(){
     }
     
     if (index == 9) {
-        nextQ.text = "Save Score";
+        nextQ.text = "Final Question -\nAfter, Save Score";
     }
 
     // don't let the score go below 0
@@ -414,7 +398,7 @@ function selectQuiz(){
     box10.pos = { x: 2500, y: 2500 };
     box11.pos = { x: -3000, y: -3000 };
     box12.pos = { x: -3500, y: -3500 };
-    nextQ.pos = { x: 850, y: 575};
+    nextQ.pos = { x: 850, y: 570};
 
     
 
@@ -557,12 +541,13 @@ function returnToMenu(){
 function screenZero() {
     screen = 0;
     index = 0;
-    unit = 0;
+    unit = null;
     score = 0;
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
-    saveQuiz.pos = {x:150, y: 575};
+    saveQuiz.pos = {x:150, y: 570};
+    saveQuiz.text = "";
 
     background("#f2e8cf");
     
@@ -587,6 +572,7 @@ function saveScore() {
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
     nextQ.pos = {x: -553, y: 1234};
+    saveQuiz.pos = {x: 5500, y: -5500};
 
     // converting the integer values for the unit and the score into a string
     if (score < 0){

@@ -70,6 +70,7 @@ let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
 let side = false;
 let score = 0;
 let endQuiz;
+let prevQ;
 
 var topics = new Array();
 var numTopics;
@@ -181,6 +182,8 @@ function setup(){
 
     // creating button to save score
     saveQuiz = new Sprite(150, 575, 150, 30);
+
+
 
     
     

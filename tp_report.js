@@ -40,7 +40,7 @@ let pos = 0;
 
 function setup(){
     textAlign(CENTER);
-    createCanvas(500, 300);
+    createCanvas(1000, 300);
     background("#778DA9");
 
     // setting the x-axis to the units
@@ -289,24 +289,204 @@ function setup(){
     textSize(15);
     fill("darkRed");
     // Adding recommendations for units with an average score of 0
-    text("These units have an average score of 0: " + toPractise + "\n Test Your Knowledge using the quizzes", 250, 50);
+    text("These units have an average score of 0: " + toPractise + "\n Test Your Knowledge using the quizzes", 550, 50);
 
     fill("orange");
     // Adding recommendations for units with average score <= 5
-    text("Units " + toImprove + " have an average score less than 5 -  \n Check out the summary notes to build up your knowledge", 250, 120);
+    text("Units " + toImprove + " have an average score less than 5 -  \n Check out the summary notes to build up your knowledge", 550, 120);
 
     fill("darkGreen");
     // Adding recommendations for units with an average score of 0
-    text("These units have an average score above 5: " + wellDone + "\n Keep it up!", 250, 190);
+    text("These units have an average score above 5: " + wellDone + "\n Keep it up!", 550, 190);
     
     fill("black");
-    text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 250, 260);
+    text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 550, 260);
 
+    var ctx = document.getElementById("examChart").getContext("2d");
+
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    options: {
+        scales: {
+        xAxes: [{
+            type: 'time',
+        }]
+        }
+    },
+    data: {
+        labels: ["2024-02-16T13:03:00Z", "2024-03-16T13:02:00Z", "2024-04-16T14:12:00Z"],
+        datasets: [{
+        label: 'Demo',
+        data: [{
+            t: '2024-02-16T13:03:00Z',
+            y: 12
+            },
+            {
+            t: '2024-03-16T13:02:00Z',
+            y: 21
+            },
+            {
+            t: '2024-04-16T14:12:00Z',
+            y: 32
+            }
+        ],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+        }]
+    }
+    });
+
+    dataX = [[2000, 2000.5, 2001, 2002, 2003, 2004, 2005], [2000, 2001, 2002, 2003, 2004, 2005]]
+    dataY = [[20, 50, 40, 60, 80, 100, 120], [150, 75, 32, 14, 7, 3.5]]
+    data = []
+    
+    colors = ['#ff0000', '#5649ff']
+    
+    lineLabels = ["Score per Quiz", "Average Scores"]
+    
+    for(let i = 0; i < dataX.length; i++) {
+        data.push([])
+        for(let j = 0; j < dataX[i].length; j++) {
+        data[i].push(createVector(dataX[i][j], dataY[i][j]))
+        }
+    }
+        
+    chart = new LineChart(data, colors, lineLabels, 250, 250, 5, 5, [min(dataX.flat()), max(dataX.flat())], [0, 200]);
+    //[min(dataY.flat()), max(dataY.flat())]
 }
 
 function draw(){
-    
+    chart.show();
     
 }
+
+function LineChart(data, colors, lineLabels, w, h, x, y, xRange, yRange) {
+    this.padding = 30
+    this.data = data // [[]]
+    this.colors = colors
+    this.lineLabels = lineLabels
+    this.w = w
+    this.h = h
+    this.chartW = w - this.padding
+    this.chartH = h - this.padding
+    this.x = x
+    this.y = y
+    this.chartX = this.padding
+    this.chartY = this.padding
+    this.xRange = xRange // [min, max]
+    this.yRange = yRange // [min, max]
+    this.hAxisLabelCount = 6
+    this.vAxisLabelCount = 5
+    this.xLine = map(yRange[0], yRange[0], yRange[1], this.chartH, this.chartY)
+    this.yLine = map(xRange[0], xRange[0], xRange[1], this.chartX, this.chartW)
+  
+    this.show = () => {
+      rectMode(CORNER)
+      fill(255)
+      push()
+      translate(x, y)
+      rect(0, 0, w, h)
+  
+      fill(0)
+      stroke(0)
+      strokeWeight(2)
+      line(this.chartX, this.xLine, this.chartW, this.xLine)
+      line(this.yLine, this.chartY, this.yLine, this.chartH)
+  
+      for (let i = 0; i < data.length; i++) {
+        let prev = null;
+        for (let j = 0; j < data[i].length; j++) {
+          let x = map(data[i][j].x, this.xRange[0], this.xRange[1], this.chartX, this.chartX + this.chartW - this.padding)
+          let y = (this.chartY + this.chartH) - map(data[i][j].y, this.yRange[0], this.yRange[1], this.chartY, this.chartY + this.chartH - this.padding)
+  
+          if (prev == null) {
+            prev = createVector(x, y)
+          } else {
+            stroke(this.colors[i])
+            line(prev.x, prev.y, x, y)
+            fill(0)
+            stroke(0)
+            circle(prev.x, prev.y, 4)
+            prev = createVector(x, y)
+          }
+  
+          fill(0)
+          stroke(0)
+          circle(x, y, 4)
+        }
+      }
+  
+      // Draw the x axis labels
+      for (let i = 0; i < this.hAxisLabelCount; i++) {
+        let label = map(i, 0, this.hAxisLabelCount - 1, this.xRange[0], this.xRange[1])
+        strokeWeight(0)
+        textAlign(CENTER)
+        textSize(10)
+        fill(0)
+        let x = map(label, this.xRange[0], this.xRange[1], this.chartX, this.chartX + this.chartW - this.padding)
+        text(round(label) + "", x, this.xLine + (this.padding * 0.7))
+        strokeWeight(2)
+        line(x, this.xLine + 3, x, this.xLine - 3)
+      }
+  
+      // Draw the y axis labels
+      for (let i = 0; i < this.vAxisLabelCount; i++) {
+        let label = map(i, 0, this.vAxisLabelCount - 1, this.yRange[0], this.yRange[1])
+        strokeWeight(0)
+        textAlign(RIGHT, CENTER)
+        textSize(10)
+        fill(0)
+        let y = (this.chartY + this.chartH) - map(label, this.yRange[0], this.yRange[1], this.chartY, this.chartY + this.chartH - this.padding)
+        text(round(label) + "", this.yLine - (this.padding * 0.25), y)
+        strokeWeight(2)
+        line(this.yLine + 3, y, this.yLine - 3, y)
+      }
+  
+      strokeWeight(0)
+      textAlign(LEFT, BOTTOM)
+      textSize(12)
+      
+      let totalWidth = 0
+      
+      let textPadding = 10
+      
+      for (let i = 0; i < this.lineLabels.length; i++) {
+        totalWidth += textWidth(this.lineLabels[i]) + textPadding
+        
+        if(i + 1 == this.lineLabels.length) {
+          totalWidth -= textPadding
+        }
+      }
+      
+      let startX = this.chartX + (this.chartW - this.padding - totalWidth)/2 
+      
+      let startTracker = 0
+      
+      // Draw the line labels
+      for (let i = 0; i < this.lineLabels.length; i++) {
+        fill(this.colors[i])
+        text(this.lineLabels[i], startX + startTracker, this.chartY - 3)
+        startTracker += textWidth(this.lineLabels[i]) + textPadding
+      }
+      pop()
+    }
+  }
+
+
 
 
