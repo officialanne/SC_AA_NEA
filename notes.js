@@ -198,9 +198,9 @@ function selectUnit() {
         text("Binary Arithmetic", width/2, 150);
         text("Bitwise Manipulation \nand Masks", 825, 150);
         numSubtopics = 3;
-        textBox1.text = ("");
-        textBox2.text = ("");
-        textBox3.text = ("");
+        textBox1.text = ("The primitave data types include:\ninteger, real/floating point,\ncharacter, string and Boolean\n\nA character set is a collection\nof all the charecters a\ncomputer recognises with their\nunique binary codes\n\nASCII has 7 bits per character but\nthis is not enough for international\nlanguages\n\nUnicode is a 16-bit and 32-bit\ncharacter set which increases\nfile size and transmission times");
+        textBox2.text = ("Different number systems include:\nBinary (Base 2), Denary (Base 10)\nand Hexadecimal (Base 16)\n\nIn binary addition, an overflow\nerror is when there is insufficient\nspace to store the result accurately\n\nNegative binary numbers are\nrepresented using sign and\nmagnitude or two's complement\n\nFixed point binary represents\nfractions which can only be 1/2,\n1/4, etc. Floating point uses a\nmantissa and exponent");
+        textBox3.text = ("The act of algorithmically\nmanipulating bits through shifts\nand masks\n\nShifts perform multiplication\nor division and include logical\narithmetic and circular\n\nMasks modify data by changing\nbits using logical operators such\nas AND, XOR and OR");
     }
 
     else if (box7.mouse.presses()) {
@@ -209,7 +209,7 @@ function selectUnit() {
         text("Arrays, Records, \nLists, Tuples", 250, 150);
         text("Structures to Store Data", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("");
+        textBox1.text = ("Data structures are made up of\nelementary data types\n\nAn array is a set of items of the\nsame type under a single variable\n\nA tuple is an ordered set of values\nof any type and is immutable\n\nRecords are composed of a fixed\nnumber of fields of different data\ntypes\n\nA list is an abstract data type\nwith a sequence of values and is\ndynamic");
         textBox2.text = ("");
     }
 
