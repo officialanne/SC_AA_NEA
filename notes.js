@@ -333,7 +333,7 @@ function selectUnit() {
         text("Structures to Store Data", 750, 150);
         numSubtopics = 2;
         textBox1.text = ("Data structures are made up of\nelementary data types\n\nAn array is a set of items of the\nsame type under a single variable\n\nA tuple is an ordered set of values\nof any type and is immutable\n\nRecords are composed of a fixed\nnumber of fields of different data\ntypes\n\nA list is an abstract data type\nwith a sequence of values and is\ndynamic");
-        textBox2.text = ("");
+        textBox2.text = ("A linked list is\n\nA graph is\n\nA stack is\n\nA queue is\n\nA tree is\n\nA hash table is");
     }
 
     else if (box8.mouse.presses()) {
@@ -343,9 +343,9 @@ function selectUnit() {
         text("Manipulate, Derive or Simplify \nExpressions / Statements", width/2, 150);
         text("D Type Flip Flops, \nHalf and Full Adders", 825, 150);
         numSubtopics = 3;
-        textBox1.text = ("");
-        textBox2.text = ("");
-        textBox3.text = ("");
+        textBox1.text = ("Boolean Logic is a form of\nalgebra where all values are\nreduced to TRUE or FALSE\n\nLogic Gates include NOT,\nAND, OR and XOR\n\nLogic gate diagrams express\nBoolean Logic in diagrammatic\nform using symbols\n\nTruth table define the output\nof a logic gate or circuit\nfor all possible inputs");
+        textBox2.text = ("De Morgan's Laws\n\nDistribution\n\nAssociation\n\nCommutation\n\nDouble Negation");
+        textBox3.text = ("D type flip flops\n\nHalf Adders\n\nFull Adders");
     }
 
     else if (box9.mouse.presses()) {
@@ -354,8 +354,8 @@ function selectUnit() {
         text("Computing Related Legislation", 250, 150);
         text("Moral and Ethical Issues", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("");
-        textBox2.text = ("");
+        textBox1.text = ("The Data Protection Act 1998\n\nThe Computer Misuse Act 1990\n\nThe Copyright Design and\nPatents Act 1988\n\nThe Regulation of Investigatory\nPowers Act 2000");
+        textBox2.text = ("There are individual moral,\nsocial, ethical and cultural\nopportunities and risks of\ndigital technology, including:\n\n- Computers in the workforce\n- Automated decision making\n- AI\n- Environmental effects\n- Censorship\n- Monitorying Behaviour\n- Analysing personal info\n- Piract and offensive comms\n- Layout, colour paradigms and\ncharacter sets");
     }
 
     else if (box10.mouse.presses()) {
@@ -364,8 +364,8 @@ function selectUnit() {
         text("Computational Thinking", 250, 150);
         text("Computational Methods", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("");
-        textBox2.text = ("");
+        textBox1.text = ("Thinking Abstractly\n\nThinking Ahead\n\nThinking Procedurally\n\nThinking Logicaly\n\nThinking Concurrently");
+        textBox2.text = ("(Problem recognition)\n\n(Problem decomposition)\n\nDivide and Conquer\n\nAbstraction\n\nBacktracking\n\nData Mining\n\n(Heuristics)\n\n(Performance modelling)\n\nPipelining\n\nVisualisation");
 
     }
 
@@ -377,9 +377,9 @@ function selectUnit() {
         text("IDEs", 825, 150);
 
         numSubtopics = 3;
-        textBox1.text = ("");
-        textBox2.text = ("");
-        textBox3.text = ("");
+        textBox1.text = ("Sequence\n\nSelection\n\nIteration\n\nRecursion\n\nGlobal Variables\n\nLocal Variables\n\nOOP");
+        textBox2.text = ("Modularity\n\nFunctions\n\nProcedures\n\nParameter passing by value\n\nPass by reference");
+        textBox3.text = ("IDEs develop/debug a program");
     }
 
     else if (box12.mouse.presses()) { 
@@ -388,8 +388,8 @@ function selectUnit() {
         text("Efficiency of Algorithms", 250, 150);
         text("Standard Algorithms", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("");
-        textBox2.text = ("");
+        textBox1.text = ("Big O notaiton includes:\nConstant\nLinear\nPolynomial\nExponential\nLogarithmic\nComplexity\n\nData Structures = flashcards\nstacks, queues, trees\nlinked lists, depth-frist\n(post order), breadth first of trees");
+        textBox2.text = ("Linear Search\n\nBinary Search\n\nBubble Sort\n\nInsertion Sort\n\nMerge Sort\n\nQuick Sort\n\nDijkstra's shortest path algorithm\n\nA* Algorithm");
     }
 
     // return choice to display that unit's notes
