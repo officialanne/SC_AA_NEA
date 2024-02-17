@@ -44,7 +44,7 @@ function setup(){
     background("#778DA9");
 
     // setting the x-axis to the units
-    var xValues = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12", "Units"];
+    var xValues = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12", "Units", ""];
 
 
     // setting the y axis to the average score per unit
@@ -241,7 +241,7 @@ function setup(){
     }
 
     
-    var yValues = [avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12, 10];
+    var yValues = [avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12, 0, 10];
 
     // colours per bar for the unit
     var barColors = ["red", "green", "blue", "orange", "brown", "red", "green", "blue", "orange", "brown", "purple", "yellow"];
@@ -302,6 +302,7 @@ function setup(){
     fill("black");
     text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 250, 260);
 
+    // Progression Chart
     var ctx = document.getElementById("examChart").getContext("2d");
 
     var avgAll = 0;
@@ -310,6 +311,7 @@ function setup(){
         avgAllTotal = avgAllTotal + yValues[i];
     }
     avgAll = avgAllTotal/12;
+    avgAll = Math.trunc(avgAll);
     localStorage.setItem("all averge scores", avgAll.toString());
 
     var myChart = new Chart(ctx, {
@@ -324,7 +326,7 @@ function setup(){
     data: {
         labels: ["2024-02-16T13:03:00Z", "2024-03-16T13:02:00Z", "2024-04-16T14:12:00Z"],
         datasets: [{
-        label: 'Demo',
+        label: 'Average Score',
         data: [{
             t: '2024-02-16T13:03:00Z',
             y: 4
@@ -362,146 +364,14 @@ function setup(){
         }]
     }
     });
-
-    /*
-    dataX = [[2000, 2000.5, 2001, 2002, 2003, 2004, 2005], [2000, 2001, 2002, 2003, 2004, 2005]]
-    dataY = [[20, 50, 40, 60, 80, 100, 120], [150, 75, 32, 14, 7, 3.5]]
-    data = []
-    
-    colors = ['#ff0000', '#5649ff']
-    
-    lineLabels = ["Score per Quiz", "Average Scores"]
-    
-    for(let i = 0; i < dataX.length; i++) {
-        data.push([])
-        for(let j = 0; j < dataX[i].length; j++) {
-        data[i].push(createVector(dataX[i][j], dataY[i][j]))
-        }
-    }
-        
-    chart = new LineChart(data, colors, lineLabels, 250, 250, 5, 5, [min(dataX.flat()), max(dataX.flat())], [0, 200]);
-    //[min(dataY.flat()), max(dataY.flat())]
-    */
 }
 
 function draw(){
-    //chart.show();
+    
     
 }
 
-/*
-function LineChart(data, colors, lineLabels, w, h, x, y, xRange, yRange) {
-    this.padding = 30
-    this.data = data // [[]]
-    this.colors = colors
-    this.lineLabels = lineLabels
-    this.w = w
-    this.h = h
-    this.chartW = w - this.padding
-    this.chartH = h - this.padding
-    this.x = x
-    this.y = y
-    this.chartX = this.padding
-    this.chartY = this.padding
-    this.xRange = xRange // [min, max]
-    this.yRange = yRange // [min, max]
-    this.hAxisLabelCount = 6
-    this.vAxisLabelCount = 5
-    this.xLine = map(yRange[0], yRange[0], yRange[1], this.chartH, this.chartY)
-    this.yLine = map(xRange[0], xRange[0], xRange[1], this.chartX, this.chartW)
-  
-    this.show = () => {
-      rectMode(CORNER)
-      fill(255)
-      push()
-      translate(x, y)
-      rect(0, 0, w, h)
-  
-      fill(0)
-      stroke(0)
-      strokeWeight(2)
-      line(this.chartX, this.xLine, this.chartW, this.xLine)
-      line(this.yLine, this.chartY, this.yLine, this.chartH)
-  
-      for (let i = 0; i < data.length; i++) {
-        let prev = null;
-        for (let j = 0; j < data[i].length; j++) {
-          let x = map(data[i][j].x, this.xRange[0], this.xRange[1], this.chartX, this.chartX + this.chartW - this.padding)
-          let y = (this.chartY + this.chartH) - map(data[i][j].y, this.yRange[0], this.yRange[1], this.chartY, this.chartY + this.chartH - this.padding)
-  
-          if (prev == null) {
-            prev = createVector(x, y)
-          } else {
-            stroke(this.colors[i])
-            line(prev.x, prev.y, x, y)
-            fill(0)
-            stroke(0)
-            circle(prev.x, prev.y, 4)
-            prev = createVector(x, y)
-          }
-  
-          fill(0)
-          stroke(0)
-          circle(x, y, 4)
-        }
-      }
-  
-      // Draw the x axis labels
-      for (let i = 0; i < this.hAxisLabelCount; i++) {
-        let label = map(i, 0, this.hAxisLabelCount - 1, this.xRange[0], this.xRange[1])
-        strokeWeight(0)
-        textAlign(CENTER)
-        textSize(10)
-        fill(0)
-        let x = map(label, this.xRange[0], this.xRange[1], this.chartX, this.chartX + this.chartW - this.padding)
-        text(round(label) + "", x, this.xLine + (this.padding * 0.7))
-        strokeWeight(2)
-        line(x, this.xLine + 3, x, this.xLine - 3)
-      }
-  
-      // Draw the y axis labels
-      for (let i = 0; i < this.vAxisLabelCount; i++) {
-        let label = map(i, 0, this.vAxisLabelCount - 1, this.yRange[0], this.yRange[1])
-        strokeWeight(0)
-        textAlign(RIGHT, CENTER)
-        textSize(10)
-        fill(0)
-        let y = (this.chartY + this.chartH) - map(label, this.yRange[0], this.yRange[1], this.chartY, this.chartY + this.chartH - this.padding)
-        text(round(label) + "", this.yLine - (this.padding * 0.25), y)
-        strokeWeight(2)
-        line(this.yLine + 3, y, this.yLine - 3, y)
-      }
-  
-      strokeWeight(0)
-      textAlign(LEFT, BOTTOM)
-      textSize(12)
-      
-      let totalWidth = 0
-      
-      let textPadding = 10
-      
-      for (let i = 0; i < this.lineLabels.length; i++) {
-        totalWidth += textWidth(this.lineLabels[i]) + textPadding
-        
-        if(i + 1 == this.lineLabels.length) {
-          totalWidth -= textPadding
-        }
-      }
-      
-      let startX = this.chartX + (this.chartW - this.padding - totalWidth)/2 
-      
-      let startTracker = 0
-      
-      // Draw the line labels
-      for (let i = 0; i < this.lineLabels.length; i++) {
-        fill(this.colors[i])
-        text(this.lineLabels[i], startX + startTracker, this.chartY - 3)
-        startTracker += textWidth(this.lineLabels[i]) + textPadding
-      }
-      pop()
-    }
-  }
-*/
+
 
 
 
