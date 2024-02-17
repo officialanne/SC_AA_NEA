@@ -421,6 +421,8 @@ function screenZero() {
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
     saveQuiz.pos = {x:150, y: 575};
+    nextQ.pos = {x: 850, y: 575};
+
 
     background("#f2e8cf");
 
@@ -428,7 +430,7 @@ function screenZero() {
 
 function saveScore() {
     background("#b5838d");
-    aBox.pos = {x: -5500, y: 5500};
+    aBox.pos = {x: -1100, y: 1100};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
     nextQ.pos = {x: -553, y: 1234};
@@ -443,6 +445,9 @@ function saveScore() {
         score = score / numTopics;
         score = Math.trunc(score);
     }
+
+    text("Your average score was: " + (score).toString() + "\n This has been saved and\nyou can return to menu", width/2, 400);
+
 
     // using a for loop that goes up to the number of topics the user chose
     // each time the loop is executed, the next index in the array of choices is reached
@@ -482,10 +487,10 @@ function saveScore() {
         // save the score to local storage
         localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
 
-        text("Your scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: "), width/2, (height/2 + ((count + 1) * 10)));
-        text("Your average score was: " + newScore + "\n This has been saved and\nyou can return to menu", width/2, 500);
+        text("Your scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: "), width/2, (height/2 + ((count + 5) * 10)));
 
-    }    
+    }  
+  
 
         
 }
