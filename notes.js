@@ -53,23 +53,28 @@ function setup() {
 function draw(){
 
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)){
-        box1.color = "blue";
+        box1.color ="blue";
+        //cursor(HAND);
     }
     else {
         box1.color = "purple";
+        //cursor(ARROW);
     }
     
 
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)){
         box5.color = "blue";
+        //cursor(HAND);
     }
     else {
         box5.color = "yellow";
+        //cursor(ARROW);
     }
     
 
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)){
-        box9.color = "blue";
+        box9.color ="blue";
+        //cursor(HAND);
     }
     else {
         box9.color = "pink";
@@ -78,6 +83,7 @@ function draw(){
     
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)){
         box2.color = "blue";
+        //cursor(HAND);
     }
     else {
         box2.color = "majenta";
@@ -86,6 +92,7 @@ function draw(){
 
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)){
         box6.color = "blue";
+        //cursor(HAND);
     }
     else {
         box6.color = "brown";
@@ -94,6 +101,7 @@ function draw(){
 
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)){
         box10.color = "blue";
+        //ursor(HAND);
     }
     else {
         box10.color = "green";
@@ -101,6 +109,7 @@ function draw(){
 
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)){
         box3.color = "blue";
+        //cursor(HAND);
     }
     else {
         box3.color = "red";
@@ -109,6 +118,7 @@ function draw(){
 
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)){
         box7.color = "blue";
+        //cursor(HAND);
     }
     else {
         box7.color = "blueviolet";
@@ -117,6 +127,8 @@ function draw(){
 
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)){
         box11.color = "blue";
+        //cursor(HAND);
+        
     }
     else {
         box11.color = "darkcyan";
@@ -124,6 +136,7 @@ function draw(){
 
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)){
         box4.color = "blue";
+        //cursor(HAND);
     }
     else {
         box4.color = "darkseagreen";
@@ -132,17 +145,31 @@ function draw(){
 
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)){
         box8.color = "blue";
+        //cursor(HAND);
     }
     else {
         box8.color = "khaki";
+        //cursor(ARROW);
     }
     
 
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)){
         box12.color = "blue";
+        //cursor(HAND);
     }
     else {
         box12.color = "olive";
+        //cursor(ARROW);
+    }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
+        returnMenu.color = "red";
+        cursor(HAND);
+    }
+    else {
+        returnMenu.color = "DarkOrange";
+        cursor(ARROW);
+
     }
 
 

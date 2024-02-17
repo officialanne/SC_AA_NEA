@@ -253,6 +253,41 @@ function draw(){
         box12.color = "olive";
     }
 
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
+        returnMenu.color = "red";
+        //cursor(HAND);
+    }
+    else {
+        returnMenu.color = "DarkOrange";
+        //cursor(ARROW);
+
+    }
+
+    
+    if (unit!=null){
+        if ((mouseX > 625) && (mouseX < 875) && (mouseY > 300) && (mouseY < 500)){
+        aBox.color = "LightGreen";
+        //cursor(HAND);
+    }
+
+    else{
+        aBox.color = "SlateBlue";
+
+    }
+    if ((mouseX > 150) && (mouseX < 350) && (mouseY > 300) && (mouseY < 500)){
+        a2Box.color = "LimeGreen";
+        //cursor(HAND);
+    }
+
+    else {
+        a2Box.color = "cyan";
+        //cursor(ARROW);
+
+    }
+    }
+    
+    
+
     // putting the text in the intro text box
     if (unit !=null){
         intro.text=("Practice unit " + (unit + 1).toString());
@@ -374,6 +409,15 @@ function draw(){
     
     if (index == 9) {
         nextQ.text = "Final Question -\nAfter, Save Score";
+        if ((mouseX > 750) && (mouseX < 950) && (mouseY > 550) && (mouseY < 600)){
+            nextQ.color = "green";
+            //cursor(HAND);
+        }
+        else {
+            nextQ.color = "DarkKhaki";
+            //cursor(ARROW);
+    
+        }
     }
 
     // don't let the score go below 0
@@ -525,6 +569,8 @@ function displayQuiz(choice) {
         a2Box.text = answer;
         
     }
+
+    
 
     
 }

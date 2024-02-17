@@ -78,7 +78,7 @@ function setup(){
 
     aBox = new Sprite(-5500, 5500, 400, 200);
 
-    numBox = new Sprite(5500, -5500, 275, 50);
+    numBox = new Sprite(5500, -5500, 300, 50);
 
     //button to go to previous quesiton
     prevQ = new Sprite(150, 575, 150, 30);
@@ -179,6 +179,49 @@ function draw(){
     else {
         box12.color = "olive";
     }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
+        returnMenu.color = "red";
+        //cursor(HAND);
+    }
+    else {
+        returnMenu.color = "DarkOrange";
+        //cursor(ARROW);
+
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 20) && (mouseY < 75)){
+        flip.color = "YellowGreen";
+        cursor(HAND);
+    }
+    else {
+        flip.color = "mediumpurple";
+        cursor(ARROW);
+
+    }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 560) && (mouseY < 590)){
+        prevQ.color = "Crimson";
+        //cursor(HAND);
+    }
+    else {
+        prevQ.color = "RoyalBlue";
+        //cursor(ARROW);
+
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 560) && (mouseY < 590)){
+        nextQ.color = "green";
+        //cursor(HAND);
+    }
+    else {
+        nextQ.color = "DarkKhaki";
+        //cursor(ARROW);
+
+    }
+
+
+
 
     // putting the text in the intro text box
     if (unit !=null){

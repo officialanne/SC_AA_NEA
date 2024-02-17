@@ -193,6 +193,37 @@ function setup(){
 function draw(){
 
     
+    if (unit!=null){
+        if ((mouseX > 625) && (mouseX < 875) && (mouseY > 300) && (mouseY < 500)){
+            aBox.color = "LightGreen";
+            //cursor(HAND);
+        }
+
+        else{
+            aBox.color = "SlateBlue";
+
+        }
+        if ((mouseX > 150) && (mouseX < 350) && (mouseY > 300) && (mouseY < 500)){
+            a2Box.color = "LimeGreen";
+            //cursor(HAND);
+        }
+
+        else {
+            a2Box.color = "cyan";
+            //cursor(ARROW);
+
+        }
+    }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
+        returnMenu.color = "red";
+        //cursor(HAND);
+    }
+    else {
+        returnMenu.color = "DarkOrange";
+        //cursor(ARROW);
+
+    }
 
     
     // putting the text in the relevant boxes to help guide the user
@@ -208,9 +239,19 @@ function draw(){
 
     if (screen == 0){
         nextQ.text = "Begin";
+        if ((mouseX > 750) && (mouseX < 950) && (mouseY > 560) && (mouseY < 590)){
+            nextQ.color = "green";
+            //cursor(HAND);
+        }
+        else {
+            nextQ.color = "DarkKhaki";
+            //cursor(ARROW);
+    
+        }
     }
-    if (index >0){
+    if (unit ==0){
         nextQ.text = "Choose your answer";
+        nextQ.color = "DarkKhaki";
     }
 
     
@@ -334,6 +375,7 @@ function displayQuiz() {
     // set the index to 0
     index = 0;
     side = false;
+    unit = 0;
 
     // reposition the question and answer boxes
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
@@ -373,7 +415,7 @@ function returnToMenu(){
 function screenZero() {
     screen = 0;
     index = 0;
-    unit = 0;
+    unit = null;
     score = 0;
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
