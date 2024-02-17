@@ -244,7 +244,7 @@ function setup(){
     var yValues = [avg1, avg2, avg3, avg4, avg5, avg6, avg7, avg8, avg9, avg10, avg11, avg12, 0, 10];
 
     // colours per bar for the unit
-    var barColors = ["red", "green", "blue", "orange", "brown", "red", "green", "blue", "orange", "brown", "purple", "yellow"];
+    var barColors = ["olive", "seagreen", "blue", "orange", "brown", "pink", "darkblue", "blue", "orange", "brown", "purple", "yellow"];
 
 
 
@@ -312,6 +312,9 @@ function setup(){
     }
     avgAll = avgAllTotal/12;
     avgAll = Math.trunc(avgAll);
+    if (avgAll > 8){
+        avgAll = 8;
+    }
     localStorage.setItem("all averge scores", avgAll.toString());
 
     var myChart = new Chart(ctx, {
