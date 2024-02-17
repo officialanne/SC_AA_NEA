@@ -10,6 +10,11 @@ let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, b
 let textBox1, textBox2, textBox3;
 let numSubtopics = 2;
 let selectColours = ["yellow", "purple", "orange", "green"];
+let img;
+
+function preload(){
+    img = loadImage('photos/AND_gate.png');
+}
 
 function setup() {
 
@@ -346,6 +351,7 @@ function selectUnit() {
         textBox1.text = ("Boolean Logic is a form of\nalgebra where all values are\nreduced to TRUE or FALSE\n\nLogic Gates include NOT,\nAND, OR and XOR\n\nLogic gate diagrams express\nBoolean Logic in diagrammatic\nform using symbols\n\nTruth table define the output\nof a logic gate or circuit\nfor all possible inputs");
         textBox2.text = ("De Morgan's Laws\n\nDistribution\n\nAssociation\n\nCommutation\n\nDouble Negation");
         textBox3.text = ("D type flip flops\n\nHalf Adders\n\nFull Adders");
+        image(img, 800, 25, 50, 50);
     }
 
     else if (box9.mouse.presses()) {
