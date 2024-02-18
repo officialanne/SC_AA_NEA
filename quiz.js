@@ -1,17 +1,17 @@
 // copy of arrays from flashcards
 var qs = new Array();
-qs[0] = new Array("How is data fetched in the FDE cycle?", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10");
-qs[1] = new Array("q21", "2", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q210");
-qs[2] = new Array("q31", "q32", "q33", "q34", "q35", "q36", "q37", "q38", "q39", "q310");
-qs[3] = new Array("q41", "What is timestamp ordering?", "What does I stand for in ACID?", "q44", "q45", "q46", "q47", "q48", "q49", "q410");
-qs[4] = new Array("q51", "q52", "q53", "q54", "q55", "q56", "q57", "q58", "q59", "q510");
-qs[5] = new Array("q61", "q62", "q63", "q64", "q65", "q66", "q67", "q68", "q69", "q610");
-qs[6] = new Array("q71", "q72", "q73", "q74", "What is a Stack?", "q76", "q77", "q78", "q79", "q710");
-qs[7] = new Array("q81", "q82", "q83", "q84", "q85", "q86", "q87", "q88", "q89", "q810");
-qs[8] = new Array("q91", "q92", "q93", "q94", "q95", "q96", "q97", "q98", "q99", "q910");
-qs[9] = new Array("q101", "q102", "q103", "q104", "q105", "q106", "q107", "q108", "q109", "q1010");
-qs[10] = new Array("q111", "q112", "q113", "q114", "q115", "q116", "q117", "q118", "q119", "q1110");
-qs[11]= new Array("q121", "q122", "q123", "q124", "q125", "q126", "q127", "q128", "q129", "q1210");
+qs[0] = new Array("How is data fetched in the FDE cycle?", "Wha is the accumulator?", "What is a parallel system?", "What is a multicore system?", "What is a CISC processor?", "What is a register?", "What is the control bus?", "What is the opcode?", "What is the control unit?", "What is flash storage?");
+qs[1] = new Array("What is a device driver?", "What is a multi user\noperating system", "What is a multi tasking\noperating system?", "How does the ISR work within the\nFDE cycle?", "What is a linker?", "What is syntax analysis?", "What is optimisation?", "What is an interpreter?", "Why is bespoke software used?", "What is the BIOS?");
+qs[2] = new Array("What is a class?", "What is direct addressing?", "What is indexed addressing used for?", "What is an object?", "What is a good algorithm?", "What is the waterfall lifecycle?", "What is extreme programming?", "What is functional programming?", "What is a method?", "What is indirect addressing?");
+qs[3] = new Array("What is a deadlock?", "What is timestamp ordering?", "What does I stand for in ACID?", "What is asymmetric encryption?", "What is referential integrity?", "What are some methods of selecting data?", "What is a secondary key?", "What is a flat file?", "What is 1NF?", "What is redundancy?");
+qs[4] = new Array("What is HTML", "What is an identifier?", "What is a CSS class?", "What is the Internet layer in the TCP/IP stack?", "What is the Link layer in the TCP/IP stack?", "What is a switch?", "What is the star topology?", "How is encryption used in netwrok securty?", "What is a damper?", "What are disadvantages of a client-server network?");
+qs[5] = new Array("What is a circular shift?", "Whar is an overflow error?", "What is a character set?", "What is an arithmetic shift?", "What is unicode?", "How do you convert from hexadecimal to binary?", "How do you use two's complement?", "What is normalisation?", "What is an OR mask?", "What is sign and magnitude?");
+qs[6] = new Array("What is a tuple?", "What is a hash table?", "What is a graph?", "What is a tree?", "What is a Stack?", "What is a Record?", "What is an Array?", "What is a circular queue?", "How do you add an item to a queue?", "What is an ajency matrix?");
+qs[7] = new Array("What are D type flip flops used for?", "What is the distribution law?", "What is the association law?", "What is a half adder?", "What is the double negation law?", "What is a full adder?", "What are De Morgan's Laws?", "What is the commutation law?", "What is a truth table?", "What is a logic gate diagram?");
+qs[8] = new Array("How are colour paradigms used?", "What is censorship?", "What is the Regulation of Investigatory Powers Act?", "What is the Data Protection Act?", "What is the Computer Misuse Act?", "What is the Copyright Designs and Patents Act?", "What are cultural issues?", "What do environmental effects include?", "What are moral issues?", "What law was made in 1990?");
+qs[9] = new Array("What is abstraction?", "What is thinking ahead?", "What is thinking concurrently?", "What is pipelining?", "What is divide and conquer?", "What is heuristics?", "What is caching?", "What is visualisation?", "What is performance modelling?", "What is thinking procedurally?");
+qs[10] = new Array("What are global variables?", "What is passing by reference?", "What is passing by value?", "What are local variables?", "What is encapsulation?", "What is sequence?", "What is recursion?", "How does an IDE use a step breaker?", "What is a procedure?", "What is a private attribute?");
+qs[11]= new Array("What is the A* Algorithm?", "What is the polynomial time complexity?", "What is the bubble sort?", "What is Dijkstra's shortest path algorithm?", "What is breadth-first traversal", "What is post-order traversal?", "What is the merge sort?", "What is in-order traversal?", "What is a stack?", "What is pre-order traversal?");
 
 var ans = new Array();
 ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
@@ -30,7 +30,7 @@ ans[11] = new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a12
 // additional arrays to store other answer and score
 var ans2 = new Array();
 ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "aA2", "aA3", "aA4", "aA5", "aA6", "aA7", "aA8", "aA9", "aA10");
-ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "aA27", "aA28", "aA29", "aA210");
+ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "Making the best algorithm", "aA28", "aA29", "aA210");
 ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
 ans2[3] = new Array("aA41", "Transactions are \nordered based on \ndependences on \neachother", "Integrity", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
 ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
