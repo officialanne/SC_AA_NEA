@@ -20,7 +20,7 @@ ans[3] = new Array("A pair of keys (public and private) is used\nto encrypt and 
 ans[4] = new Array("A set of rules defining common methods\nof data communication", "A Client Server netword uses a centralised\nserver to store the data\nIn P2p, each peer has its own data\n\nIn P2P, each node can both request\nand respond for services\n\nA Client Server netword is more expensive", "A proxy server intercepts all packets\nentering and leaving a network\n\nThis hides the true network address\nof the source from the recipient", "A security checkpoint designed to\nprevent unauthorised access between\ntwo netowrks\n\nIt can be implemented in both\nhardware and software\n\nIt uses packet filtering", "User enters a URL and the browser requests the\ncorresponding IP address from a\nlocal DNS\n\nThe IP address is located and the\nweb page data is requested", "An algorithm used by Google Search\nto rank websites in their search\nengine results", "The NIC is the card required to\nconnct a device to a network\n\nRouters connect two or more networks\ntogether and allow networks to\nconnect to the Internet\n\nA gateway is used to translate differemt/nprotocols between networks\n\nA switch is a device used to direct\nthe flow of data across a network", "The transport layer uses the TCP to establish\nan end-to-end connection with the\nrecipient compter\n\nThe data is then split into packets and\nlabelled witht ehpacket number\nthe total n.o. packets and\nthe port number", "A type of malware\nOnce it is in memory, any other\nuninfected file that runs becomes\ninfected when it is copied into memory", "a510");
 ans[5] = new Array("ASCII uses only 7 bits per\ncharacter which will keep file\nsizes low", "One character uses 32 bits instead of\n16 bits, significantly increasing file\nsizes and data transmission\ntimes", "Each digit is moved one column\nto the left or right\n\nExtra 0 bits are added to the\nstart or end", "Left circular shift = the MSB becomes\nthe new LSB\n\nRight circular shift = the LSB wraps around\nand becomes the MSB", "The MSB is a sign bit and always\nremains the same", "Occurs when a number is too small to be\nrepresented in the allocated number of\nbits", "Turn the MSB into a sign bit, where 0\nrepresents a positive number and 1\nepresents a negative number\n\nBinary arithmetic with this method is\ninaccurate", "A method of representing floating point real\nnegative numbers\n\nFlip the bits and add 1", "The process of moving the binary point of\na floating point number to provide the\nmaximum level of precision for\na given number of bits\n\nThe mantissa determines precision and\nthe exponent determines the range", "The process of converting data from one\ndata type to another");
 ans[6] = new Array("A rooted tree has a root, banches and\nleaves\n\nIt is a collection of connected nodes\nand edges\nThere are no cycles", "An abstract data type consisting of\na number of items which may\noccur more than once", "A colection of data in memory that has\nthe ability to grow and shrink in size\nusing the heap", "This is through using a function (dequeue)\nwhere the front item is removed and\nreturned if the queue is not empty", "If the stack is not full, increment the top\nand insert the item at the top of the queue", "A set of nodes connected by edges\nwhere all the edges are one-way", "A data structure that is fixed in size\nand cannot increase while the program is\nrunning", "A rooted tree in which each node\nhas a maximum of two children\n\nThe tree can be searched quickly,\nnew items can be added and the whole tree\ncan be printed out in sequence", "A data structure where the calculated\nvalue is used to mark the position\nin the table where the data item\nshould be stored, enabling\ndirect access", "A set of nodes connected by edges where \nall edges are bidirectional");
-ans[7] = new Array("This law allows for the removal of brackets from an\nexpression and the regrouping of\nthe variables is all the operators\nare the same", "a82", "a83", "a84", "a85", "a86", "a87", "a88", "a89", "a810");
+ans[7] = new Array("This law allows for the removal of brackets\nfrom an expression and the regrouping of\nthe variables is all the operators\nare the same", "a82", "a83", "a84", "a85", "a86", "a87", "a88", "a89", "a810");
 ans[8] = new Array("a91", "a92", "a93", "a94", "a95", "a96", "a97", "a98", "a99", "a910");
 ans[9] = new Array("a101", "a102", "a103", "a104", "a105", "a106", "a107", "a108", "a109", "a1010");
 ans[10]= new Array("a111", "a112", "a113", "a114", "a115", "a116", "a117", "a118", "a119", "a1110");
@@ -296,6 +296,8 @@ function draw(){
     }
 
 
+
+
     
     
 }
@@ -355,11 +357,8 @@ function selectCards(){
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
-        if (side == false) {
-            image(img, 375, 200, 250, 50);
-        }
+        image(img, 375, 200, 250, 50);
         
-
     }
 
     else if (box9.mouse.presses()) {
@@ -381,6 +380,8 @@ function selectCards(){
         choice = 12;
         background("#d88c9a");
     }
+
+
 
     // return choice to display that unit's notes
     displayCards(choice);
@@ -418,6 +419,7 @@ function screenZero() {
     index = 0;
     unit = 0;
     unit = null;
+    choice = 0;
     aBox.pos = {x: -5500, y: 5500};
     numBox.pos = {x: 5500, y: -5500};
     aBox.text = "";
