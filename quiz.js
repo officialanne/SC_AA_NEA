@@ -1,6 +1,6 @@
 // copy of arrays from flashcards
 var qs = new Array();
-qs[0] = new Array("How is data fetched in the FDE cycle?", "What is the accumulator?", "What is a parallel system?", "What is a multicore system?", "What is a CISC processor?", "What is a register?", "What is the control bus?", "What is the opcode?", "What is the control unit?", "What is flash storage?");
+qs[0] = new Array("How is data fetched in the FDE cycle?", "What is the accumulator?", "What is a parallel system?", "What is a multicore system?", "What is a CISC processor?", "What is a register?", "What is the address bus?", "What is the opcode?", "What is the control unit?", "What is flash storage?");
 qs[1] = new Array("What is a device driver?", "What is a multi user\noperating system", "What is a multi tasking\noperating system?", "How does the ISR work within the\nFDE cycle?", "What is a linker?", "What is syntax analysis?", "What is optimisation?", "What is an interpreter?", "Why is bespoke software used?", "What is the BIOS?");
 qs[2] = new Array("What is a class?", "What is direct addressing?", "What is indexed addressing used for?", "What is an object?", "What is a good algorithm?", "What is the waterfall lifecycle?", "What is extreme programming?", "What is functional programming?", "What is a method?", "What is indirect addressing?");
 qs[3] = new Array("What is a deadlock?", "What is timestamp ordering?", "What does I stand for in ACID?", "What is asymmetric encryption?", "What is referential integrity?", "What are some methods of selecting data?", "What is a secondary key?", "What is a flat file?", "What is 1NF?", "What is redundancy?");
@@ -14,7 +14,7 @@ qs[10] = new Array("What are global variables?", "What is passing by reference?"
 qs[11]= new Array("What is the A* Algorithm?", "What is the polynomial time complexity?", "What is the bubble sort?", "What is Dijkstra's shortest path algorithm?", "What is breadth-first traversal", "What is post-order traversal?", "What is the merge sort?", "What is in-order traversal?", "What is a stack?", "What is pre-order traversal?");
 
 var ans = new Array();
-ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10");
+ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "A register which\nholds the results of\nall operatons carried\nout in the ALU", "The simultaneous use\nof several processors\nto perform a single\ntask or seperate\ninstructions", "A single chip\ncontaining\ntwo or more\nindependent\nprocessing units", "A complicated and\nexpensive integrated\ncircuit with\nintstructions that\nexecute in a few\nmachine cycles", "Tiny areas of\nextremely fast\nmemory located in the\nCPU where data is\nstored temporarily", "The part of the\nsystem bus\nwhich carried\nidentification about\nwhere data is read\nfrom or written to", "Operation code, which\ndetermines what to do", "Coordinates and\ncontrols\nactivities of the CPU\nby sending signals to\nother components", "A collection of memory\nchips controlled by its\nown software\nand data is stored\nin pages");
 ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
 ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
 ans[3] = new Array("a41", "Eevry object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
@@ -29,7 +29,7 @@ ans[11] = new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a12
 
 // additional arrays to store other answer and score
 var ans2 = new Array();
-ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "aA2", "aA3", "aA4", "aA5", "aA6", "aA7", "aA8", "aA9", "aA10");
+ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "A register\nwhich data to be read\nfrom or written to\nmemory", "When more than one\nprocess is in progress\nfrom one processor", "An additional\nprocessor to support\nthe functions\nof the CPU", "A simple, cheap\nintegrated\ncircuit with instructions\ntaking one clock\ncycle", "A small amount of\nexpensive, very fast\nmemory near the CPU\nproviding fast access\nto frequently used data", "The part of the system\nbus which carries data\nread from or being\nwritten to memory", "Determines what the\ninstruction sould\nbe executed on", "Carries command and\ncontrol signals to and\nfrom other components\nusing control lines", "Data is stored on\nplastic discs as\npatterns on the\nsurface in\npits and lans");
 ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "Making the best algorithm", "aA28", "aA29", "aA210");
 ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
 ans2[3] = new Array("aA41", "Transactions are \nordered based on \ndependences on \neachother", "Integrity", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
