@@ -10,9 +10,14 @@ let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, b
 let textBox1, textBox2, textBox3;
 let numSubtopics = 2;
 let selectColours = ["yellow", "purple", "orange", "green"];
+
+// variable for AND gate image
 let img;
 
-function preload(){
+// this function allows files to be loaded into the program before all other instructions are run
+function preload() {
+
+    // loading the AND gate image from the photos folder
     img = loadImage('photos/AND_gate.png');
 }
 
@@ -55,127 +60,12 @@ function setup() {
     
 }
 
-function draw(){
+// this function continually runs whilst the program is running
+function draw() {
 
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)){
-        box1.color ="blue";
-        //cursor(HAND);
-    }
-    else {
-        box1.color = "purple";
-        //cursor(ARROW);
-    }
-    
 
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)){
-        box5.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box5.color = "yellow";
-        //cursor(ARROW);
-    }
-    
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)){
-        box9.color ="blue";
-        //cursor(HAND);
-    }
-    else {
-        box9.color = "pink";
-    }
-
-    
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)){
-        box2.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box2.color = "majenta";
-    }
-    
-
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)){
-        box6.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box6.color = "brown";
-    }
-    
-
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)){
-        box10.color = "blue";
-        //ursor(HAND);
-    }
-    else {
-        box10.color = "green";
-    }
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)){
-        box3.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box3.color = "red";
-    }
-    
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)){
-        box7.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box7.color = "blueviolet";
-    }
-    
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)){
-        box11.color = "blue";
-        //cursor(HAND);
-        
-    }
-    else {
-        box11.color = "darkcyan";
-    }
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)){
-        box4.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box4.color = "darkseagreen";
-    }
-    
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)){
-        box8.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box8.color = "khaki";
-        //cursor(ARROW);
-    }
-    
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)){
-        box12.color = "blue";
-        //cursor(HAND);
-    }
-    else {
-        box12.color = "olive";
-        //cursor(ARROW);
-    }
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
-        returnMenu.color = "red";
-        cursor(HAND);
-    }
-    else {
-        returnMenu.color = "DarkOrange";
-        cursor(ARROW);
-
-    }
+    //calling the function to hover over boxes
+    boxHover();
 
 
     
@@ -211,9 +101,6 @@ function draw(){
     if (returnMenu.mouse.presses()) {
         returnToMenu();
     }
-    
-    
-
 
 }
 
@@ -360,7 +247,7 @@ function selectUnit() {
         text("Computing Related Legislation", 250, 150);
         text("Moral and Ethical Issues", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("The Data Protection Act 1998\nsays anyone who stores personal\ndetails must keep them secure\n\nThe Computer Misuse Act 1990\ndefines electric vandalism,\nunauthorised access to computer\nsystems and theft of information\n\nThe Copyright Design and\nPatents Act 1988\nprotects intellectual design\n\nThe Regulation of Investigatory\nPowers Act 2000");
+        textBox1.text = ("The Data Protection Act 1998\nsays anyone who stores personal\ndetails must keep them secure\n\nThe Computer Misuse Act 1990\ndefines electric vandalism,\nunauthorised access to computer\nsystems and theft of information\n\nThe Copyright Design and\nPatents Act 1988\nprotects intellectual design\n\nThe Regulation of Investigatory\nPowers Act was\nestablished in 2000");
         textBox2.text = ("There are individual moral,\nsocial, ethical and cultural\nopportunities and risks of\ndigital technology, including:\n\n- Computers in the workforce\n- Automated decision making\n- AI\n- Environmental effects\n- Censorship\n- Monitorying Behaviour\n- Analysing personal info\n- Layout, colour paradigms and\ncharacter sets");
     }
 
@@ -370,8 +257,8 @@ function selectUnit() {
         text("Computational Thinking", 250, 150);
         text("Computational Methods", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("Thinking Ahead\n\nThinking Procedurally\n\nThinking Concurrently");
-        textBox2.text = ("Divide and Conquer\n\nAbstraction\n\nBacktracking\n\nPipelining");
+        textBox1.text = ("Thinking Ahead is deciding what\ninputs the system needs and\nwhat outputs it should produce\n\nThinking Procedurally is identifying\nthe individual parts of a bigger\nproblem\n\nThinking Concurrently is\nidentifying which parts of a\nprogram can be developed to be\nprocessed at the same\ntime and which parts are\ndependent on others");
+        textBox2.text = ("Tractable problems can be solved\nby algorithms in a reasonable\namount of time using a\nreasonable amount of memory\n\nBacktracking is the process of\nincrementally bulding towards a\nsolution, abandoning partial\nsuccess until the solution is found\n\nPipelining is splitting a large task\ninto manageable chuncks and\noverlapping these processes to\nspeed up the process");
 
     }
 
@@ -383,9 +270,9 @@ function selectUnit() {
         text("IDEs", 825, 150);
 
         numSubtopics = 3;
-        textBox1.text = ("Sequence\n\nSelection\n\nIteration\n\nOOP");
-        textBox2.text = ("Modularity\n\nProcedures\n\nParameter passing by value\n\nPass by reference");
-        textBox3.text = ("IDEs develop/debug a program");
+        textBox1.text = ("Sequence is two or more\nstatements executed one after the\nother\n\nSelection is when instructions\nevaluate a Boolean expression\nand then branch the code to\none or more alternative paths\n\nIteration is when a selection of\ncode is repeated and can be count\ncontrolled or condition controlled\n\nA class is a blueprint for an\nobject and defines their attributes\nand methods");
+        textBox2.text = ("Modularity is where a solution is\nbroken down into a number of\nsmall self-contained and\nmanageable chunks\n\nProcedures is a block of code\ngiven a unique identiable name\nand is designed to perform a set\ntask\n\nWhen passed by value, a local\ncopy of the data is used, which\nis discarded when the subprogram\nexits");
+        textBox3.text = ("An IDE is a program that provides\na set of tools and\nrelated functionality to facilitate\nsoftware development\n\nFeatures include:\nTransaltors which converts\nhigh-level code into executable\nmachine code\n\nDebugging facilities such as\nbreakpoint\n\nThe run-time environment supports\nthe execution and running of\nprograms");
     }
 
     else if (box12.mouse.presses()) { 
@@ -394,8 +281,8 @@ function selectUnit() {
         text("Efficiency of Algorithms", 250, 150);
         text("Standard Algorithms", 750, 150);
         numSubtopics = 2;
-        textBox1.text = ("Big O notaiton includes:\nConstant\nLinear\nPolynomial\nExponential\nLogarithmic\nComplexity\n\nData Structures =\nstacks, queues, trees\nlinked lists, depth-frist\npost order, breadth first of trees");
-        textBox2.text = ("Binary Search\n\nBubble Sort\n\nMerge Sort\n\nDijkstra's shortest path algorithm\n\nA* Algorithm");
+        textBox1.text = ("Big O notation for time complexity\nincludes:\nConstant\nLinear\nPolynomial\nExponential\nLogarithmic\nComplexity\n\nCommon Data Structures include:\nstacks, queues, trees\narrays, hashes and lTheinked lists\n\nThese can be traversed using:\ndepth-first, post-order,\nbreadth first and in-order");
+        textBox2.text = ("The Binary Searchis an efficienct\nway of searching a sorted\nlist usind divide and conquer\n\nIn the Bubble Sort, each item is\ncompared with the adjacent item\nand swapped if out of order\n\nDijkstra's shortest path algorithm\nfinds the shortest path for\na graph with non-negative\nedge path costs\n\nThe A* Algorithm is an adaptation\nwhich adds an approximate\nheuristic to each node");
     }
 
     // return choice to display that unit's notes
@@ -415,6 +302,122 @@ function displayNotes(numSubtopics){
         textBox1.pos = {x: width/2 - 325, y: 385};
         textBox2.pos = {x: width/2, y: 385};
         textBox3.pos = {x: width/2 + 325, y: 385};
+
+    }
+}
+
+
+//this function uses the coordinates of the boxes and the mouse's location to indicate interacable buttons
+function boxHover() {
+
+    //box for unit 1
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)) {
+        box1.color = "blue";
+    }
+    // else, keep the colour as purple
+    else {
+        box1.color = "purple";
+    }
+
+    //box for unit 5
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)) {
+        box5.color = "blue";
+    }
+    // else, keep the colour as yellow
+    else {
+        box5.color = "yellow";
+    }
+
+    //box for unit 9
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)) {
+        box9.color = "blue";
+    }
+    // else, keep the colour as pink
+    else {
+        box9.color = "pink";
+    }
+
+    //box for unit 2
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)) {
+        box2.color = "blue";
+    }
+    else {
+        box2.color = "majenta";
+    }
+
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)) {
+        box6.color = "blue";
+    }
+    else {
+        box6.color = "brown";
+    }
+
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)) {
+        box10.color = "blue";
+    }
+    else {
+        box10.color = "green";
+    }
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)) {
+        box3.color = "blue";
+    }
+    else {
+        box3.color = "red";
+    }
+
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)) {
+        box7.color = "blue";
+    }
+    else {
+        box7.color = "blueviolet";
+    }
+
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)) {
+        box11.color = "blue";
+
+    }
+    else {
+        box11.color = "darkcyan";
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)) {
+        box4.color = "blue";
+    }
+    else {
+        box4.color = "darkseagreen";
+    }
+
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)) {
+        box8.color = "blue";
+    }
+    else {
+        box8.color = "khaki";
+    }
+
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)) {
+        box12.color = "blue";
+    }
+    else {
+        box12.color = "olive";
+    }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)) {
+        returnMenu.color = "red";
+        cursor(HAND);
+    }
+    else {
+        returnMenu.color = "DarkOrange";
+        cursor(ARROW);
 
     }
 }

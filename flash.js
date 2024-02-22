@@ -1,4 +1,7 @@
+//initially making a global array to hold all units
 var qs = new Array();
+
+// each element in the array holds 10 questions each
 qs[0] = new Array("What happens during the Fetch part\nof the FDE cycle?", "Name three differences between the\nvon Neumann and Harvard Architectures", "How does clock speed\naffect CPU performance?", "Describe the SIMD contemporary\nprocessor architecture", "How does the number of cores\naffect CPU performance?", "Describe a GPU", "Describe and evaluate magnetic storage \ndevices", "What is virtual storage?", "Describe and evaluate optical storage \ndevices", "What is Pipelining?");
 qs[1] = new Array("Define utility programs / software \nand give an example", "What are Device Drivers?", "What is an Embedded System?", "Describe a Real Time Operating System?", "What are Libraries?", "Describe Virutal Machines", "Describe open source vs closed source\nsoftware", "Name 3 different translators", "What is syntax analysis", "What is a linker?");
 qs[2] = new Array("Describe Extreme Programming (XP)", "What is a drawback of the spiral model?", "Evaluate rapid application development", "Describe Polymorphism", "What is immediate addressing?", "Describe procedural languages", "What is encapsulation?", "Describe 3 Assembly Language Instructions", "Describe the agile model", "Name 3 characteristics of a\ngood algorithm");
@@ -12,7 +15,10 @@ qs[9] = new Array("What is problem recognition?", "What is performance modelling
 qs[10] = new Array("Compare iteration and recursion", "What is inheritance?", "Compare local and global variables", "What is an IDE?", "What are three advantages of\nmodularity?", "Compare passing parameters by\nvalue and by reference", "Describe 3 features of an IDE", "What is branching?", "Name 3 characteristics of a\nrecursive algorithm", "What is a function?");
 qs[11]= new Array("Describe a linear search", "What is time complexity?", "What is breadth-first traversal?", "Describe a linked list", "Compare Dijstra's and the A* algorithms", "What is the quick sort?", "Describe the insertion sort?", "Describe the binary search", "What is an algorithm?", "Describe Depth-First Tree Traversal");
 
+//initially making a global array to hold all units
 var ans = new Array();
+
+// each element (unit) in the array holds 10 answers each
 ans[0] = new Array("The PC is checked and copied to the MAR\nThe data at the MAR address is copied\ninto the MDR", "Instructions and data are held in separate\nmemories in the Harvard Architecture\n\nOne bus is used to transfer data and\ninstructions in the von Neumann architecture\n\nvon Neumann archtecture is used in\nconventional processors", "The greater the clock speed,\nThe faster instructions will\nbe fetched and executed", "This is Single Instruction Multiple Data\nThis is parallel processing where a processor\ncarries out one instruction\non multiple data items at the same time", "Each core is able to process a different\ninstruction at the same time\n\nThey can run multiple tasks simultaneuosly\nor a task can be spread over more\nthan one processor", "A GPU is a specialised electronic circuit\ndesigned to rapidly manipulate and alter\nmemory with a highly parallel\nstructure (many cores)", "A storage medium which uses surfaces\ncoated with magnetic materia\nA drive head moves across the disk to write\nor read data\n\nThey are reliable, cheap and portable\nbut are less robust, slow and\nprone to faults", "The abstraction of logical storage from\nphysical storage\n\nThe computer's RAM may not be large\nenough to store all running programs\nsimultaneously so makes use of\nsecondary storage", "A storage medium that uses plastic discs\non which data is stored as patterns\non the surface in pits and lans\n\nThey are portable, cheap and distributable\nbut are easily damaged, slow and have\nlimited capacity", "When another instruction can be begun\nbefore the previous one is finished\nwith a sequence of cores able to\noperate concurrently");
 ans[1] = new Array("Utility software optimise computer\nperformance, such as:\nbackups, compression, encryption,\ndefragmentation and virus checking", "Enables operating systems to access hardware\nfunctions\n\nIt is a program that operated or controls a device\nattached to a computer and provides\nan interface to that device", "A highly specialised, limited OS design to fit\ninto a machine or device\n\nIt will have a minimal UI, has a\nlimited amount of RAM and accepts\ninput from sensors", "An OS that serves a real-time application\nto process data without delays\n\nIt must respond very quickly to\ninputs, deal with simultaneous inputs\nand have failsafe mechanisms", "A collection of pre-compiled routines\nwhcih can be incorporated into a program", "An instance where software is used to\ntake on the function of a machine\nincluding executing intermediate code or\nrunning an OS within another", "Open source software have the source code\nfreely available and may be\nredistributed and modified\n\nPropietary software is sold in the form of a\nlicense to use and the source code is not\nshared ot the public", "Interpreters, Compilers and Assemblers", "A stage in compilation where language\nstatements are checked against\nthe rules of the language and\nerrors are reported", "A linker is a software tool\nthat allows already compiled code to\nbe compiled with the compiled program");
 ans[2] = new Array("An agile methodology intended to\nimprove software quality and\nresponsiveness to changing customer\nrequements\nThe stages are extreme planning, extreme\ndesigning, extreme programming,\nextreme testing and acceptance testing", "It is time consuming, not suitable for\nsmaller projects, costly and produces\npoor quality documentation", "It is good for larger projects, the\nproduct is made quickly, is relevant when\nreleased and produces iterative deliverables\n\nThe final system may be a compromise and\nit requires\na heavy time input from clients", "A language's abality to process objects\ndifferently depending on their class", "The operand is the actual valueto be\noperated on", "A high level language in which program\nstatements can be grouped in\nprocedures and functions", "Private attributes can only be accessed\nor modified by methods that are\nset when defining the class", "ADD = add the contents of the memory address\nto the accumulator\n\nSTA = store the value in the accumulator\nin the memory address\n\nDAT = a data location used to indicate\na location that contains data", "Software is developed in rapid\nincremental cycles\n\nEach version is created in stages of:\nanalysis, design, implementation\nand evaluation", "Use comments to document programs\nUse a standard for identifiers\nUse a modular structure\nIndent code\nThe program terminates at some point");
@@ -41,11 +47,12 @@ let numBox;
 let img;
 
 
-
-
+// this function allows files to be uploaded before the program runs
 function preload() {
     img = loadImage('photos/Association.png');
 }
+
+// this fucntion runs once and enables all buttons and backgrounds to be initialised
 function setup() {
     textAlign(CENTER);
     createCanvas(1000, 600);
@@ -59,7 +66,9 @@ function setup() {
     returnMenu = new Sprite(150, 50, 150, 50);
 
     // button to change sides
-    flip = new Sprite (850, 50, 150, 50);
+    flip = new Sprite(850, 50, 150, 50);
+
+    //button to go to next card
     nextQ = new Sprite (850, 575, 150, 30);
 
     
@@ -80,8 +89,10 @@ function setup() {
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
 
+    // this box holds the question or answer
     aBox = new Sprite(-5500, 5500, 400, 200);
 
+    // this button will display the number of the flashcard the user is on
     numBox = new Sprite(5500, -5500, 300, 50);
 
     //button to go to previous quesiton
@@ -89,142 +100,11 @@ function setup() {
     
 }
 
+// this function continually runs whilst the program is running
 function draw(){
 
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)){
-        box1.color = "blue";
-    }
-    else {
-        box1.color = "purple";
-    }
-    
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)){
-        box5.color = "blue";
-    }
-    else {
-        box5.color = "yellow";
-    }
-    
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)){
-        box9.color = "blue";
-    }
-    else {
-        box9.color = "pink";
-    }
-
-    
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)){
-        box2.color = "blue";
-    }
-    else {
-        box2.color = "majenta";
-    }
-    
-
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)){
-        box6.color = "blue";
-    }
-    else {
-        box6.color = "brown";
-    }
-    
-
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)){
-        box10.color = "blue";
-    }
-    else {
-        box10.color = "green";
-    }
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)){
-        box3.color = "blue";
-    }
-    else {
-        box3.color = "red";
-    }
-    
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)){
-        box7.color = "blue";
-    }
-    else {
-        box7.color = "blueviolet";
-    }
-    
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)){
-        box11.color = "blue";
-    }
-    else {
-        box11.color = "darkcyan";
-    }
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)){
-        box4.color = "blue";
-    }
-    else {
-        box4.color = "darkseagreen";
-    }
-    
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)){
-        box8.color = "blue";
-    }
-    else {
-        box8.color = "khaki";
-    }
-    
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)){
-        box12.color = "blue";
-    }
-    else {
-        box12.color = "olive";
-    }
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
-        returnMenu.color = "red";
-        //cursor(HAND);
-    }
-    else {
-        returnMenu.color = "DarkOrange";
-        //cursor(ARROW);
-
-    }
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 20) && (mouseY < 75)){
-        flip.color = "YellowGreen";
-        cursor(HAND);
-    }
-    else {
-        flip.color = "mediumpurple";
-        cursor(ARROW);
-
-    }
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 560) && (mouseY < 590)){
-        prevQ.color = "Crimson";
-        //cursor(HAND);
-    }
-    else {
-        prevQ.color = "RoyalBlue";
-        //cursor(ARROW);
-
-    }
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 560) && (mouseY < 590)){
-        nextQ.color = "green";
-        //cursor(HAND);
-    }
-    else {
-        nextQ.color = "DarkKhaki";
-        //cursor(ARROW);
-
-    }
-
-
+    //contunially calling the function to hover over boxes
+    boxHover();
 
 
     // putting the text in the intro text box
@@ -254,7 +134,11 @@ function draw(){
     returnMenu.text = "Return to \n menu";
     flip.text = "Flip Sides";
     nextQ.text = "Next Card";
-    numBox.text = "Your are viewing card " + (index+1).toString() + " of 10";
+
+    // telling the user what index they are within the set of 10 cards
+    numBox.text = "Your are viewing card " + (index + 1).toString() + " of 10";
+
+
     prevQ.text = "Previous Card"
 
     // changing screens when the user clicks any of the boxes
@@ -267,38 +151,8 @@ function draw(){
         returnToMenu();
     }
 
-    
-
-    if (flip.mouse.presses() && side == false) {
-        aBox.text = question;
-        side = true;
-    }
-
-    else if (flip.mouse.presses() && side == true) {
-        aBox.text = answer;
-        side = false;
-    }
-
-    else if (nextQ.mouse.presses() && (index >=0 && index <=8)){
-        question = qs[unit][index+1];
-        answer = ans[unit][index+1];
-        aBox.text = qs[unit][index+1];
-        side = true;
-        index = index + 1;
-    }
-
-    else if (prevQ.mouse.presses() && (index >=1 && index <=9)){
-        question = qs[unit][index-1];
-        answer = ans[unit][index-1];
-        aBox.text = qs[unit][index-1];
-        side = true;
-        index = index - 1;
-    }
-
-
-
-
-    
+    //calling the function to change sides
+    flipSides();
     
 }
 
@@ -436,5 +290,177 @@ function screenZero() {
     box10.pos = { x: 375, y: 500 };
     box11.pos = { x: 625, y: 500 };
     box12.pos = { x: 850, y: 500 };
+
+}
+
+
+// this function changes the text depending on whether the question or answer is already being displayed
+function flipSides() {
+    if (flip.mouse.presses() && side == false) {
+        aBox.text = question;
+        side = true;
+    }
+
+    else if (flip.mouse.presses() && side == true) {
+        aBox.text = answer;
+        side = false;
+    }
+
+    else if (nextQ.mouse.presses() && (index >= 0 && index <= 8)) {
+        question = qs[unit][index + 1];
+        answer = ans[unit][index + 1];
+        aBox.text = qs[unit][index + 1];
+        side = true;
+        index = index + 1;
+    }
+
+    else if (prevQ.mouse.presses() && (index >= 1 && index <= 9)) {
+        question = qs[unit][index - 1];
+        answer = ans[unit][index - 1];
+        aBox.text = qs[unit][index - 1];
+        side = true;
+        index = index - 1;
+    }
+}
+
+
+//this function uses the coordinates of the boxes and the mouse's location to indicate interacable buttons
+function boxHover() {
+
+    //box for unit 1
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)) {
+        box1.color = "blue";
+    }
+    // else, keep the colour as purple
+    else {
+        box1.color = "purple";
+    }
+
+    //box for unit 5
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)) {
+        box5.color = "blue";
+    }
+    // else, keep the colour as yellow
+    else {
+        box5.color = "yellow";
+    }
+
+    //box for unit 9
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)) {
+        box9.color = "blue";
+    }
+    // else, keep the colour as pink
+    else {
+        box9.color = "pink";
+    }
+
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)) {
+        box2.color = "blue";
+    }
+    else {
+        box2.color = "majenta";
+    }
+
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)) {
+        box6.color = "blue";
+    }
+    else {
+        box6.color = "brown";
+    }
+
+
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)) {
+        box10.color = "blue";
+    }
+    else {
+        box10.color = "green";
+    }
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)) {
+        box3.color = "blue";
+    }
+    else {
+        box3.color = "red";
+    }
+
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)) {
+        box7.color = "blue";
+    }
+    else {
+        box7.color = "blueviolet";
+    }
+
+
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)) {
+        box11.color = "blue";
+    }
+    else {
+        box11.color = "darkcyan";
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)) {
+        box4.color = "blue";
+    }
+    else {
+        box4.color = "darkseagreen";
+    }
+
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)) {
+        box8.color = "blue";
+    }
+    else {
+        box8.color = "khaki";
+    }
+
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)) {
+        box12.color = "blue";
+    }
+    else {
+        box12.color = "olive";
+    }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)) {
+        returnMenu.color = "red";
+    }
+    else {
+        returnMenu.color = "DarkOrange";
+
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 20) && (mouseY < 75)) {
+        flip.color = "YellowGreen";
+        cursor(HAND);
+    }
+    else {
+        flip.color = "mediumpurple";
+        cursor(ARROW);
+
+    }
+
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 560) && (mouseY < 590)) {
+        prevQ.color = "Crimson";
+    }
+    else {
+        prevQ.color = "RoyalBlue";
+
+    }
+
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 560) && (mouseY < 590)) {
+        nextQ.color = "green";
+    }
+    else {
+        nextQ.color = "DarkKhaki";
+
+
+    }
+
 
 }
