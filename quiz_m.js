@@ -183,7 +183,7 @@ function draw(){
 
     // don't let the score go below 0
     if (score < -1){
-        score = -1;
+        score = 0;
     }
 
     // don't let score go above (the number of quizzes x 10)
@@ -197,6 +197,7 @@ function draw(){
         displayQuiz();
     }
 
+
     // end of quiz screen
     if (screen == 4){
         aBox.pos = {x: -1100, y: 1100};
@@ -204,8 +205,9 @@ function draw(){
         qBox.pos = {x: 450, y: -4760};
         nextQ.pos = {x: -553, y: 1234};
         saveQuiz.pos = {x: 900, y: -900};
-    }
     
+    }
+
     
 }
 
@@ -216,7 +218,6 @@ function boxText(){
 
     returnMenu.text = "Return to \n menu";
 
-    showScore.text = "Score = " + score;
 
     qBox.text = question;
 
@@ -241,6 +242,14 @@ function boxText(){
     // indicate saving score to the user
     if (index == ((numTopics*10)-1)) {
         nextQ.text = "Save Score";
+    }
+
+    if (screen == 4){
+        showScore.text = "Average Score =\n" + score;
+    }
+
+    else{
+        showScore.text = "Score = " + score;
     }
 }
 
@@ -364,7 +373,7 @@ function checkAnswer(){
 
     // at the last question, the user is able to save their score
     else if (nextQ.mouse.presses() && index == ((numTopics*10)-1)) {
-        endOfQuiz();
+        saveScore();
     }
 
 }
@@ -392,21 +401,7 @@ function returnToMenu(){
 
 }
 
-
-// function to end the quiz and ensure answers are not pressed multiple times
-function endOfQuiz(){
-    let scoreBounds = score;
-    if (score < scoreBounds -1){
-        score = scoreBounds + 1;
-    }
-    else if (score > scoreBounds + 1){
-        score = scoreBounds - 1;
-    }
-    saveScore();
-}
-
 function saveScore() {
-
     screen = 4;
     background("#b5838d");
     aBox.pos = {x: -1100, y: 1100};

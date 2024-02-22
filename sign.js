@@ -1,29 +1,58 @@
 var inputEmail, inputPass, inputLname, inputFname, inputRole, username;
-
+var validEmail = false;
+var validName = false;
+var validPass = false;
 
 function foo(){
     var name = document.getElementById("fname").value;
     console.log(name);
 }
 
+// function that is called when the user presses the button to check details
 function store(){
-    inputEmail = document.getElementById("email").value;
-    // encryption
-    inputEmail = CryptoJS.AES.encrypt(inputEmail, "palladian");
-    localStorage.setItem("email", inputEmail);
 
+    // getting the email from the form
+    inputEmail = document.getElementById("email").value;
+
+    // if the email includes an @, the format is valid
+    // encrpyt the email then save
+    // if this does not happen, validEmail remains false
+    if (inputEmail.includes("@")){
+        validEmail = true;
+        // encryption
+        inputEmail = CryptoJS.AES.encrypt(inputEmail, "palladian");
+        localStorage.setItem("email", inputEmail);
+    }
+    
     inputLname = document.getElementById("lname").value;
     localStorage.setItem("lname", inputLname);
 
+
     inputFname = document.getElementById("fname").value;
-    localStorage.setItem("fname", inputFname);
+    
+    // if the email includes an @, the format is valid
+    // encrpyt the email then save
+    // if this does not happen, validEmail remains false
+    if (inputFname.includes(" ") == false){
+        validName = true;
+        localStorage.setItem("fname", inputFname);
+
+    }
+
 
     inputPass = document.getElementById("pass").value;
-    //encrypt password
 
-    inputPass = CryptoJS.AES.encrypt(inputPass, "palladian");
-    inputPass = inputPass.toString();
-    localStorage.setItem("pass", inputPass);
+    // if the password does not include a space and is longer than 6 characters, it is valid
+    // encrpyt the password then save
+    // if this does not happen, validPass remains false
+    if (inputPass.includes(" ") == false && inputPass.length>6){
+        //encrypt password
+
+        inputPass = CryptoJS.AES.encrypt(inputPass, "palladian");
+        inputPass = inputPass.toString();
+        localStorage.setItem("pass", inputPass);
+    }
+    
 
     inputRole = document.getElementById("role").value;
     localStorage.setItem("role", inputRole);
@@ -38,9 +67,21 @@ function store(){
     console.log(inputPass);
     console.log(inputRole);
 
+    // if any of the details are of invalid format, prevent submission
+    if(validEmail == false || validName == false || validPass == false){
+        alert("incorrect details entered, please try again");
+        event.preventDefault();
+        //someBug();
+        return false;
+    }
+
+    // else, allow the user to sign up
+    else{
+        alert("sign up successful");
+    }
 
 
-    alert("sign up successful");
+    
 
 }
 

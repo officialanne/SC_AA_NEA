@@ -90,6 +90,8 @@ let side = false;
 let score = 0;
 let endQuiz;
 
+let numBox;
+
 // variables to get selection for multiple units in quizzes
 var topics = new Array();
 var numTopics;
@@ -150,6 +152,9 @@ function setup(){
 
     // creating button to save score
     saveQuiz = new Sprite(150, 570, 150, 50);
+
+    // this button will display the number of the flashcard the user is on
+    numBox = new Sprite(1200, -5500, 300, 50);
 }
 
 // this function is continually run throughout run time
@@ -213,6 +218,10 @@ function boxText(){
     // the question box holds the current question
     qBox.text = question;
 
+    // telling the user what index they are within the set of 10 cards
+    numBox.text = "Your are on question " + (index + 1).toString() + " of " + ((localStorage.getItem("number of units: "))*10).toString();
+
+
 
     
 }
@@ -239,72 +248,60 @@ function selectQuiz(){
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
-        text("Practice Unit 1", width / 2-30, 125);
     }
     if (box2.mouse.presses()) {
         choice = 2;
         background("#f2d0a9");
-        text("Practice Unit 2", width / 2-30, 125);
     }
 
     else if (box3.mouse.presses()) {
         choice = 3;
         background("#d88c9a");
-        text("Practice Unit 3", width / 2-30, 125);
     }
 
     else if (box4.mouse.presses()) {
         choice = 4;
         background("#84a98c");
-        text("Practice Unit 4", width / 2-30, 125);
     }
 
     else if (box5.mouse.presses()) {
         choice = 5;
         background("#f2d0a9");
-        text("Practice Unit 5", width / 2-30, 125);
     }
 
     else if (box6.mouse.presses()) {
         choice = 6;
         background("#d88c9a");
-        text("Practice Unit 6", width / 2-30, 125);
     }
 
     else if (box7.mouse.presses()) {
         choice = 7;
         background("#84a98c");
-        text("Practice Unit 7", width / 2-30, 125);
     }
 
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
-        text("Practice Unit 8", width / 2-30, 125);
     }
 
     else if (box9.mouse.presses()) {
         choice = 9;
         background("#d88c9a");
-        text("Practice Unit 9", width / 2-30, 125);
     }
 
     else if (box10.mouse.presses()) {
         choice = 10;
         background("#84a98c");
-        text("Practice Unit 10", width / 2-30, 125);
     }
 
     else if (box11.mouse.presses()) {
         choice = 11;
         background("#f2d0a9");
-        text("Practice Unit 11", width / 2-30, 125);
     }
 
     else if (box12.mouse.presses()) {
         choice = 12;
         background("#d88c9a");
-        text("Practice Unit 12", width / 2-30, 125);
     }
 
     // return choice to display that unit's notes
@@ -322,6 +319,7 @@ function displayQuiz(choice) {
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     qBox.pos = {x: width / 2, y: height / 2 -100};
+    numBox.pos = {x: width/2, y: 120};
 
     
     // use a loop to create objects for each question and answer
@@ -473,6 +471,8 @@ function returnToMenu(){
     qBox.pos = {x: 450, y: -4760};
     saveQuiz.pos = {x:150, y: 570};
     saveQuiz.text = "";
+    numBox.pos = {x: 1200, y:-1200};
+
 
     background("#f2e8cf");
     
