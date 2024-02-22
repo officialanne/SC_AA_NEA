@@ -1,5 +1,7 @@
-// copy of arrays from flashcards
+//array to hold questions
 var qs = new Array();
+
+// elements in the array being arrays that hold individual questions
 qs[0] = new Array("How is data fetched in the FDE cycle?", "What is the accumulator?", "What is a parallel system?", "What is a multicore system?", "What is a CISC processor?", "What is a register?", "What is the address bus?", "What is the opcode?", "What is the control unit?", "What is flash storage?");
 qs[1] = new Array("What is a device driver?", "What is a multi user\noperating system", "What is a multi tasking\noperating system?", "How does the ISR work within the\nFDE cycle?", "What is a linker?", "What is syntax analysis?", "What is optimisation?", "What is an interpreter?", "Why is bespoke software used?", "What is the BIOS?");
 qs[2] = new Array("What is a class?", "What is direct addressing?", "What is indexed addressing used for?", "What is an object?", "What is a good algorithm?", "What is the waterfall lifecycle?", "What is extreme programming?", "What is functional programming?", "What is a method?", "What is indirect addressing?");
@@ -13,11 +15,14 @@ qs[9] = new Array("What is abstraction?", "What is thinking ahead?", "What is th
 qs[10] = new Array("What are global variables?", "What is passing by reference?", "What is passing by value?", "What are local variables?", "What is encapsulation?", "What is sequence?", "What is recursion?", "How does an IDE use a step breaker?", "What is a procedure?", "What is a private attribute?");
 qs[11]= new Array("What is the A* Algorithm?", "What is the polynomial time complexity?", "What is the bubble sort?", "What is Dijkstra's shortest path algorithm?", "What is breadth-first traversal", "What is post-order traversal?", "What is the merge sort?", "What is in-order traversal?", "What is a stack?", "What is pre-order traversal?");
 
+// array to hold answers
 var ans = new Array();
+
+// elements in the array being arrays that hold individual answers
 ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "A register which\nholds the results of\nall operatons carried\nout in the ALU", "The simultaneous use\nof several processors\nto perform a single\ntask or seperate\ninstructions", "A single chip\ncontaining\ntwo or more\nindependent\nprocessing units", "A complicated and\nexpensive integrated\ncircuit with\nintstructions that\nexecute in a few\nmachine cycles", "Tiny areas of\nextremely fast\nmemory located in the\nCPU where data is\nstored temporarily", "The part of the\nsystem bus\nwhich carried\nidentification about\nwhere data is read\nfrom or written to", "Operation code, which\ndetermines what to do", "Coordinates and\ncontrols\nactivities of the CPU\nby sending signals to\nother components", "A collection of memory\nchips controlled by its\nown software\nand data is stored\nin pages");
 ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
 ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
-ans[3] = new Array("a41", "Eevry object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
+ans[3] = new Array("a41", "Every object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
 ans[4] = new Array("a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a510");
 ans[5] = new Array("a61", "a62", "a63", "a64", "a65", "a66", "a67", "a68", "a69", "a610");
 ans[6] = new Array("a71", "a72", "a73", "a74", "A dynamic data\nstructure\nFirst in Last Out", "a76", "a77", "a78", "a79", "a710");
@@ -27,8 +32,10 @@ ans[9] = new Array("a101", "a102", "a103", "a104", "a105", "a106", "a107", "a108
 ans[10]= new Array("a111", "a112", "a113", "a114", "a115", "a116", "a117", "a118", "a119", "a1110");
 ans[11] = new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a128", "a129", "a1210");
 
-// additional arrays to store other answer and score
+// additional arrays to store incorrect answers
 var ans2 = new Array();
+
+// elements in the array being arrays that hold individual incorrect answers
 ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "A register\nwhich data to be read\nfrom or written to\nmemory", "When more than one\nprocess is in progress\nfrom one processor", "An additional\nprocessor to support\nthe functions\nof the CPU", "A simple, cheap\nintegrated\ncircuit with instructions\ntaking one clock\ncycle", "A small amount of\nexpensive, very fast\nmemory near the CPU\nproviding fast access\nto frequently used data", "The part of the system\nbus which carries data\nread from or being\nwritten to memory", "Determines what the\ninstruction sould\nbe executed on", "Carries command and\ncontrol signals to and\nfrom other components\nusing control lines", "Data is stored on\nplastic discs as\npatterns on the\nsurface in\npits and lans");
 ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "Making the best algorithm", "aA28", "aA29", "aA210");
 ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
@@ -42,8 +49,10 @@ ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107
 ans2[10] = new Array("aA111", "aA112", "aA113", "aA114", "aA115", "aA116", "aA117", "aA118", "aA119", "aA1110");
 ans2[11] = new Array("aA121", "aA122", "aA123", "aA124", "aA125", "aA126", "aA127", "aA128", "aA129", "aA1210");
 
-// score array
+// array to hold all units of scores
 var scores = new Array();
+
+// individual arrays for scores
 scores[0] = [];
 scores[1] = [];
 scores[2] = [];
@@ -57,19 +66,31 @@ scores[9] = [];
 scores[10] = [];
 scores[11] = [];
 
-
+// labels on main menu to select unit
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
-let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
+
+// individual introduction and unit selection boxes
+let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12;
+
+// box to return menu
 let returnMenu;
+
+// variables to get user choice
 let choice, unit, index;
+
+// variable to switch between quiz and menu
 let screen = 0;
 let count = 0;
 
+// buttons for quiz GUI
 let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
 let side = false;
+
+//variable to hold score
 let score = 0;
 let endQuiz;
 
+// variables to get selection for multiple units in quizzes
 var topics = new Array();
 var numTopics;
 
@@ -79,36 +100,10 @@ var numTopics;
 var qAndA = [];
 
 
-
-
-function multChoice() {
-    var units = document.forms[0];
-    var i;
-    for (i = 0; i < units.length; i++) {
-        if (units[i].checked) {
-            topics[topics.length] = (i+1).toString();
-        }
-    }
-    numTopics = topics.length;
-    if (numTopics <2 || numTopics >3){
-        topics.length = 0;
-        alert("please choose 2 or 3 units!");
-        event.preventDefault();
-        someBug();
-        return false;
-    }
-    else{
-        localStorage.setItem("number of units: ", numTopics.toString());
-        localStorage.setItem("topic choices: ", JSON.stringify(topics));
-        alert("units = " + JSON.stringify(numTopics) + ", selection = " + JSON.stringify(topics));
-    }
-    
-}
-
-
-
-
+// this function automatically runs once at the beginning of run time
 function setup(){
+
+    //background and text settings
     textAlign(CENTER);
     createCanvas(1000, 600);
     background("purple");
@@ -157,144 +152,39 @@ function setup(){
     saveQuiz = new Sprite(150, 570, 150, 50);
 }
 
+// this function is continually run throughout run time
 function draw(){
 
+    // calling the function to change colours on interactable buttons
+    boxHover();
 
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)){
-        box1.color = "blue";
-    }
-    else {
-        box1.color = "purple";
-    }
-    
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)){
-        box5.color = "blue";
-    }
-    else {
-        box5.color = "yellow";
-    }
-    
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)){
-        box9.color = "blue";
-    }
-    else {
-        box9.color = "pink";
-    }
+    boxText();
 
     
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)){
-        box2.color = "blue";
-    }
-    else {
-        box2.color = "majenta";
-    }
-    
 
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)){
-        box6.color = "blue";
-    }
-    else {
-        box6.color = "brown";
-    }
-    
-
-    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)){
-        box10.color = "blue";
-    }
-    else {
-        box10.color = "green";
+    // changing screens when the user clicks any of the boxes
+    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
+        selectQuiz();
     }
 
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)){
-        box3.color = "blue";
-    }
-    else {
-        box3.color = "red";
-    }
-    
+    checkAnswer();
 
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)){
-        box7.color = "blue";
-    }
-    else {
-        box7.color = "blueviolet";
-    }
-    
-
-    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)){
-        box11.color = "blue";
-    }
-    else {
-        box11.color = "darkcyan";
-    }
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)){
-        box4.color = "blue";
-    }
-    else {
-        box4.color = "darkseagreen";
-    }
-    
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)){
-        box8.color = "blue";
-    }
-    else {
-        box8.color = "khaki";
-    }
-    
-
-    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)){
-        box12.color = "blue";
-    }
-    else {
-        box12.color = "olive";
-    }
-
-    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
-        returnMenu.color = "red";
-        //cursor(HAND);
-    }
-    else {
-        returnMenu.color = "DarkOrange";
-        //cursor(ARROW);
-
-    }
-
-    
-    if (unit!=null){
-        if ((mouseX > 625) && (mouseX < 875) && (mouseY > 300) && (mouseY < 500)){
-        aBox.color = "LightGreen";
-        //cursor(HAND);
-    }
-
-    else{
-        aBox.color = "SlateBlue";
-
-    }
-    if ((mouseX > 150) && (mouseX < 350) && (mouseY > 300) && (mouseY < 500)){
-        a2Box.color = "LimeGreen";
-        //cursor(HAND);
-    }
-
-    else {
-        a2Box.color = "cyan";
-        //cursor(ARROW);
-
-    }
+    // don't let the score go below 0
+    if (score < -1){
+        score = -1;
     }
     
     
+}
 
+function boxText(){
     // putting the text in the intro text box
     if (unit !=null){
         intro.text=("Practice unit " + (unit + 1).toString());
         nextQ.text = "Select an answer\nout of the two";
     }
 
-    
+    // default text to guide the user
     else{
         intro.text=("Put your knowledge to the test!"); 
         nextQ.text = "Choose a unit";
@@ -316,115 +206,14 @@ function draw(){
 
     returnMenu.text = "Return to \nmenu";
 
+    // this button displays the score to the user
     showScore.text = "Current Score = " + score;
 
-    
 
+    // the question box holds the current question
     qBox.text = question;
 
 
-    // changing screens when the user clicks any of the boxes
-    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
-        selectQuiz();
-    }
-
-    // return back to summary notes when the return button is clicked
-    if (returnMenu.mouse.presses()) {
-        returnToMenu();
-    }
-
-
-    // Using selection to change the text on boxes each time the user answers a question
-    else if (aBox.mouse.presses() || a2Box.mouse.presses() && 0<=index<=9) {
-        // if the user answers correctly
-        if ((aBox.text == answer && aBox.mouse.presses()) || (a2Box.text == answer && a2Box.mouse.presses())){
-            // let them know
-            saveQuiz.text = "correct!";
-
-            // increment the score
-            score+=1;
-            
-            if (index <=8){
-                // go to next question with new random allocation of text
-                question = qAndA[index+1].ques;
-
-                answer = qAndA[index+1].rightAns;
-                wrongAns = qAndA[index+1].incorrect;
-
-                let answersText = [answer, wrongAns];
-                aBox.text = random(answersText);
-            }
-            
-
-
-            if (aBox.text == answer) {
-                a2Box.text = wrongAns;
-            }
-            else if (aBox.text == wrongAns) {
-                a2Box.text = answer;
-            }
-
-
-            if (index <=8){
-                index = index + 1;
-            }
-            
-        } 
-
-        // if they answer incorrectly, let them have another go, but don't give them a new score
-        else{
-            // let them know
-            saveQuiz.text = "incorrect, have\nanother go!"; 
-            
-            // same question but randomly switch text
-            question = qAndA[index].ques;
-
-            answer = qAndA[index].rightAns;
-            wrongAns = qAndA[index].incorrect;
-
-            let answersText = [answer, wrongAns];
-            aBox.text = random(answersText);
-
-
-            if (aBox.text == answer) {
-                a2Box.text = wrongAns;
-                
-            }
-            else if (aBox.text == wrongAns) {
-                a2Box.text = answer;
-                
-            }
-
-            // cancel out the later addition of a point by subtracting now
-            score = score - 1;
-        }
-
-    }
-    
-
-    // last question
-    else if (nextQ.mouse.presses() && index == 9) {
-        saveScore();
-    }
-    
-    if (index == 9) {
-        nextQ.text = "Final Question -\nAfter, Save Score";
-        if ((mouseX > 750) && (mouseX < 950) && (mouseY > 550) && (mouseY < 600)){
-            nextQ.color = "green";
-            //cursor(HAND);
-        }
-        else {
-            nextQ.color = "DarkKhaki";
-            //cursor(ARROW);
-    
-        }
-    }
-
-    // don't let the score go below 0
-    if (score < -1){
-        score = -1;
-    }
-    
     
 }
 
@@ -526,7 +315,7 @@ function selectQuiz(){
 
 
 function displayQuiz(choice) {
-    
+    // using the user's choice to begin the quiz
     unit = choice - 1;
     index = 0;
     side = false;
@@ -552,9 +341,13 @@ function displayQuiz(choice) {
         [qAndA[i], qAndA[j]] = [qAndA[j], qAndA[i]];
     } 
 
-
+    // set the question to be the object's question attribute
     question = qAndA[index].ques;
+
+    // set the answer to be the object's answer attribute
     answer = qAndA[index].rightAns;
+
+    // set the wrong answer to be the object's wrong answer attribute
     wrongAns = qAndA[index].incorrect;
 
     let answersText = [answer, wrongAns];
@@ -569,22 +362,108 @@ function displayQuiz(choice) {
         a2Box.text = answer;
         
     }
+    
+}
 
+function checkAnswer(){
+    // return back to summary notes when the return button is clicked
+    if (returnMenu.mouse.presses()) {
+        returnToMenu();
+    }
+
+
+    // Using selection to change the text on boxes each time the user answers a question
+    else if (aBox.mouse.presses() || a2Box.mouse.presses() && 0<=index<=9) {
+        // if the user answers correctly
+        if ((aBox.text == answer && aBox.mouse.presses()) || (a2Box.text == answer && a2Box.mouse.presses())){
+            // let them know
+            saveQuiz.text = "correct!";
+
+            // increment the score
+            score+=1;
+            
+            if (index <=8){
+                // go to next question with new random allocation of text
+                question = qAndA[index+1].ques;
+
+                answer = qAndA[index+1].rightAns;
+                wrongAns = qAndA[index+1].incorrect;
+
+                let answersText = [answer, wrongAns];
+                aBox.text = random(answersText);
+            }
+            
+
+
+            if (aBox.text == answer) {
+                a2Box.text = wrongAns;
+            }
+            else if (aBox.text == wrongAns) {
+                a2Box.text = answer;
+            }
+
+
+            if (index <=8){
+                index = index + 1;
+            }
+            
+        } 
+
+        // if they answer incorrectly, let them have another go, but don't give them a new score
+        else{
+            // let them know
+            saveQuiz.text = "incorrect, have\nanother go!"; 
+            
+            // same question but randomly switch text
+            question = qAndA[index].ques;
+
+            answer = qAndA[index].rightAns;
+            wrongAns = qAndA[index].incorrect;
+
+            let answersText = [answer, wrongAns];
+            aBox.text = random(answersText);
+
+
+            if (aBox.text == answer) {
+                a2Box.text = wrongAns;
+                
+            }
+            else if (aBox.text == wrongAns) {
+                a2Box.text = answer;
+                
+            }
+
+            // cancel out the later addition of a point by subtracting now
+            score = score - 1;
+        }
+
+    }
     
 
+    // last question
+    else if (nextQ.mouse.presses() && index == 9) {
+        saveScore();
+    }
     
+    if (index == 9) {
+        nextQ.text = "Final Question -\nAfter, Save Score";
+        if ((mouseX > 750) && (mouseX < 950) && (mouseY > 550) && (mouseY < 600)){
+            nextQ.color = "green";
+        }
+        else {
+            nextQ.color = "DarkKhaki";
+    
+        }
+    }
+
 }
 
 
 
 
 // function to reset the screen when the reset button is clicked
-function returnToMenu(){
-    screenZero();
-}
-
 // function to reset the screen through the backround and buttons
-function screenZero() {
+function returnToMenu(){
     screen = 0;
     index = 0;
     unit = null;
@@ -609,8 +488,9 @@ function screenZero() {
     box10.pos = { x: 375, y: 500 };
     box11.pos = { x: 625, y: 500 };
     box12.pos = { x: 850, y: 500 };
-
 }
+
+
 
 function saveScore() {
     background("#b5838d");
@@ -665,4 +545,219 @@ function saveScore() {
 }
 
 
+// this function uses the coordinates of the mouse with the set locations of the boxes
+// to change the colour of the box when hovering over it
+function boxHover(){
+        //box for unit 1
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 125) && (mouseY < 215)) {
+        box1.color = "blue";
+    }
+    // else, keep the colour as purple
+    else {
+        box1.color = "purple";
+    }
+
+    //box for unit 5
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 275) && (mouseY < 365)) {
+        box5.color = "blue";
+    }
+    // else, keep the colour as yellow
+    else {
+        box5.color = "yellow";
+    }
+
+    //box for unit 9
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 450) && (mouseY < 540)) {
+        box9.color = "blue";
+    }
+    // else, keep the colour as pink
+    else {
+        box9.color = "pink";
+    }
+
+    //box for unit 2
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)) {
+        box2.color = "blue";
+    }
+
+    // else, keep the colour as majenta
+    else {
+        box2.color = "majenta";
+    }
+
+    //box for unit 6
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)) {
+        box6.color = "blue";
+    }
+    // else, keep the colour as brown
+    else {
+        box6.color = "brown";
+    }
+
+    //box for unit 10
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)) {
+        box10.color = "blue";
+    }
+    // else, keep the colour as green
+    else {
+        box10.color = "green";
+    }
+
+    //box for unit 3
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)) {
+        box3.color = "blue";
+    }
+    // else, keep the colour as red
+    else {
+        box3.color = "red";
+    }
+
+    //box for unit 7
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)) {
+        box7.color = "blue";
+    }
+    // else, keep the colour as blueviolet
+    else {
+        box7.color = "blueviolet";
+    }
+
+    //box for unit 11
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)) {
+        box11.color = "blue";
+    }
+    // else, keep the colour as darkcyan
+    else {
+        box11.color = "darkcyan";
+    }
+
+    //box for unit 4
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)) {
+        box4.color = "blue";
+    }
+    // else, keep the colour as darkseagreen
+    else {
+        box4.color = "darkseagreen";
+    }
+
+    //box for unit 8
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)) {
+        box8.color = "blue";
+    }
+
+    // else, keep the colour as khaki
+    else {
+        box8.color = "khaki";
+    }
+
+
+    //box for unit 12
+    // if the mouse is on the box, change colour to blue
+    if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)) {
+        box12.color = "blue";
+    }
+    // else, keep the colour as olive
+    else {
+        box12.color = "olive";
+    }
+
+    // if hovering over return to menu, change colour to red
+    if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
+        returnMenu.color = "red";
+   
+    }
+
+    // else, keep the colour as dark orange
+    else {
+        returnMenu.color = "DarkOrange";
+       
+
+    }
+
+    
+    // during the quiz, if hovering over the answer box, change the colour to green
+    if (unit!=null){
+        if ((mouseX > 625) && (mouseX < 875) && (mouseY > 300) && (mouseY < 500)){
+        aBox.color = "LightGreen";
+     
+    }
+
+    // else, keep the colour as blue
+    else{
+        aBox.color = "SlateBlue";
+
+    }
+    if ((mouseX > 150) && (mouseX < 350) && (mouseY > 300) && (mouseY < 500)){
+        a2Box.color = "LimeGreen";
+     
+    }
+
+    else {
+        a2Box.color = "cyan";
+
+
+    }
+    }
+    
+    
+}
+
+
+
+// this function is run when the form is submitted
+// it checks what units have been selected and the number of units
+function multChoice() {
+    // get all the selected units
+    var units = document.forms[0];
+
+    // variable for index
+    var i;
+
+    // getting each topic that has been selected and adding to an array
+    for (i = 0; i < units.length; i++) {
+        if (units[i].checked) {
+            topics[topics.length] = (i+1).toString();
+        }
+    }
+
+    // getting the number of topics
+    numTopics = topics.length;
+
+    //If the number of topics is greater than 3 or less than 2
+    if (numTopics <2 || numTopics >3){
+
+        //reset the topics
+        topics.length = 0;
+
+        // tell the user they need to choose 2-3 units
+        alert("please choose 2 or 3 units!");
+
+        //prevent the form from submission
+        event.preventDefault();
+        someBug();
+        return false;
+    }
+
+    // the user has chosen 2 - 3 units
+    else{
+
+        //set the number of topics and the units to local storage
+        localStorage.setItem("number of units: ", numTopics.toString());
+        localStorage.setItem("topic choices: ", JSON.stringify(topics));
+
+        //tell the user what topics they chose
+        alert("units = " + JSON.stringify(numTopics) + ", selection = " + JSON.stringify(topics));
+    }
+    
+}
 

@@ -71,8 +71,6 @@ function setup() {
     //button to go to next card
     nextQ = new Sprite (850, 575, 150, 30);
 
-    
-
     // creating buttons to click to select menu as objects called sprites
     boxes = new Group();
 
@@ -106,7 +104,25 @@ function draw(){
     //contunially calling the function to hover over boxes
     boxHover();
 
+    boxText();
 
+
+    // changing screens when the user clicks any of the boxes
+    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
+        selectCards();
+    }
+
+    // return back to summary notes when the return button is clicked
+    if (returnMenu.mouse.presses()) {
+        returnToMenu();
+    }
+
+    //calling the function to change sides
+    flipSides();
+    
+}
+
+function boxText(){
     // putting the text in the intro text box
     if (unit !=null){
         intro.text=("Catch up on unit " + (unit + 1).toString() + " - " + unitNotes[unit]);
@@ -139,21 +155,7 @@ function draw(){
     numBox.text = "Your are viewing card " + (index + 1).toString() + " of 10";
 
 
-    prevQ.text = "Previous Card"
-
-    // changing screens when the user clicks any of the boxes
-    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
-        selectCards();
-    }
-
-    // return back to summary notes when the return button is clicked
-    if (returnMenu.mouse.presses()) {
-        returnToMenu();
-    }
-
-    //calling the function to change sides
-    flipSides();
-    
+    prevQ.text = "Previous Card";
 }
 
 function selectCards(){
@@ -242,7 +244,8 @@ function selectCards(){
 
 }
 
-
+// this function takes the user's choice and sets the questions and answers
+// based on the unit that has been selected
 function displayCards(choice) {
     unit = choice - 1;
     index = 0;
@@ -268,6 +271,8 @@ function returnToMenu(){
 
 // function to reset the screen through the backround and buttons
 function screenZero() {
+
+    // reset variables
     screen = 0;
     index = 0;
     unit = 0;
@@ -278,6 +283,7 @@ function screenZero() {
     aBox.text = "";
     background("#f2e8cf");
     
+    // reset boxes that display the units to original positions
     box1.pos = { x: 150, y: 175 };
     box2.pos = { x: 375, y: 175 };
     box3.pos = { x: 625, y: 175 };
@@ -296,16 +302,22 @@ function screenZero() {
 
 // this function changes the text depending on whether the question or answer is already being displayed
 function flipSides() {
+
+    // if the flip sides button is pressed and the answer is showing, switch
     if (flip.mouse.presses() && side == false) {
         aBox.text = question;
         side = true;
     }
 
+    // if the button to change sides is pressed and the question is displaying
+    // change the text to the answer and change side to true
     else if (flip.mouse.presses() && side == true) {
         aBox.text = answer;
         side = false;
     }
 
+    // if the button to got to the next question is pressed
+    // increment the index and change the text on the box
     else if (nextQ.mouse.presses() && (index >= 0 && index <= 8)) {
         question = qs[unit][index + 1];
         answer = ans[unit][index + 1];
@@ -314,6 +326,8 @@ function flipSides() {
         index = index + 1;
     }
 
+    // if the button to go back one question is pressed
+    // decrement the index and change the question back
     else if (prevQ.mouse.presses() && (index >= 1 && index <= 9)) {
         question = qs[unit][index - 1];
         answer = ans[unit][index - 1];
@@ -357,94 +371,124 @@ function boxHover() {
         box9.color = "pink";
     }
 
-
+    //box for unit 2
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)) {
         box2.color = "blue";
     }
+
+    // else, keep the colour as majenta
     else {
         box2.color = "majenta";
     }
 
-
+    //box for unit 6
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)) {
         box6.color = "blue";
     }
+    // else, keep the colour as brown
     else {
         box6.color = "brown";
     }
 
-
+    //box for unit 10
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)) {
         box10.color = "blue";
     }
+    // else, keep the colour as green
     else {
         box10.color = "green";
     }
 
+    //box for unit 3
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)) {
         box3.color = "blue";
     }
+    // else, keep the colour as red
     else {
         box3.color = "red";
     }
 
-
+    //box for unit 7
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)) {
         box7.color = "blue";
     }
+    // else, keep the colour as blueviolet
     else {
         box7.color = "blueviolet";
     }
 
-
+    //box for unit 11
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)) {
         box11.color = "blue";
     }
+    // else, keep the colour as darkcyan
     else {
         box11.color = "darkcyan";
     }
 
+    //box for unit 4
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)) {
         box4.color = "blue";
     }
+    // else, keep the colour as darkseagreen
     else {
         box4.color = "darkseagreen";
     }
 
-
+    //box for unit 8
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)) {
         box8.color = "blue";
     }
+
+    // else, keep the colour as khaki
     else {
         box8.color = "khaki";
     }
 
 
+    //box for unit 12
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)) {
         box12.color = "blue";
     }
+    // else, keep the colour as olive
     else {
         box12.color = "olive";
     }
 
+    // if hovering over return to menu, change colour to red
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)) {
         returnMenu.color = "red";
     }
+    //else, keep the coliur as orange
     else {
         returnMenu.color = "DarkOrange";
 
     }
 
+    // if hovering over the button to flip sides, chagne the colour to green and
+    //change the cursor
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 20) && (mouseY < 75)) {
         flip.color = "YellowGreen";
         cursor(HAND);
     }
+
+    //otherwise, keep the colour as purple and normal cursor
     else {
         flip.color = "mediumpurple";
         cursor(ARROW);
 
     }
 
+    // change colours if hovering over the button to go back one question 
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 560) && (mouseY < 590)) {
         prevQ.color = "Crimson";
     }
@@ -453,6 +497,7 @@ function boxHover() {
 
     }
 
+    // change colours when hovering over the button to go to the next question
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 560) && (mouseY < 590)) {
         nextQ.color = "green";
     }

@@ -30,6 +30,10 @@ function setup() {
     background("#e0e1dd");
     textSize(20);
 
+    // adding outline to boxes
+    strokeWeight(1);
+    stroke(25);
+
     // creating intro text box
     intro = new Sprite(width/2, 50, 500, 55);
 
@@ -67,8 +71,22 @@ function draw() {
     //calling the function to hover over boxes
     boxHover();
 
-
+    boxText();
     
+
+    // changing screens when the user clicks any of the boxes
+    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) { 
+        selectUnit();
+    }
+
+    // return back to summary notes when the return button is clicked
+    if (returnMenu.mouse.presses()) {
+        returnToMenu();
+    }
+
+}
+
+function boxText(){
     // putting the text in the intro text box
     if (choice == null || screen == 0){
         intro.text=(intro_text);
@@ -91,17 +109,6 @@ function draw() {
     box11.text = box_text[10];
     box12.text = box_text[11];
     returnMenu.text = "Return to \n menu";
-
-    // changing screens when the user clicks any of the boxes
-    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) { 
-        selectUnit();
-    }
-
-    // return back to summary notes when the return button is clicked
-    if (returnMenu.mouse.presses()) {
-        returnToMenu();
-    }
-
 }
 
 // function to reset the screen when the reset button is clicked
