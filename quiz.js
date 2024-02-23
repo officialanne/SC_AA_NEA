@@ -20,7 +20,7 @@ var ans = new Array();
 
 // elements in the array being arrays that hold individual answers
 ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "A register which\nholds the results of\nall operatons carried\nout in the ALU", "The simultaneous use\nof several processors\nto perform a single\ntask or seperate\ninstructions", "A single chip\ncontaining\ntwo or more\nindependent\nprocessing units", "A complicated and\nexpensive integrated\ncircuit with\nintstructions that\nexecute in a few\nmachine cycles", "Tiny areas of\nextremely fast\nmemory located in the\nCPU where data is\nstored temporarily", "The part of the\nsystem bus\nwhich carried\nidentification about\nwhere data is read\nfrom or written to", "Operation code, which\ndetermines what to do", "Coordinates and\ncontrols\nactivities of the CPU\nby sending signals to\nother components", "A collection of memory\nchips controlled by its\nown software\nand data is stored\nin pages");
-ans[1] = new Array("Enables operating systems\nto access hardware\nfunctions\nand provides an\ninterface to that device", "Allows multiple users\nto log in and connect\nfrom different machines\nat the same time", "A system capable of\nrunning more than\none program at once", "Push current contents\nof registers and PC\nonto a stack\nExecute interrupt\nPop the stack", "Allows already\ncompiled object code\nfiles to be combined\nwith the compiled\nprogram", "a26", "a27", "a28", "a29", "a210");
+ans[1] = new Array("Enables operating systems\nto access hardware\nfunctions\nand provides an\ninterface to that device", "Allows multiple users\nto log in and connect\nfrom different machines\nat the same time", "A system capable of\nrunning more than\none program at once", "Push current contents\nof registers and PC\nonto a stack\nExecute interrupt\nPop the stack", "Allows already\ncompiled object code\nfiles to be combined\nwith the compiled\nprogram", "Language statements\nare checked against\nrules of the\nlanguage", "a27", "a28", "a29", "a210");
 ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
 ans[3] = new Array("a41", "Every object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
 ans[4] = new Array("a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a510");
@@ -311,6 +311,9 @@ function selectQuiz(){
 }
 
 
+// this function puts the answer boxes on the screen
+// it then creates an array to hold all questions and answers using OOP
+// this is then put in random order and displayed
 function displayQuiz(choice) {
     // using the user's choice to begin the quiz
     unit = choice - 1;

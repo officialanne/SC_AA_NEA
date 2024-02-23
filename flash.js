@@ -46,6 +46,9 @@ let side = false;
 let numBox;
 let img;
 
+// creating a variable to go backwards
+let prevQ;
+
 
 // this function allows files to be uploaded before the program runs
 function preload() {
@@ -265,24 +268,20 @@ function displayCards(choice) {
 
 
 // function to reset the screen when the reset button is clicked
-function returnToMenu(){
-    screenZero();
-}
-
 // function to reset the screen through the backround and buttons
-function screenZero() {
 
+function returnToMenu(){
     // reset variables
     screen = 0;
     index = 0;
     unit = 0;
     unit = null;
     choice = 0;
-    aBox.pos = {x: -5500, y: 5500};
-    numBox.pos = {x: 5500, y: -5500};
+    aBox.pos = { x: -5500, y: 5500 };
+    numBox.pos = { x: 5500, y: -5500 };
     aBox.text = "";
     background("#f2e8cf");
-    
+
     // reset boxes that display the units to original positions
     box1.pos = { x: 150, y: 175 };
     box2.pos = { x: 375, y: 175 };
@@ -296,8 +295,8 @@ function screenZero() {
     box10.pos = { x: 375, y: 500 };
     box11.pos = { x: 625, y: 500 };
     box12.pos = { x: 850, y: 500 };
-
 }
+
 
 
 // this function changes the text depending on whether the question or answer is already being displayed
@@ -318,7 +317,7 @@ function flipSides() {
 
     // if the button to got to the next question is pressed
     // increment the index and change the text on the box
-    else if (nextQ.mouse.presses() && (index >= 0 && index <= 8)) {
+    else if (nextQ.mouse.presses() && (index >= 0 && index <= 8) && screen == 1) {
         question = qs[unit][index + 1];
         answer = ans[unit][index + 1];
         aBox.text = qs[unit][index + 1];
