@@ -21,7 +21,7 @@ var ans = new Array();
 // elements in the array being arrays that hold individual answers
 ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "A register which\nholds the results of\nall operatons carried\nout in the ALU", "The simultaneous use\nof several processors\nto perform a single\ntask or seperate\ninstructions", "A single chip\ncontaining\ntwo or more\nindependent\nprocessing units", "A complicated and\nexpensive integrated\ncircuit with\nintstructions that\nexecute in a few\nmachine cycles", "Tiny areas of\nextremely fast\nmemory located in the\nCPU where data is\nstored temporarily", "The part of the\nsystem bus\nwhich carried\nidentification about\nwhere data is read\nfrom or written to", "Operation code, which\ndetermines what to do", "Coordinates and\ncontrols\nactivities of the CPU\nby sending signals to\nother components", "A collection of memory\nchips controlled by its\nown software\nand data is stored\nin pages");
 ans[1] = new Array("Enables operating systems\nto access hardware\nfunctions\nand provides an\ninterface to that device", "Allows multiple users\nto log in and connect\nfrom different machines\nat the same time", "A system capable of\nrunning more than\none program at once", "Push current contents\nof registers and PC\nonto a stack\nExecute interrupt\nPop the stack", "Allows already\ncompiled object code\nfiles to be combined\nwith the compiled\nprogram", "Language statements\nare checked against\nrules of the\nlanguage", "Attempts to reduce\nthe execution time\nof the object program", "Translates and executes\na program one\nstatement at a\ntime", "Custom-written software\nwhich suits particular\nrequiremnets", "Boot the computer\nat start-up by\ntesting sytem hardware\ncomponents and loading\nthe OS into RAM");
-ans[2] = new Array("A blueprint for\ncreating objects by\ndefining attributes and\nmethods", "The operand holds\nthe memory address where\ndata to be operated on\nis retrieved", "The address of the\noperand is obtained by\nadding the contents of\na general register to\na contant value", "Object", "good algorithm", "waterfall", "XP", "functional programming", "Method", "Indirect Address");
+ans[2] = new Array("A blueprint for\ncreating objects by\ndefining attributes and\nmethods", "The operand holds\nthe memory address\nwhere\ndata to be operated on\nis retrieved", "Arrays", "An instance of\na class", "Clear steps that\nproduce the correct\noutput for any valid\ninput\nTerminates at some\npoint\nExecute efficiently", "Each step is\ncompleted and\ndocumented\none at a time\nbefore the next is\nbegun", "An agile software\ndevelopment\nmethodology\nintended to improve\nquality, responsiveness\nand productivity", "Statements are written\nas a series of functions\nwhich accept input\ndata as arguments and\nreturn an output", "Operations on\nattributes which allow\nthe object to\nperform actions", "Uses the address\nfield to hold the adress\nof a location that\ncontains the required\naddress");
 ans[3] = new Array("a41", "Every object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
 ans[4] = new Array("a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a510");
 ans[5] = new Array("a61", "a62", "a63", "a64", "a65", "a66", "a67", "a68", "a69", "a610");
@@ -38,7 +38,7 @@ var ans2 = new Array();
 // elements in the array being arrays that hold individual incorrect answers
 ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "A register\nwhich data to be read\nfrom or written to\nmemory", "When more than one\nprocess is in progress\nfrom one processor", "An additional\nprocessor to support\nthe functions\nof the CPU", "A simple, cheap\nintegrated\ncircuit with instructions\ntaking one clock\ncycle", "A small amount of\nexpensive, very fast\nmemory near the CPU\nproviding fast access\nto frequently used data", "The part of the system\nbus which carries data\nread from or being\nwritten to memory", "Determines what the\ninstruction sould\nbe executed on", "Carries command and\ncontrol signals to and\nfrom other components\nusing control lines", "Data is stored on\nplastic discs as\npatterns on the\nsurface in\npits and lans");
 ans2[1] = new Array("A specialised, limited\nOS fit inside a device", "Software is spread\nover a collection of\nindependent, networked\ncommunicating and\nseparate nodes", "A parallel processing\nsystem which spreads\nthe load over multiple\ncomputers", "The OS sets an\ninterrupting clock to\ngenerate interrupts at\nspecific times\nwhen scheduling", "A collection of pre-\ncompiled routines which\ncan be incorporated\ninto a program", "The standard components\nof each statement are\nreplaced by tokens\nand entered into a\nsymbol table", "Making the best\nalgorithm", "A program that\ntranslates a high-\nlevel langage program\nsource code into\nmachine code at\nonce", "Software that performs\na single specific task\nor set of tasks", "Instructions sent from\nROM to the CPU which\nsends signals to all\nconnected components");
-ans2[2] = new Array("The creation of a\nnew object using a\nconstructor", "The operand is the\nactual value to be\noperated on", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
+ans2[2] = new Array("The creation of a\nnew object using a\nconstructor", "The operand is the\nactual value to be\noperated on", "Queues", "Operations on data", "Has a base case\nCalls itself\nStopping condition\nreachable in a\nfinite number of\ncalls", "Stages of the systems\nlife cycle are iterated\nto produce prototypes", "An agile\ndevelopment\nmethodology\nwhich uses prototyping\nto produce within a\nstrict time limit the\nproduct which is good\nenough", "The statements are\ngiven to the\nprogramming\nlanguage,\nwhich describes the\nproblem and a\nresult is returned", "Variables which\ndescribe\nthe object", "The address field\nholds an address\nwhich holds the data");
 ans2[3] = new Array("aA41", "Transactions are \nordered based on \ndependences on \neachother", "Integrity", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
 ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
 ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "aA66", "aA67", "aA68", "aA69", "aA610");
@@ -91,6 +91,8 @@ let score = 0;
 let endQuiz;
 
 let numBox;
+
+let pressed = false;
 
 // variables to get selection for multiple units in quizzes
 var topics = new Array();
@@ -219,7 +221,8 @@ function boxText(){
     qBox.text = question;
 
     // telling the user what index they are within the set of 10 cards
-    numBox.text = "Your are on question " + (index + 1).toString() + " of " + ((localStorage.getItem("number of units: "))*10).toString();
+    numBox.text = "Your are on question " + (index + 1).toString() + " of 10";
+
 
 
 
@@ -438,23 +441,16 @@ function checkAnswer(){
             score = score - 1;
         }
 
-    }
-    
 
-    // last question
-    else if (nextQ.mouse.presses() && index == 9) {
-        saveScore();
     }
+
     
+    
+    // telling the user that score will automatically be saved
     if (index == 9) {
-        nextQ.text = "Final Question -\nAfter, Save Score";
-        if ((mouseX > 750) && (mouseX < 950) && (mouseY > 550) && (mouseY < 600)){
-            nextQ.color = "green";
-        }
-        else {
-            nextQ.color = "DarkKhaki";
-    
-        }
+        nextQ.textSize = 17;
+        nextQ.text = "Final Question -\nAfter, Your Score is\nSaved";
+
     }
 
 }
@@ -469,6 +465,7 @@ function returnToMenu(){
     index = 0;
     unit = null;
     score = 0;
+    pressed = false;
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
@@ -507,6 +504,12 @@ function saveScore() {
     if (score < 0){
         score = 0;
     }
+
+    // do not let the score go above 10
+    if (score >10){
+        score = 10;
+    }
+
     let newUnit = (unit+1).toString();
     let newScore = (score).toString();
 
@@ -690,26 +693,25 @@ function boxHover(){
     
     // during the quiz, if hovering over the answer box, change the colour to green
     if (unit!=null){
-        if ((mouseX > 625) && (mouseX < 875) && (mouseY > 300) && (mouseY < 500)){
-        aBox.color = "LightGreen";
-     
-    }
+        if ((mouseX > 650) && (mouseX < 850) && (mouseY > 300) && (mouseY < 500)){
+            aBox.color = "LightGreen";
+        
+        }
 
-    // else, keep the colour as blue
-    else{
-        aBox.color = "SlateBlue";
+        // else, keep the colour as blue
+        else{
+            aBox.color = "SlateBlue";
 
-    }
-    if ((mouseX > 150) && (mouseX < 350) && (mouseY > 300) && (mouseY < 500)){
-        a2Box.color = "LimeGreen";
-     
-    }
+        }
+        if ((mouseX > 150) && (mouseX < 350) && (mouseY > 300) && (mouseY < 500)){
+            a2Box.color = "LimeGreen";
+        
+        }
 
-    else {
-        a2Box.color = "cyan";
+        else {
+            a2Box.color = "cyan";
 
-
-    }
+        }
     }
     
     
