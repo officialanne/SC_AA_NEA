@@ -6,8 +6,8 @@ qs[0] = new Array("How is data fetched in the FDE cycle?", "What is the accumula
 qs[1] = new Array("What is a device driver?", "What is a multi user\noperating system", "What is a multi tasking\noperating system?", "How does the ISR work within the\nFDE cycle?", "What is a linker?", "What is syntax analysis?", "What is optimisation?", "What is an interpreter?", "Why is bespoke software used?", "What is the BIOS?");
 qs[2] = new Array("What is a class?", "What is direct addressing?", "What is indexed addressing used for?", "What is an object?", "What is a good algorithm?", "What is the waterfall lifecycle?", "What is extreme programming?", "What is functional programming?", "What is a method?", "What is indirect addressing?");
 qs[3] = new Array("What is a deadlock?", "What is timestamp ordering?", "What does I stand for in ACID?", "What is asymmetric encryption?", "What is referential integrity?", "What are some methods of selecting data?", "What is a secondary key?", "What is a flat file?", "What is 1NF?", "What is redundancy?");
-qs[4] = new Array("What is HTML", "What is an identifier?", "What is a CSS class?", "What is the Internet layer in the TCP/IP stack?", "What is the Link layer in the TCP/IP stack?", "What is a switch?", "What is the star topology?", "How is encryption used in netwrok securty?", "What is a damper?", "What are disadvantages of a client-server network?");
-qs[5] = new Array("What is a circular shift?", "Whar is an overflow error?", "What is a character set?", "What is an arithmetic shift?", "What is unicode?", "How do you convert from hexadecimal to binary?", "How do you use two's complement?", "What is normalisation?", "What is an OR mask?", "What is sign and magnitude?");
+qs[4] = new Array("What is HTML", "What is an identifier?", "What is a CSS class?", "What is the Internet layer in the TCP/IP stack?", "What is the TCP/IP stack?", "What is a router?", "What is the star topology?", "How is encryption used in netwrok securty?", "What is a damping factor?", "What is client side processing?");
+qs[5] = new Array("What is a circular shift?", "Whar is an overflow error?", "What is a character set?", "What is an arithmetic shift?", "What is unicode?", "Convert 204 from denart to hexadecimal", "What is -3/16 in two's complement notation?", "What is normalisation?", "What is an OR mask?", "What is 00010101+00010101");
 qs[6] = new Array("What is a tuple?", "What is a hash table?", "What is a graph?", "What is a tree?", "What is a Stack?", "What is a Record?", "What is an Array?", "What is a circular queue?", "How do you add an item to a queue?", "What is an ajency matrix?");
 qs[7] = new Array("What are D type flip flops used for?", "What is the distribution law?", "What is the association law?", "What is a half adder?", "What is the double negation law?", "What is a full adder?", "What are De Morgan's Laws?", "What is the commutation law?", "What is a truth table?", "What is a logic gate diagram?");
 qs[8] = new Array("How are colour paradigms used?", "What is censorship?", "What is the Regulation of Investigatory Powers Act?", "What is the Data Protection Act?", "What is the Computer Misuse Act?", "What is the Copyright Designs and Patents Act?", "What are cultural issues?", "What do environmental effects include?", "What are moral issues?", "What law was made in 1990?");
@@ -22,8 +22,8 @@ var ans = new Array();
 ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "A register which\nholds the results of\nall operatons carried\nout in the ALU", "The simultaneous use\nof several processors\nto perform a single\ntask or seperate\ninstructions", "A single chip\ncontaining\ntwo or more\nindependent\nprocessing units", "A complicated and\nexpensive integrated\ncircuit with\nintstructions that\nexecute in a few\nmachine cycles", "Tiny areas of\nextremely fast\nmemory located in the\nCPU where data is\nstored temporarily", "The part of the\nsystem bus\nwhich carried\nidentification about\nwhere data is read\nfrom or written to", "Operation code, which\ndetermines what to do", "Coordinates and\ncontrols\nactivities of the CPU\nby sending signals to\nother components", "A collection of memory\nchips controlled by its\nown software\nand data is stored\nin pages");
 ans[1] = new Array("Enables operating systems\nto access hardware\nfunctions\nand provides an\ninterface to that device", "Allows multiple users\nto log in and connect\nfrom different machines\nat the same time", "A system capable of\nrunning more than\none program at once", "Push current contents\nof registers and PC\nonto a stack\nExecute interrupt\nPop the stack", "Allows already\ncompiled object code\nfiles to be combined\nwith the compiled\nprogram", "Language statements\nare checked against\nrules of the\nlanguage", "Attempts to reduce\nthe execution time\nof the object program", "Translates and executes\na program one\nstatement at a\ntime", "Custom-written software\nwhich suits particular\nrequiremnets", "Boot the computer\nat start-up by\ntesting sytem hardware\ncomponents and loading\nthe OS into RAM");
 ans[2] = new Array("A blueprint for\ncreating objects by\ndefining attributes and\nmethods", "The operand holds\nthe memory address\nwhere\ndata to be operated on\nis retrieved", "Arrays", "An instance of\na class", "Clear steps that\nproduce the correct\noutput for any valid\ninput\nTerminates at some\npoint\nExecute efficiently", "Each step is\ncompleted and\ndocumented\none at a time\nbefore the next is\nbegun", "An agile software\ndevelopment\nmethodology\nintended to improve\nquality, responsiveness\nand productivity", "Statements are written\nas a series of functions\nwhich accept input\ndata as arguments and\nreturn an output", "Operations on\nattributes which allow\nthe object to\nperform actions", "Uses the address\nfield to hold the adress\nof a location that\ncontains the required\naddress");
-ans[3] = new Array("a41", "Every object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "a44", "a45", "a46", "a47", "a48", "a49", "a410");
-ans[4] = new Array("a51", "a52", "a53", "a54", "a55", "a56", "a57", "a58", "a59", "a510");
+ans[3] = new Array("When two users\nare attempting to update\ntwo records and\nneither can proceeed", "Every object in a\ndatabase has a read\nand write timestamp\nThe ealier is applied\nfirst", "Isolation", "Recipient's public key\nencrypts before sending\nDecrypted with recipient's\nprivate key", "Not allowing a record\nto be deleted if\nthere is a related record\nin another table", "In a database\nsuch as with SQL", "A key field which\ncan be used as an index\nfor faster lookups", "A database consisting\nof information about a\nsingle entity", "Contains no\nrepeating attribute", "A field is repeated\nin two or more\ntables");
+ans[4] = new Array("A high level\nlanguage used to give\nthe structure of a\nweb page", "A variable given to\na HTML element", "A variable given to\nmultiple HTML elements\nthat identifies them\nas a collective", "Adds the source\nand destination IP\naddresses", "A set of networking\nprotocols that\nhas four layers", "Connect at least two\nnetworks and route\npackets to its\ndestination", "Has a centrol node\nwhich acts as a router\nto transmit messages", "Transforming data from\none form to another\nto prevent\nunautorised parties from\nunderstanding", "Probability of a random\nweb user reaching a\npage", "Operations performed by\nthe application on a\nlocal computer");
 ans[5] = new Array("a61", "a62", "a63", "a64", "a65", "a66", "a67", "a68", "a69", "a610");
 ans[6] = new Array("a71", "a72", "a73", "a74", "A dynamic data\nstructure\nFirst in Last Out", "a76", "a77", "a78", "a79", "a710");
 ans[7] = new Array("a81", "a82", "a83", "a84", "a85", "a86", "a87", "a88", "a89", "a810");
@@ -39,8 +39,8 @@ var ans2 = new Array();
 ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "A register\nwhich data to be read\nfrom or written to\nmemory", "When more than one\nprocess is in progress\nfrom one processor", "An additional\nprocessor to support\nthe functions\nof the CPU", "A simple, cheap\nintegrated\ncircuit with instructions\ntaking one clock\ncycle", "A small amount of\nexpensive, very fast\nmemory near the CPU\nproviding fast access\nto frequently used data", "The part of the system\nbus which carries data\nread from or being\nwritten to memory", "Determines what the\ninstruction sould\nbe executed on", "Carries command and\ncontrol signals to and\nfrom other components\nusing control lines", "Data is stored on\nplastic discs as\npatterns on the\nsurface in\npits and lans");
 ans2[1] = new Array("A specialised, limited\nOS fit inside a device", "Software is spread\nover a collection of\nindependent, networked\ncommunicating and\nseparate nodes", "A parallel processing\nsystem which spreads\nthe load over multiple\ncomputers", "The OS sets an\ninterrupting clock to\ngenerate interrupts at\nspecific times\nwhen scheduling", "A collection of pre-\ncompiled routines which\ncan be incorporated\ninto a program", "The standard components\nof each statement are\nreplaced by tokens\nand entered into a\nsymbol table", "Making the best\nalgorithm", "A program that\ntranslates a high-\nlevel langage program\nsource code into\nmachine code at\nonce", "Software that performs\na single specific task\nor set of tasks", "Instructions sent from\nROM to the CPU which\nsends signals to all\nconnected components");
 ans2[2] = new Array("The creation of a\nnew object using a\nconstructor", "The operand is the\nactual value to be\noperated on", "Queues", "Operations on data", "Has a base case\nCalls itself\nStopping condition\nreachable in a\nfinite number of\ncalls", "Stages of the systems\nlife cycle are iterated\nto produce prototypes", "An agile\ndevelopment\nmethodology\nwhich uses prototyping\nto produce within a\nstrict time limit the\nproduct which is good\nenough", "The statements are\ngiven to the\nprogramming\nlanguage,\nwhich describes the\nproblem and a\nresult is returned", "Variables which\ndescribe\nthe object", "The address field\nholds an address\nwhich holds the data");
-ans2[3] = new Array("aA41", "Transactions are \nordered based on \ndependences on \neachother", "Integrity", "aA44", "aA45", "aA46", "aA47", "aA48", "aA49", "aA410");
-ans2[4] = new Array("aA51", "aA52", "aA53", "aA54", "aA55", "aA56", "aA57", "aA58", "aA59", "aA510");
+ans2[3] = new Array("A record is locked\nwhenever a user\nretrieves it for\nediting until the\ntransaction is complete", "Transactions are \nordered based on \ndependences on \neachother", "Integrity", "The private key is used to\nencrypt and decrypt data", "There are no non-\nkey dependencies", "Using automated methods such as\nscanners, cameras\nand sensors", "A primary key which\nconsists of more than\none attribute", "A category of object,\nperson, event or thing\nof interest", "All attributes are\ndependent on the key", "There is no\nduplication of data");
+ans2[4] = new Array("A high level\nlanguage used to give\ndesign to\nthe structure of a\nweb page", "A variable given to\nmultiple HTML elements", "A variable given to\na HTML element\nthat uniquely\nidentifies it", "Adds the unique\nMAC addresses of the\nsource and destination\ncomputers", "Creates a direct link/nbetween two devices for\nthe duration of\nthe communication", "Used when networks\nhave different protocols\nto move packets to\ntheir destination", "Each node has a\nconnection to every other\nnode by\ntransmitting data\nacross intermediate nodes", "A security checkpoint\ndesigned to prevent\nunauthorised access\nbetween two networks", "The number of outward\nlinks", "Operations performed\nby a remove server");
 ans2[5] = new Array("aA61", "aA62", "aA63", "aA64", "aA65", "aA66", "aA67", "aA68", "aA69", "aA610");
 ans2[6] = new Array("aA71", "aA72", "aA73", "aA74", "A dynamic data\nstructure\nFirst in First Out", "aA76", "aA77", "aA78", "aA79", "aA710");
 ans2[7] = new Array("aA81", "aA82", "aA83", "aA84", "aA85", "aA86", "aA87", "aA88", "aA89", "aA810");
@@ -83,7 +83,7 @@ let screen = 0;
 let count = 0;
 
 // buttons for quiz GUI
-let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
+let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, tellAns;
 let side = false;
 
 //variable to hold score
@@ -152,8 +152,8 @@ function setup(){
     // creating button to display question
     qBox = new Sprite(-450, 4500, 500, 55);
 
-    // creating button to save score
-    saveQuiz = new Sprite(150, 570, 150, 50);
+    // creating button to tell the user if their answer is correct
+    tellAns = new Sprite(150, 570, 150, 50);
 
     // this button will display the number of the flashcard the user is on
     numBox = new Sprite(1200, -5500, 300, 50);
@@ -222,8 +222,6 @@ function boxText(){
 
     // telling the user what index they are within the set of 10 cards
     numBox.text = "Your are on question " + (index + 1).toString() + " of 10";
-
-
 
 
     
@@ -381,7 +379,7 @@ function checkAnswer(){
         // if the user answers correctly
         if ((aBox.text == answer && aBox.mouse.presses()) || (a2Box.text == answer && a2Box.mouse.presses())){
             // let them know
-            saveQuiz.text = "correct!";
+            tellAns.text = "correct!";
 
             // increment the score
             score+=1;
@@ -416,7 +414,7 @@ function checkAnswer(){
         // if they answer incorrectly, let them have another go, but don't give them a new score
         else{
             // let them know
-            saveQuiz.text = "incorrect, have\nanother go!"; 
+            tellAns.text = "incorrect, have\nanother go!"; 
             
             // same question but randomly switch text
             question = qAndA[index].ques;
@@ -445,12 +443,15 @@ function checkAnswer(){
     }
 
     
+    if (nextQ.mouse.presses() && index == 9){
+        saveScore();
+    }
     
-    // telling the user that score will automatically be saved
+    // telling the user to save their score
     if (index == 9) {
         nextQ.textSize = 17;
-        nextQ.text = "Final Question -\nAfter, Your Score is\nSaved";
-
+        nextQ.text = "Final Question -\nClick To Save Score";
+        
     }
 
 }
@@ -469,8 +470,8 @@ function returnToMenu(){
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
-    saveQuiz.pos = {x:150, y: 570};
-    saveQuiz.text = "";
+    tellAns.pos = {x:150, y: 570};
+    tellAns.text = "";
     numBox.pos = {x: 1200, y:-1200};
 
 
@@ -498,7 +499,7 @@ function saveScore() {
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
     nextQ.pos = {x: -553, y: 1234};
-    saveQuiz.pos = {x: 5500, y: -5500};
+    tellAns.pos = {x: 5500, y: -5500};
 
     // converting the integer values for the unit and the score into a string
     if (score < 0){
@@ -711,6 +712,17 @@ function boxHover(){
         else {
             a2Box.color = "cyan";
 
+        }
+    }
+
+    // hover button to save the score on the last question
+    if (index==9){
+        if ((mouseX > 760) && (mouseX < 940) && (mouseY > 540) && (mouseY < 600)){
+            nextQ.color = "green";
+        }
+        else {
+            nextQ.color = "DarkKhaki";
+    
         }
     }
     
