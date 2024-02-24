@@ -33,7 +33,10 @@ function store(){
     // if the email includes an @, the format is valid
     // encrpyt the email then save
     // if this does not happen, validEmail remains false
-    if (inputFname.includes(" ") == false){
+    if (inputFname.includes(" ")){
+        validEmail = false;
+    }
+    else{
         validName = true;
         localStorage.setItem("fname", inputFname);
 
@@ -45,9 +48,13 @@ function store(){
     // if the password does not include a space and is longer than 6 characters, it is valid
     // encrpyt the password then save
     // if this does not happen, validPass remains false
-    if (inputPass.includes(" ") == false && inputPass.length>6){
+    if (inputPass.includes(" ") || inputPass.length>6){
+        validPass = false;
+        
+    }
+    else{
+        validPass = true;
         //encrypt password
-
         inputPass = CryptoJS.AES.encrypt(inputPass, "palladian");
         inputPass = inputPass.toString();
         localStorage.setItem("pass", inputPass);
