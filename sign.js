@@ -13,15 +13,22 @@ function store(){
 
     // getting the email from the form
     inputEmail = document.getElementById("email").value;
+    console.log(inputEmail);
 
     // if the email includes an @, the format is valid
     // encrpyt the email then save
     // if this does not happen, validEmail remains false
-    if (inputEmail.includes("@")){
-        validEmail = true;
-        // encryption
-        inputEmail = CryptoJS.AES.encrypt(inputEmail, "palladian");
-        localStorage.setItem("email", inputEmail);
+    if ((inputEmail.includes("@")) && (inputEmail.includes(" ") == false)){
+        if (inputEmail.includes(" ")){
+            validEmail = false;
+        }
+        else{
+            validEmail = true;
+            // encryption
+            inputEmail = CryptoJS.AES.encrypt(inputEmail, "palladian");
+            localStorage.setItem("email", inputEmail);  
+        }
+        
     }
     
     inputLname = document.getElementById("lname").value;
@@ -34,7 +41,7 @@ function store(){
     // encrpyt the email then save
     // if this does not happen, validEmail remains false
     if (inputFname.includes(" ")){
-        validEmail = false;
+        validName = false;
     }
     else{
         validName = true;
@@ -44,11 +51,12 @@ function store(){
 
 
     inputPass = document.getElementById("pass").value;
+    console.log(inputPass);
 
     // if the password does not include a space and is longer than 6 characters, it is valid
     // encrpyt the password then save
     // if this does not happen, validPass remains false
-    if (inputPass.includes(" ") || inputPass.length>6){
+    if (inputPass.includes(" ") || inputPass.length<6){
         validPass = false;
         
     }
@@ -64,8 +72,11 @@ function store(){
     inputRole = document.getElementById("role").value;
     localStorage.setItem("role", inputRole);
 
-    username = inputFname.substring(0,1) + inputLname.substring(0,3) + "17";
+    // create username using first and last name
+    username = inputLname.substring(0,4) + inputFname.substring(0,1) + "17";
 
+    // set the username to local storage
+    localStorage.setItem("username", username);
     
 
     console.log(inputEmail);
@@ -73,10 +84,11 @@ function store(){
     console.log(inputLname);
     console.log(inputPass);
     console.log(inputRole);
+    console.log(username);
 
     // if any of the details are of invalid format, prevent submission
     if(validEmail == false || validName == false || validPass == false){
-        alert("incorrect details entered, please try again");
+        alert("Invalid details entered, please try again");
         event.preventDefault();
         //someBug();
         return false;
@@ -84,7 +96,11 @@ function store(){
 
     // else, allow the user to sign up
     else{
-        alert("sign up successful");
+        // tell user that their details are valid
+        alert("Valid Details Entered");
+
+        //tell the user their username
+        alert("Your username is " + username + " - this is the first letter of your first name and the first three letters of your last name and 17");
     }
 
 

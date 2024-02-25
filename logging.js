@@ -1,4 +1,4 @@
-var storedFname, storedLname, storedPw, storedRole, userfn, userln, userpw, urole;
+var storedUsername, storedFname, storedLname, storedPw, storedRole, userfn, userln, userpw, urole, checkUsername;
 
 
 function check(){
@@ -20,10 +20,20 @@ function check(){
     storedRole = localStorage.getItem("role");
     console.log(storedRole);
 
+    // retrieve username from local storage
+    storedUsername = localStorage.getItem("username");
+    // print into console
+    console.log(storedUsername);
+
 
     userfn = document.getElementById("ufname").value;
     userln = document.getElementById("ulname").value;
     urole = document.getElementById("l_role").value;
+
+    //get username from form
+    checkUsername = document.getElementById("username").value;
+    // print to console
+    console.log(checkUsername);
 
     
     userpw = document.getElementById("pass").value;
@@ -32,12 +42,12 @@ function check(){
     
     
 
-    if(userfn == storedFname && userpw == storedPw && userln == storedLname && urole==storedRole){
+    if((checkUsername == storedUsername || (userfn == storedFname && userln == storedLname)) && userpw == storedPw && urole==storedRole){
         alert("you are now logged in");
         
     }
     else{
-        alert("error");
+        alert("Invalid details");
         event.preventDefault();
         //someBug();
         return false;
