@@ -15,19 +15,19 @@ function store(){
     inputEmail = document.getElementById("email").value;
     console.log(inputEmail);
 
-    // if the email includes an @, the format is valid
+    // if the email includes an @ and no spaces, the format is valid
     // encrpyt the email then save
     // if this does not happen, validEmail remains false
     if ((inputEmail.includes("@")) && (inputEmail.includes(" ") == false)){
-        if (inputEmail.includes(" ")){
-            validEmail = false;
-        }
-        else{
-            validEmail = true;
-            // encryption
-            inputEmail = CryptoJS.AES.encrypt(inputEmail, "palladian");
-            localStorage.setItem("email", inputEmail);  
-        }
+
+        // the email is valid
+        validEmail = true;
+        // encryption
+        inputEmail = CryptoJS.AES.encrypt(inputEmail, "palladian");
+
+        // save to local storage
+        localStorage.setItem("email", inputEmail);  
+        
         
     }
     
