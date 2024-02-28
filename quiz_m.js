@@ -64,15 +64,29 @@ scores[9] = [];
 scores[10] = [];
 scores[11] = [];
 
-
+//a
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
+
+//a
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
+
+//a
 let returnMenu;
+
+//a
 let index, unit;
+
+//a
 let choice, choices;
+
+//a
 let screen = 0;
+
+//a
 let count = 0;
 
+
+//a
 let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
 let side = false;
 let score = 0;
