@@ -1,18 +1,39 @@
+// use of OOP to create boxes to select choice
 let boxes;
+
+// variable to store user choice
 let choice;
+
+// variable to track which page to display
 let screen = 0;
+
+// variable to return back to summary notes page
 let returnMenu;
+
+// brief description
 let intro_text = "Study these notes to help catch up on content";
+
+// titles of notes
 let unitNotes = ["Components of a Computer", "Systems Software", "Software Development", "Exchanging Data", "Networks and Web Technologies", "Data Types", "Data Structures", "Boolean Algebra", "Legal, Moral, Cultural and Ethical Issues", "Elements of Computational Thinking", "Programming Techniques", "Algorithms"];
-let unitFrame = ["Here are the notes for unit ", "Key terms and definitions: ", "Key advantages: ", "Key disadvantages: "];
+
+//labels for boxes
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
+
+// vvariables used as boxes to display guidance for user to select unit
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12;
+
+// boxes to hold notes (2 - 3 depending on amount of notes)
 let textBox1, textBox2, textBox3;
+
+// initially set the number of subtopics to 2 (the minimum)
 let numSubtopics = 2;
+
+//colours for boxes
 let selectColours = ["yellow", "purple", "orange", "green"];
 
 // variable for AND gate image
 let img;
+
 
 // this function allows files to be loaded into the program before all other instructions are run
 function preload() {
@@ -21,6 +42,8 @@ function preload() {
     img = loadImage('photos/AND_gate.png');
 }
 
+
+// this function runs once when the page is loaded and sets up the canvas and boxes
 function setup() {
 
     // creating canvas
@@ -45,6 +68,7 @@ function setup() {
     // creating buttons to click to select menu as objects called sprites
     boxes = new Group();
 
+    // boxes with different positions
     box1 = new boxes.Sprite(150, 175, 150, 75);
     box2 = new boxes.Sprite(375, 175, 150, 75);
     box3 = new boxes.Sprite(625, 175, 150, 75);
@@ -58,11 +82,13 @@ function setup() {
     box11 = new boxes.Sprite(625, 500, 150, 75);
     box12 = new boxes.Sprite(850, 500, 150, 75);
 
+    // text boxes initially not on the canvas
     textBox1 = new boxes.Sprite(-1000, 1000, 300, 400);
     textBox2 = new boxes.Sprite(1000, -1000, 300, 400);
     textBox3 = new boxes.Sprite(1500, -1500, 300, 400);
     
 }
+
 
 // this function continually runs whilst the program is running
 function draw() {
@@ -71,6 +97,7 @@ function draw() {
     //calling the function to hover over boxes
     boxHover();
 
+    // calling the function to continually display text on boxes
     boxText();
     
 
@@ -88,10 +115,11 @@ function draw() {
 
 function boxText(){
     // putting the text in the intro text box
-    if (choice == null || screen == 0){
+    if (choice == null || screen == 0) {
         intro.text=(intro_text);
     }
-    else{
+    else {
+        // if notes are being displayed
         intro.text = ("Study Unit " + choice.toString() + " - " + unitNotes[choice-1]);
     }
 
@@ -118,9 +146,13 @@ function returnToMenu(){
 
 // function to reset the screen through the backround and buttons
 function screenZero() {
+    // set screen to zero
     screen = 0;
+
+    // change background
     background("#f2e8cf");
-    
+
+    // reposition selection boxes back to screen
     box1.pos = { x: 150, y: 175 };
     box2.pos = { x: 375, y: 175 };
     box3.pos = { x: 625, y: 175 };
@@ -134,6 +166,7 @@ function screenZero() {
     box11.pos = { x: 625, y: 500 };
     box12.pos = { x: 850, y: 500 };
 
+    // put text boxes off canvas
     textBox1.pos = {x: 1000, y: -1000};
     textBox2.pos = {x: -1000, y: 1000};
     textBox3.pos = {x: 1500, y: -1500};
@@ -143,7 +176,7 @@ function screenZero() {
 // function to reposition buttons and change the screen to display notes for a unit
 function selectUnit() {
     screen = 1;
-    //reposition buttons
+    //reposition buttons off screen
     box1.pos = { x: 3000, y: 3000 };
     box2.pos = { x: 3500, y: 3500 };
     box3.pos = { x: 4000, y: 4000 };
@@ -159,6 +192,7 @@ function selectUnit() {
     
 
     // when the button is pressed, return the choice in order to display its notes
+    // different notes per unit
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
@@ -348,76 +382,99 @@ function boxHover() {
     }
 
     //box for unit 2
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 125) && (mouseY < 215)) {
         box2.color = "blue";
     }
+
+    // else, keep the colour as majenta
     else {
         box2.color = "majenta";
     }
 
-
+    //box for unit 6
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 275) && (mouseY < 365)) {
         box6.color = "blue";
     }
+    // else, keep the colour as brown
     else {
         box6.color = "brown";
     }
 
-
+    //box for unit 10
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 300) && (mouseX < 450) && (mouseY > 450) && (mouseY < 540)) {
         box10.color = "blue";
     }
+    // else, keep the colour as green
     else {
         box10.color = "green";
     }
 
+    //box for unit 3
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 125) && (mouseY < 215)) {
         box3.color = "blue";
     }
+    // else, keep the colour as red
     else {
         box3.color = "red";
     }
 
-
+    //box for unit 7
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 275) && (mouseY < 365)) {
         box7.color = "blue";
     }
+    // else, keep the colour as blueviolet
     else {
         box7.color = "blueviolet";
     }
 
-
+    //box for unit 11
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 550) && (mouseX < 700) && (mouseY > 450) && (mouseY < 540)) {
         box11.color = "blue";
-
     }
+    // else, keep the colour as darkcyan
     else {
         box11.color = "darkcyan";
     }
 
+    //box for unit 4
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 125) && (mouseY < 215)) {
         box4.color = "blue";
     }
+    // else, keep the colour as darkseagreen
     else {
         box4.color = "darkseagreen";
     }
 
-
+    //box for unit 8
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 275) && (mouseY < 365)) {
         box8.color = "blue";
     }
+
+    // else, keep the colour as khaki
     else {
         box8.color = "khaki";
     }
 
 
+    //box for unit 12
+    // if the mouse is on the box, change colour to blue
     if ((mouseX > 775) && (mouseX < 925) && (mouseY > 450) && (mouseY < 540)) {
         box12.color = "blue";
     }
+    // else, keep the colour as olive
     else {
         box12.color = "olive";
     }
 
+    // change the cursor and colour of box to return to menu depending on position
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)) {
         returnMenu.color = "red";
         cursor(HAND);

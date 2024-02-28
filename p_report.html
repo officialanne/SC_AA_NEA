@@ -18,50 +18,56 @@
 
 
 </head>
-    <body>
-        <header class="titles">
-            <h1 >Reports</h1>
-        </header>
+<body>
+    <!--Reports page for parents and teachers-->
+    <header class="titles">
+        <h1>Reports</h1>
+    </header>
 
-        <nav id="navigation">
-            <ul>
-                <li class = "navigate"><a href="index.html">Main Page</a></li>
-                <li class = "navigate"><a href="notes.html">Summary Notes</a></li>
-                <li class = "navigate"><a href="flash.html">Flashcards</a></li>
-                <li class = "navigate"><a href="quiz.html">Quizzes</a></li>
-                <li class = "navigate"><a href="p_report.html">(Here) Reports</a></li>
-                <li class = "navigate"><a href="tp_comment.html">Comments</a></li>
-            </ul>
-        </nav>
+    <nav id="navigation">
+        <ul>
+            <!--links to student resources, teacher/parent home and comments page-->
+            <li class="navigate"><a href="tp_home.html">Main Page</a></li>
+            <li class="navigate"><a href="notes.html">Summary Notes</a></li>
+            <li class="navigate"><a href="flash.html">Flashcards</a></li>
+            <li class="navigate"><a href="quiz.html">Quizzes</a></li>
+            <li class="navigate"><a href="p_report.html">(Here) Reports</a></li>
+            <li class="navigate"><a href="tp_comment.html">Comments</a></li>
+        </ul>
+    </nav>
 
-        <main>
-            <style class = "bg">
-                body{
-                    background-color:#ffe5d9
-                }
-            </style>
+    <main>
+        <style class="bg">
+            body {
+                background-color: #ffe5d9
+            }
+        </style>
 
-            <p>Check Your Student's Quiz Performance</p>
-        </main>
+        <!--brief description of page-->
+        <p>Check Your Student's Quiz Performance</p>
+    </main>
 
-        
-        <canvas id="myChart" style="width:100%; text-align:center"></canvas>
+    <!--display the bar chart to web page-->
+    <canvas id="myChart" style="width:100%; text-align:center"></canvas>
 
-        <!--Link to js file-->
-        <script src="tp_report.js"></script>
+    <!--Link to js file-->
+    <script src="tp_report.js"></script>
 
-        <br>
-        <br>
+    <br>
+    <br>
 
-        <p>Projected Progression Over Time (All Units)</p>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-        <div class="container">
+    <!--display the line graph under the bar graph-->
+    <p>Projected Progression Over Time (All Units)</p>
+
+    <!--links for the line graph to javascript libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <div class="container">
+        <!--new canvas to display line graph-->
         <canvas id="examChart"></canvas>
-        </div>
+    </div>
 
 
 
-    </body>
+</body>
 </html>

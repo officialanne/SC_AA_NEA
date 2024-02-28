@@ -21,12 +21,14 @@
 
 </head>
     <body>
+        <!--login page-->
         <header class="titles">
             <h1 >Login</h1>
         </header>
 
         <nav id="navigation">
             <ul>
+                <!--links to main page and sign up-->
                 <li class = "navigate"><a href="index.html">Main Page</a></li>
                 <li class = "navigate"><a href="signup.html">Sign Up</a></li>
             </ul>
@@ -39,55 +41,66 @@
                 }
             </style>
 
+            <!--brief description-->
             <p>Revisit Your Revision Journey</p>
             <div id = "logform">
+                <!-- login form that when submitted, checks details then takes to student home page-->
                 <form id="l_form" onsubmit="check()" action="s_home.html">
                     <div class="container">
-    
+
                         <hr>
                         <label for="username"><b>Username</b></label>
                         <!--not making the username required just incase the user has forgotten-->
-                        <input type="text" placeholder="Enter Username" name="username" id = "username">
-                        
-                        <label for="ufname"><b>First Name</b></label>
-                        <input type="text" placeholder="Enter First Name" name="ufname" id = "ufname" required>
+                        <input type="text" placeholder="Enter Username" name="username" id="username">
 
+                        <!--enter first name-->
+                        <label for="ufname"><b>First Name</b></label>
+                        <input type="text" placeholder="Enter First Name" name="ufname" id="ufname" required>
+
+                        <!--enter last name-->
                         <label for="ulname"><b>Last Name</b></label>
-                        <input type="text" placeholder="Enter Last Name" name="ulname" id = "ulname" required>
-                    
+                        <input type="text" placeholder="Enter Last Name" name="ulname" id="ulname" required>
+
+                        <!--enter password-->
                         <label for="pw"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="pw" id="pass" required>
-                
+
+                        <!--choose role-->
                         <label for="l_role"><b>Select your Role</b></label>
-                        
+
                         <br>
                         <select id="l_role" name="l_role">
+                            <!--3 options-->
                             <option value="Student">Student</option>
                             <option value="Parent">Parent</option>
                             <option value="Teacher">Teacher</option>
                         </select>
                         <br>
                         <br>
-            
+
                         <br>
                         <br>
-                
-                      <label>
-                        <input type="checkbox" name="remember" style="margin-bottom:15px"> Remember me
-                      </label>
-                
-                      <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
-                
-                      <div class="clearfix">
 
-                        <button onclick="check()" type="button">Check Details</button>
+                        <!--can choose to save details-->
+                        <label>
+                            <input type="checkbox" name="remember" style="margin-bottom:15px"> Remember me
+                        </label>
 
-                        <button type="submit" class="s_signup">Login as Student</button>
-                        <button type="submit" class="tp_signup" formaction="tp_home.html">Login as Parent/Teacher</button>
-                        
-                        <button type="reset" class="cancelbtn">Cancel</button>
 
-                      </div>
+                        <div class="clearfix">
+                            <!--check details (returns whether login is successful or not but does not redirect)-->
+                            <button onclick="check()" type="button">Check Details</button>
+
+                            <!--submits and redirects to student home page-->
+                            <button type="submit" class="s_signup">Login as Student</button>
+
+                            <!--submits and redirects to teacher/parent home page-->
+                            <button type="submit" class="tp_signup" formaction="tp_home.html">Login as Parent/Teacher</button>
+
+                            <!--removes all details from form-->
+                            <button type="reset" class="cancelbtn">Cancel</button>
+
+                        </div>
                     </div>
                   </form>
 

@@ -33,17 +33,34 @@ ans[10]= new Array("An iterative routine has no stack\noverflow error\n\nRecursi
 ans[11]= new Array("Examining each entry in turn in\nthe file until the item is found or\nthe end of the file is reached", "An approximation of the time taken\nto execute an algorithm for a given\nnumber of items in a data set", "All nodes adjacent to the start node\nis visited before moving to the next\nThe process is repreated for each\nnode at this level before moving\nto the next", "A dynamic data structure where each item\ncontains the data and a pointer\nto the next item", "Both find the shortest path\n\nDikjstra's algorithm is slower", "A divide and conquer algorithm\nwhich sorts the given sequence\nin place", "A sorting algorithm that builds the\nfinal sorted array one item at\na time", "Searching a list efficiently using\ndivide and conquer on a sorted list\nAfter each step, the size of the\nlist halves", "A set of instructions to solve\na problem in a finite number of\nsteps", "Go to the end of a path\nbefore backtracking and going down the\nnext path\n\nGraph or tree traversal by\ngoing to the leftmost node");
 
 
-
+// an array holding the labels for each selection box
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
+
+// headings for each notes which will display when selected
 let unitNotes = ["Components of a Computer", "Systems Software", "Software Development", "Exchanging Data", "Networks and Web Technologies", "Data Types", "Data Structures", "Boolean Algebra", "Legal, Moral, Cultural and Ethical\nIssues", "Elements of Computational \nThinking", "Programming Techniques", "Algorithms"];
+
+// variables used as boxes to display text (called sprites)
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
+
+// variable used as a box to return to menu
 let returnMenu;
+
+// variables for getting user choice
 let choice, unit, index;
+
+// variable to know what to display depending on whether notes are displaying or not
 let screen = 0;
 
-let flip, nextQ, answer, question,aBox;
+// variables for the actual flashcard functions (flip sides, next question, answers and questions)
+let flip, nextQ, answer, question, aBox;
+
+// boolean to determine which side is showing (true means question is showing; false = answer is showing)
 let side = false;
+
+// index out of the total number of cards
 let numBox;
+
+// display image
 let img;
 
 // creating a variable to go backwards
@@ -77,6 +94,7 @@ function setup() {
     // creating buttons to click to select menu as objects called sprites
     boxes = new Group();
 
+    // each box has different locations (rows and columns)
     box1 = new boxes.Sprite(150, 175, 150, 75);
     box2 = new boxes.Sprite(375, 175, 150, 75);
     box3 = new boxes.Sprite(625, 175, 150, 75);
@@ -127,17 +145,19 @@ function draw(){
 
 function boxText(){
     // putting the text in the intro text box
-    if (unit !=null){
+    if (unit != null) {
+        // when a card is being displayed
         intro.text=("Catch up on unit " + (unit + 1).toString() + " - " + unitNotes[unit]);
     }
 
     
-    else{
+    else {
+        // when on the main menu
         intro.text=("Short form notes to catch up"); 
     }
 
 
-    // adding labels to the boxes
+    // adding labels to the boxes (from array)
     box1.text = box_text[0];
     box2.text = box_text[1];
     box3.text = box_text[2];
@@ -162,7 +182,7 @@ function boxText(){
 }
 
 function selectCards(){
-    //reposition buttons
+    //reposition buttons off screen
     box1.pos = { x: 3000, y: 3000 };
     box2.pos = { x: 3500, y: 3500 };
     box3.pos = { x: 4000, y: 4000 };
@@ -179,6 +199,7 @@ function selectCards(){
     
 
     // when the button is pressed, return the choice in order to display its notes
+    // different background per unit
     if (box1.mouse.presses()) {
         choice = 1;
         background("#84a98c");
@@ -216,6 +237,7 @@ function selectCards(){
     else if (box8.mouse.presses()) {
         choice = 8;
         background("#f2d0a9");
+        // display image for unit 8
         //image(img, 375, 200, 250, 50);
     }
 
@@ -250,16 +272,27 @@ function selectCards(){
 // this function takes the user's choice and sets the questions and answers
 // based on the unit that has been selected
 function displayCards(choice) {
+    // unit will be used for arrays, which start from 0
     unit = choice - 1;
+
+    // position within that array for the unit
     index = 0;
+
+    // change screen to flashcard screen (1)
     screen = 1;
-    
+
+    // reposition answer, index and question boxes on screen
     aBox.pos = { x: width / 2, y: height / 2 + 100 };
-    numBox.pos = {x: width/2, y: height/2-150};
+    numBox.pos = { x: width / 2, y: height / 2 - 150 };
+
+    // set the questions and answers to come from the chosen array
     question = qs[unit][index];
     answer = ans[unit][index];
 
+    // initially display question
     aBox.text = question;
+
+    // set side to true
     side = true;
     
 }
