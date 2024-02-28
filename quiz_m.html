@@ -21,14 +21,14 @@
 
 </head>
 <body>
-    <!---->
+    <!--Quizzes Page-->
     <header class="titles">
         <h1>Multiple Quizzes</h1>
     </header>
 
     <nav id="navigation">
         <ul>
-            <!---->
+            <!--Links to other student resources-->
             <li class="navigate"><a href="s_home.html">Main Page</a></li>
             <li class="navigate"><a href="notes.html">Summary Notes</a></li>
             <li class="navigate"><a href="flash.html">Flashcards </a></li>
@@ -44,10 +44,10 @@
             }
         </style>
 
-        <!---->
+        <!--Brief description of how the quizzes work-->
         <p>Create and Save Your Progress</p>
 
-        <!---->
+        <!--Link to the single quiz web page-->
         <p>Focus Your Revision on one unit <a href = quiz.html>Here</a> </p>
 
 
@@ -56,14 +56,14 @@
     <br>
     <hr>
 
-    <!---->
+    <!--Referring to the form to refill-->
     <h3>Want to have another go? Choose your units </h3>
     <div id = "quizform">
-        <!---->
+        <!--Form to get the choice of units-->
         <form id = "q_form" onsubmit = "multChoice()" action = "quiz_m.html">
             <div class = "container">
                 
-                    <!---->
+                    <!--Of all the twelve units, choose 2-3-->
                     <label for="choose">Topics</label>
                     <br>
                     <input type="checkbox" id="topic1" name="units" value="1">
@@ -104,16 +104,13 @@
 
                     <br>
     
-                      
-                
-                    <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
-            
+                                  
                     <div>
 
-                        <!---->
+                        <!--Submit button-->
                         <button class="clearfix" type="submit">Submit</button>
                         
-                        <!---->
+                        <!--Return the units without redirecting-->
                         <button class="clearfix" onclick="multChoice()" type="button">Check Units</button>
 
                     </div>

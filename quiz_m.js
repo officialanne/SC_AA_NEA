@@ -1,7 +1,7 @@
 //array to hold questions
 var qs = new Array();
 
-// elements in the array being arrays that hold individual questions
+// elements in the array being arrays that hold 10 individual questions for each unit
 qs[0] = new Array("How is data fetched in the FDE cycle?", "What is the accumulator?", "What is a parallel system?", "What is a multicore system?", "What is a CISC processor?", "What is a register?", "What is the address bus?", "What is the opcode?", "What is the control unit?", "What is flash storage?");
 qs[1] = new Array("What is a device driver?", "What is a multi user\noperating system", "What is a multi tasking\noperating system?", "How does the ISR work within the\nFDE cycle?", "What is a linker?", "What is syntax analysis?", "What is optimisation?", "What is an interpreter?", "Why is bespoke software used?", "What is the BIOS?");
 qs[2] = new Array("What is a class?", "What is direct addressing?", "What is indexed addressing used for?", "What is an object?", "What is a good algorithm?", "What is the waterfall lifecycle?", "What is extreme programming?", "What is functional programming?", "What is a method?", "What is indirect addressing?");
@@ -18,7 +18,7 @@ qs[11]= new Array("What is the A* Algorithm?", "What is the polynomial time comp
 // array to hold answers
 var ans = new Array();
 
-// elements in the array being arrays that hold individual answers
+// elements in the array being arrays that hold 10 individual answers
 ans[0] = new Array("MAR Address sent on\naddress bus to main \nmemory\nContents in address\nsent on data bus to\nMDR", "A register which\nholds the results of\nall operatons carried\nout in the ALU", "The simultaneous use\nof several processors\nto perform a single\ntask or seperate\ninstructions", "A single chip\ncontaining\ntwo or more\nindependent\nprocessing units", "A complicated and\nexpensive integrated\ncircuit with\nintstructions that\nexecute in a few\nmachine cycles", "Tiny areas of\nextremely fast\nmemory located in the\nCPU where data is\nstored temporarily", "The part of the\nsystem bus\nwhich carried\nidentification about\nwhere data is read\nfrom or written to", "Operation code, which\ndetermines what to do", "Coordinates and\ncontrols\nactivities of the CPU\nby sending signals to\nother components", "A collection of memory\nchips controlled by its\nown software\nand data is stored\nin pages");
 ans[1] = new Array("a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a210");
 ans[2] = new Array("a31", "a32", "a33", "a34", "a35", "a36", "a37", "a38", "a39", "a310");
@@ -35,7 +35,7 @@ ans[11] = new Array("a121", "a122", "a123", "a124", "a125", "a126", "a127", "a12
 // additional arrays to store incorrect answers
 var ans2 = new Array();
 
-// elements in the array being arrays that hold individual incorrect answers
+// elements in the array being arrays that hold 10 individual incorrect answers
 ans2[0] = new Array("Memory requests\naddress from MAR\nMDR requests data\non data bus", "A register\nwhich data to be read\nfrom or written to\nmemory", "When more than one\nprocess is in progress\nfrom one processor", "An additional\nprocessor to support\nthe functions\nof the CPU", "A simple, cheap\nintegrated\ncircuit with instructions\ntaking one clock\ncycle", "A small amount of\nexpensive, very fast\nmemory near the CPU\nproviding fast access\nto frequently used data", "The part of the system\nbus which carries data\nread from or being\nwritten to memory", "Determines what the\ninstruction sould\nbe executed on", "Carries command and\ncontrol signals to and\nfrom other components\nusing control lines", "Data is stored on\nplastic discs as\npatterns on the\nsurface in\npits and lans");
 ans2[1] = new Array("aA21", "aA22", "aA23", "aA24", "aA25", "aA26", "Making the best algorithm", "aA28", "aA29", "aA210");
 ans2[2] = new Array("aA31", "aA32", "aA33", "aA34", "aA35", "aA36", "aA37", "aA38", "aA39", "aA310");
@@ -49,7 +49,7 @@ ans2[9] = new Array("aA101", "aA102", "aA103", "aA104", "aA105", "aA106", "aA107
 ans2[10] = new Array("aA111", "aA112", "aA113", "aA114", "aA115", "aA116", "aA117", "aA118", "aA119", "aA1110");
 ans2[11] = new Array("aA121", "aA122", "aA123", "aA124", "aA125", "aA126", "aA127", "aA128", "aA129", "aA1210");
 
-// score array
+// score array which holdes the scores for every unit
 var scores = new Array();
 scores[0] = [];
 scores[1] = [];
@@ -64,37 +64,41 @@ scores[9] = [];
 scores[10] = [];
 scores[11] = [];
 
-//a
+// an array holding the labels for each box for the unit selection
 let box_text = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9", "Unit 10", "Unit 11", "Unit 12"];
 
-//a
+//variables to store the boxes that will be displayed on the canvas
 let intro, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12; 
 
-//a
+// button to return to quiz menu
 let returnMenu;
 
-//a
+// variables to store user choice and move between questions
 let index, unit;
 
-//a
+// varaibles to store user choice and retreive choices from main menu
 let choice, choices;
 
-//a
+// variable to move between the quiz, end screen and main menu
 let screen = 0;
 
-//a
+// variable to store  scores in local storage
 let count = 0;
 
 
-//a
-let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, saveQuiz;
-let side = false;
+// variables to display boxes for quiz function on the canvas
+let showScore, nextQ, wrongAns, answer, question, aBox, a2Box, qBox, validateAns;
+
+// variable to store the score, initially set to 0
 let score = 0;
-let endQuiz;
-let prevQ;
+
+// variable to display the current position out of the total number of questions
 let numBox;
 
+// array that stores the topics that were chosen in the form
 var topics = new Array();
+
+// variable that stores the number of topics (2 or 3)
 var numTopics;
 
 
@@ -108,21 +112,27 @@ numTopics = parseInt(numTopics, 10);
 
 // if the number of topics chosen is two
 if (numTopics == 2){
-    //concatenate all the arrays into a singular array
+    //concatenate both question arrays into a singular array
     var allQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
+
+    //concatenate both answer arrays into a singular array
     var allAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
+
+    //concatenate both wrong answer arrays into a singular array
     var all2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
 }
 
 // if the number of topics chosen is three
 else if (numTopics ==3){
-    //concatenate all the arrays into a singular array
+    //concatenate all 3 question arrays into a singular array
     var allQs = qs[(choice[0]-1)].concat(qs[(choice[1]-1)]);
     allQs = allQs.concat(qs[choice[2]-1]);
 
+    //concatenate all 3 answer arrays into a singular array
     var allAns = ans[(choice[0]-1)].concat(ans[(choice[1]-1)]);
     allAns = allAns.concat(ans[choice[2]-1]);
 
+    //concatenate all 3 wrong answer arrays into a singular array
     var all2Ans = ans2[(choice[0]-1)].concat(ans2[(choice[1]-1)]);
     all2Ans = all2Ans.concat(ans2[choice[2]-1]);
 }
@@ -132,6 +142,7 @@ else if (numTopics ==3){
 var qAndA = [];
 
 // use a loop to create objects for each question and answer
+// the attributes are: name, question, right answer and wrong answer
 for (var i = 0; i < (numTopics*10); i++) {
     qAndA[i] = {
         name: "name" + (i + 1),
@@ -143,6 +154,8 @@ for (var i = 0; i < (numTopics*10); i++) {
 
 
 // Fisher-Yates Sorting algorithm
+// this randomises the position of all objects in the array
+// therefore, quizzes are displayed in random order
 for (let i = qAndA.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [qAndA[i], qAndA[j]] = [qAndA[j], qAndA[i]];
@@ -166,9 +179,6 @@ function setup(){
     // button to change sides
     showScore = new Sprite (850, 50, 150, 50);
     nextQ = new Sprite(850, 575, 175, 30);
-
-    // button to end quiz
-    endQuiz = new Sprite(-6000, 6000, 150, 30);
     
 
     // creating buttons for answer box selection
@@ -178,8 +188,8 @@ function setup(){
     // creating button to display question
     qBox = new Sprite(-450, 4500, 500, 55);
 
-    // creating button to save score
-    saveQuiz = new Sprite(150, 570, 150, 50);
+    // creating button to indiciate whether the answer chosen was right or wrong
+    validateAns = new Sprite(150, 570, 150, 50);
 
     // this button will display the number of the flashcard the user is on
     numBox = new Sprite(1200, -5500, 300, 50);
@@ -189,10 +199,13 @@ function setup(){
 // this function continually runs throughout run time
 function draw(){
 
+    // call the function which changes the colour of interactable elements when hovered
     boxHover();
 
+    // function which applies text to the box
     boxText(); 
 
+    // function which enables validation of user choices
     checkAnswer();
 
     // don't let the score go below 0
@@ -214,11 +227,16 @@ function draw(){
 
     // end of quiz screen
     if (screen == 4){
+        // move the question and answer boxes off canvas
         aBox.pos = {x: -1100, y: 1100};
         a2Box.pos = {x: 3000, y: -3750};
         qBox.pos = {x: 450, y: -4760};
+
+        // move the button to go to the next question off canvas
         nextQ.pos = {x: -553, y: 1234};
-        saveQuiz.pos = {x: 900, y: -900};
+
+        //move the button to validate the answer off canvas
+        validateAns.pos = {x: 900, y: -900};
     
     }
 
@@ -229,25 +247,31 @@ function boxText(){
     // putting the text in the relevant boxes to help guide the user
     intro.text=("Put your knowledge to the test with " + ((localStorage.getItem("number of units: "))*10).toString() + " Questions");
 
-
+    // guide to return to main menu
     returnMenu.text = "Return to \n menu";
 
-
+    // always set the text of the question box to the question
     qBox.text = question;
 
     // telling the user what index they are within the set of 10 cards
     numBox.text = "Your are on question " + (index + 1).toString() + " of " + ((localStorage.getItem("number of units: "))*10).toString();
 
+    // at the main menu screen
     if (screen == 0){
+        // the user is signalled to start the quiz
         nextQ.text = "Begin";
+        // change colour of the nextQ button to green when hovered
         if ((mouseX > 750) && (mouseX < 950) && (mouseY > 560) && (mouseY < 590)){
             nextQ.color = "green";
         }
+        // keep khaki otherwise
         else {
             nextQ.color = "DarkKhaki";
     
         }
     }
+
+    // at the first question, guide how to answer the question
     if (unit ==0){
         nextQ.text = "Choose your answer";
         nextQ.color = "DarkKhaki";
@@ -258,6 +282,7 @@ function boxText(){
         nextQ.text = "Save Score";
     }
 
+    // at the end of the quiz, indicate that the average score is used instead of total
     if (screen == 4){
         showScore.text = "Average Score =\n" + score;
     }
@@ -272,26 +297,35 @@ function boxText(){
 // function to display the quiz to the user
 function displayQuiz() {
 
-    // set the index to 0
+    // set the index and unit to 0
     index = 0;
+
+    // different screen to differentiate between stages
     screen = 3;
-    side = false;
     unit = 0;
 
-    // reposition the question and answer boxes
+    // reposition the question and answer boxes on =to canvas
     aBox.pos = { x: width / 2 + 250, y: height / 2 + 100 };
     a2Box.pos = { x: width / 2 - 250, y: height / 2 + 100 };
     qBox.pos = { x: width / 2, y: height / 2 - 100 };
     numBox.pos = {x: width/2, y: 120};
 
+    // the value of the question is the current object's question attribute
     question = qAndA[index].ques;
+
+    // the value of the answer is the current object's answer attribute
     answer = qAndA[index].rightAns;
+
+    // the value of the wrong answer is the current object's wrong answer attribute
     wrongAns = qAndA[index].incorrect;
 
+    // create a new array to hold the current answer and wrong answer
     let answersText = [answer, wrongAns];
+
+    // let the text for the first answer box be a random selection of either
     aBox.text = random(answersText);
 
-
+    // depending on the value of the first answer box, let the second answer box be the other alternative
     if (aBox.text == answer) {
         a2Box.text = wrongAns;
 
@@ -316,7 +350,7 @@ function checkAnswer(){
         // if the user answers correctly
         if ((aBox.text == answer && aBox.mouse.presses()) || (a2Box.text == answer && a2Box.mouse.presses())){
             // let them know
-            saveQuiz.text = "correct!";
+            validateAns.text = "correct!";
 
             // increment the score
             score+=1;
@@ -357,7 +391,7 @@ function checkAnswer(){
         // if they answer incorrectly, let them have another go, but don't give them a new score
         else{
             // let them know
-            saveQuiz.text = "incorrect, have\nanother go!"; 
+            validateAns.text = "incorrect, have\nanother go!"; 
             
             // same question but randomly switch text
             question = qAndA[index].ques;
@@ -396,28 +430,43 @@ function checkAnswer(){
 
 
 // function to reset the screen when the reset button is clicked
-// function to reset the screen through the backround and buttons
-
+// this is through resetting the backround and button positions
 function returnToMenu(){
+    // set screens and index to zero
     screen = 0;
     index = 0;
+
+    // no value for unit since no quiz is being displayed
     unit = null;
+
+    // reset score
     score = 0;
+
+    //move question and answer boxes off canvas
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
-    saveQuiz.pos = {x:150, y: 575};
+
+    // move the boxes to validate answer and move to the next question back onto canvas
+    validateAns.pos = {x:150, y: 575};
     nextQ.pos = {x: 850, y: 575};
+
+    // move the box to display the current question position off canvas
     numBox.pos = {x: 1200, y:-1200};
 
-
+    // new background colour
     background("#f2e8cf");
 
 }
 
 function saveScore() {
+    // set screen value to 4
     screen = 4;
+
+    // new background colour to indicate change
     background("#b5838d");
+
+    // move the question, answer and nextQ boxes off canvas
     aBox.pos = {x: -1100, y: 1100};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
@@ -425,15 +474,18 @@ function saveScore() {
 
 
     // creating new scores to save based on user scores
+    // set the user score to zero if no questions are answered correctly
     if (score < 0){
         score = 0;
     }
 
+    // get the whole number average score
     else if (score > 0) {
         score = score / numTopics;
         score = Math.trunc(score);
     }
 
+    // display the average score
     text("Your average score was: " + (score).toString() + "\n This has been saved and\nyou can return to menu", width/2, 400);
 
 
@@ -462,10 +514,16 @@ function saveScore() {
 
         // if it does exist, update it and set it back into local storage
         else {
+            // change from object form to string form
             let retScores = JSON.parse(setScores);
+
+            // get total length
             let length = retScores.length;
+
+            // add the new score to the end of the array
             retScores[length] = newScore;
 
+            // set all values to strings
             let newScores = JSON.stringify(retScores);
 
             // save to local storage
@@ -475,6 +533,7 @@ function saveScore() {
         // save the score to local storage
         localStorage.setItem("unit: " + newUnit, "Score: " + newScore);
 
+        // display all scores one after the other
         text("Your scores for unit " + newUnit + " are: " + localStorage.getItem(newUnit + " Scores: "), width/2, (height/2 + ((count + 5) * 10)));
 
     }  
@@ -483,8 +542,11 @@ function saveScore() {
         
 }
 
+// this function changes the colour of boxes when the mouse hovers over them
 function boxHover(){
+    // whenever not on main menu
     if (unit!=null){
+        // change the colours of either answer box when hovering
         if ((mouseX > 625) && (mouseX < 875) && (mouseY > 300) && (mouseY < 500)){
             aBox.color = "LightGreen";
         }
@@ -503,6 +565,7 @@ function boxHover(){
         }
     }
 
+    // change the colour of the box to return to menu when hovering
     if ((mouseX > 75) && (mouseX < 225) && (mouseY > 20) && (mouseY < 75)){
         returnMenu.color = "red";
     }
