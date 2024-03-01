@@ -60,7 +60,7 @@ function setup(){
 
 
 
-    new Chart("scoresBarChart", {
+    new Chart("barChart", {
         type: "bar",
         data: {
           labels: xValues,
@@ -115,7 +115,7 @@ function setup(){
     text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 250, 260);
 
     // Progression Chart
-    var ctx = document.getElementById("examChart").getContext("2d");
+    var ctx = document.getElementById("lineGraph").getContext("2d");
 
     var avgAll = 0;
     var avgAllTotal = 0;
@@ -129,7 +129,7 @@ function setup(){
     }
     localStorage.setItem("all averge scores", avgAll.toString());
 
-    var scoresLineGraph = new Chart(ctx, {
+    var lineGraph = new Chart(ctx, {
     type: 'line',
     options: {
         scales: {
@@ -144,7 +144,7 @@ function setup(){
         label: 'Average Score',
         data: [{
             t: '2024-02-16T13:03:00Z',
-            y: 4
+            y: 0
             },
             {
             t: '2024-03-16T13:02:00Z',
