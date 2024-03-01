@@ -32,14 +32,14 @@ let numSubtopics = 2;
 let selectColours = ["yellow", "purple", "orange", "green"];
 
 // variable for AND gate image
-let img;
+let andGate;
 
 
 // this function allows files to be loaded into the program before all other instructions are run
 function preload() {
 
     // loading the AND gate image from the photos folder
-    img = loadImage('photos/AND_gate.png');
+    andGate = loadImage('photos/AND_gate.png');
 }
 
 
@@ -113,6 +113,8 @@ function draw() {
 
 }
 
+// this function is called from the draw function
+// it ensures that text is always on the boxes
 function boxText(){
     // putting the text in the intro text box
     if (choice == null || screen == 0) {
@@ -123,7 +125,7 @@ function boxText(){
         intro.text = ("Study Unit " + choice.toString() + " - " + unitNotes[choice-1]);
     }
 
-    // adding labels to the boxes
+    // adding labels to the boxes for selecting unit
     box1.text = box_text[0];
     box2.text = box_text[1];
     box3.text = box_text[2];
@@ -139,13 +141,8 @@ function boxText(){
     returnMenu.text = "Return to \n menu";
 }
 
-// function to reset the screen when the reset button is clicked
+// function to reset the screen when the reset button is clicked through the backround and buttons
 function returnToMenu(){
-    screenZero();
-}
-
-// function to reset the screen through the backround and buttons
-function screenZero() {
     // set screen to zero
     screen = 0;
 
@@ -170,7 +167,6 @@ function screenZero() {
     textBox1.pos = {x: 1000, y: -1000};
     textBox2.pos = {x: -1000, y: 1000};
     textBox3.pos = {x: 1500, y: -1500};
-
 }
 
 // function to reposition buttons and change the screen to display notes for a unit
@@ -279,7 +275,7 @@ function selectUnit() {
         textBox1.text = ("Boolean Logic is a form of\nalgebra where all values are\nreduced to TRUE or FALSE\n\nLogic Gates include NOT,\nAND, OR and XOR\n\nLogic gate diagrams express\nBoolean Logic in diagrammatic\nform using symbols\n\nTruth table define the output\nof a logic gate or circuit\nfor all possible inputs");
         textBox2.text = ("Rules of Boolean algebra\ninclude De Morgan's Laws,\nDistribution, Association\nCommutation and Double\nNegation\n\nDistributive rules allow for the\nmultiplying out or factoring out\nof an expression\n\nThe associative law allows for the\nremoval of brackets from an\nexpression and regrouping of\nthe variables");
         textBox3.text = ("D type flip flops are positive\nedge-triggered flip-flops\nthat store the input value until the\nnext clock pulse\n\nA Half Adder is A circuit\nthat performs the addition\nof two bits\n\nA Full Adder combines\ntwo half adders to add three\nbits together, including two inputs\nand a carry bit. Multiple full adders\ncan be concatenated together");
-        image(img, 800, 25, 50, 50);
+        image(andGate, 800, 25, 50, 50);
     }
 
     else if (box9.mouse.presses()) {

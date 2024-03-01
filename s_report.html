@@ -21,12 +21,14 @@
 
 </head>
     <body>
+        <!--heading to signal reports page-->
         <header class="titles">
             <h1 >Reports</h1>
         </header>
 
         <nav id="navigation">
             <ul>
+                <!--links to other student resources-->
                 <li class = "navigate"><a href="index.html">Main Page</a></li>
                 <li class = "navigate"><a href="notes.html">Summary Notes</a></li>
                 <li class = "navigate"><a href="flash.html">Flashcards</a></li>
@@ -37,28 +39,34 @@
         </nav>
 
         <main>
+            <!--background colour-->
             <style class = "bg">
                 body{
                     background-color:#ffe5d9
                 }
             </style>
 
+            <!--description - displaying progress-->
             <p>Review Your Overall Quiz Performance</p>
         </main>
 
-        
-        <canvas id="myChart" style="width:100%; text-align:center"></canvas>
+        <!--link to bar graph-->
+        <canvas id="scoresBarChart" style="width:100%; text-align:center"></canvas>
 
         <!--Link to js file-->
         <script src="tp_report.js"></script>
         <br>
         <br>
 
+        <!--display the line graph under the bar graph-->
         <p>Projected Progression Over Time (All Units)</p>
+
+        <!--links for the line graph to javascript libraries-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
         <div class="container">
-        <canvas id="examChart"></canvas>
+            <!--new canvas to display line graph-->
+            <canvas id="scoresLineGraph"></canvas>
         </div>
 
 

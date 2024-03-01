@@ -143,6 +143,8 @@ function draw(){
     
 }
 
+// this function is called from the draw function
+// it ensures that text is always on the boxes
 function boxText(){
     // putting the text in the intro text box
     if (unit != null) {
@@ -177,12 +179,12 @@ function boxText(){
     // telling the user what index they are within the set of 10 cards
     numBox.text = "Your are viewing card " + (index + 1).toString() + " of 10";
 
-
+    // button to go back to the previous card
     prevQ.text = "Previous Card";
 }
 
 function selectCards(){
-    //reposition buttons off screen
+    //reposition unit selection buttons off canvas
     box1.pos = { x: 3000, y: 3000 };
     box2.pos = { x: 3500, y: 3500 };
     box3.pos = { x: 4000, y: 4000 };

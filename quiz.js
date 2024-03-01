@@ -92,7 +92,6 @@ let endQuiz;
 
 let numBox;
 
-let pressed = false;
 
 // variables to get selection for multiple units in quizzes
 var topics = new Array();
@@ -174,6 +173,7 @@ function draw(){
         selectQuiz();
     }
 
+    // call the function to validate whether the correct answer has been chosen
     checkAnswer();
 
     // don't let the score go below 0
@@ -184,6 +184,8 @@ function draw(){
     
 }
 
+// this function is called from the draw function
+// it ensures that text is always on the boxes
 function boxText(){
     // putting the text in the intro text box
     if (unit !=null){
@@ -338,6 +340,7 @@ function displayQuiz(choice) {
 
 
     // Fisher-Yates Sorting algorithm
+    // randomise the order of the array
     for (let i = qAndA.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [qAndA[i], qAndA[j]] = [qAndA[j], qAndA[i]];
@@ -352,10 +355,13 @@ function displayQuiz(choice) {
     // set the wrong answer to be the object's wrong answer attribute
     wrongAns = qAndA[index].incorrect;
 
+    // create an array to hold both answers
     let answersText = [answer, wrongAns];
+
+    // give the first box a random of the two answers
     aBox.text = random(answersText);
 
-    
+    // give the second box the alternative
     if (aBox.text == answer){
         a2Box.text = wrongAns;
         
@@ -367,6 +373,8 @@ function displayQuiz(choice) {
     
 }
 
+// this function checks whether the answer that the user chose was correct or not
+// the score is changed depending on the answer chosen
 function checkAnswer(){
     // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {
@@ -396,7 +404,7 @@ function checkAnswer(){
             }
             
 
-
+            // give the second box the alternative answer
             if (aBox.text == answer) {
                 a2Box.text = wrongAns;
             }
@@ -404,7 +412,7 @@ function checkAnswer(){
                 a2Box.text = answer;
             }
 
-
+            // keep going to the next question until the 9th question is reached
             if (index <=8){
                 index = index + 1;
             }
@@ -442,7 +450,7 @@ function checkAnswer(){
 
     }
 
-    
+    // at the last question, the user is able to save their score
     if (nextQ.mouse.presses() && index == 9){
         saveScore();
     }
@@ -462,11 +470,13 @@ function checkAnswer(){
 // function to reset the screen when the reset button is clicked
 // function to reset the screen through the backround and buttons
 function returnToMenu(){
+    // reset variables to 0
     screen = 0;
     index = 0;
     unit = null;
     score = 0;
-    pressed = false;
+
+    // move the question and answer boxes off canvas
     aBox.pos = {x: -5500, y: 5500};
     a2Box.pos = {x: 3000, y: -3750};
     qBox.pos = {x: 450, y: -4760};
@@ -477,6 +487,7 @@ function returnToMenu(){
 
     background("#f2e8cf");
     
+    // put the boxes to choose unit back onto canvas
     box1.pos = { x: 150, y: 175 };
     box2.pos = { x: 375, y: 175 };
     box3.pos = { x: 625, y: 175 };
@@ -492,7 +503,10 @@ function returnToMenu(){
 }
 
 
-
+// this function is called once the quiz is completed
+// it saves the score to local storage either by
+// using an empty array and setting this to local storage
+// retrieving the array, updating with the new score and setting to local storage
 function saveScore() {
     background("#b5838d");
     aBox.pos = {x: -5500, y: 5500};

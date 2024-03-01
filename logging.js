@@ -1,5 +1,5 @@
 // variables to retireve username, first name, last name, password
-// compare to the dame details entered in the form
+// compare to the same details entered in the form
 var storedUsername, storedFname, storedLname, storedPw, storedRole, userfn, userln, userpw, urole, checkUsername;
 
 

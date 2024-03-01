@@ -4,6 +4,7 @@
     text-align: center
 }
  
+/* setting the margins for the web page */
  main{
    margin-top:0;
    margin-bottom:0;
@@ -39,10 +40,12 @@ body, html {
     padding: 1em; 
 }
 
+/*display the navigation bar horizontally*/
 .navigate {
     display: inline;
 }
 
+/*different colour for the navigation bar*/
 .navigate a {
     text-decoration: none;
     color: #E0E1DD;
@@ -50,6 +53,7 @@ body, html {
     padding: 1em;
 }
 
+/*a different colour when hovering over the link*/
 .navigate a:hover {
     background-color: #FF7D00;
 }
@@ -72,7 +76,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     outline: none;
 }
 
-/* Set a style for all buttons */
+/* same colour and design for all buttons */
 button {
     color: #1B263B;
     background-color: wheat;
@@ -84,6 +88,7 @@ button {
     opacity: 0.9;
 }
   
+/*make the button darker when hovering*/
 button:hover {
     opacity:1;
 }
@@ -94,7 +99,7 @@ button:hover {
     background-color: #f44336;
 }
 
-/* Float cancel and signup buttons and add an equal width */
+/* put the signup buttons with equal width and side by side*/
 .s_signup {
     width: 50%;
     float: left;
@@ -107,18 +112,9 @@ button:hover {
     background-color: greenyellow;
 }
 
-.clearfix {
+/*add a background colour around the buttons for forms*/
+.buttonPad{
     background-color: #E0E1DD;
 }
 
-.column {
-    float: left;
-    width: 50%;
-}
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}

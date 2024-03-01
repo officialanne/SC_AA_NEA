@@ -1,14 +1,18 @@
+// variables to collect data from form
 var inputEmail, inputPass, inputLname, inputFname, inputRole, username;
+
+// boolean variables to check whether the information is of the correct type, length and format
 var validEmail = false;
 var validName = false;
 var validPass = false;
 
+// this function is called when submitted and prints the first name to the console
 function foo(){
     var name = document.getElementById("fname").value;
     console.log(name);
 }
 
-// function that is called when the user presses the button to check details
+// function that is called when the user presses the button to check details and submit details
 function store(){
 
     // getting the email from the form
@@ -79,6 +83,7 @@ function store(){
     localStorage.setItem("username", username);
     
 
+    // print details from the form into console
     console.log(inputEmail);
     console.log(inputFname);
     console.log(inputLname);
@@ -102,9 +107,6 @@ function store(){
         //tell the user their username
         alert("Your username is " + username + " - this is the first letter of your first name and the first three letters of your last name and 17");
     }
-
-
-    
 
 }
 

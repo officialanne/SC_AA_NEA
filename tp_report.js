@@ -60,7 +60,7 @@ function setup(){
 
 
 
-    new Chart("myChart", {
+    new Chart("scoresBarChart", {
         type: "bar",
         data: {
           labels: xValues,
@@ -129,7 +129,7 @@ function setup(){
     }
     localStorage.setItem("all averge scores", avgAll.toString());
 
-    var myChart = new Chart(ctx, {
+    var scoresLineGraph = new Chart(ctx, {
     type: 'line',
     options: {
         scales: {

@@ -24,11 +24,13 @@
 </head>
     <body>
         <header class="titles">
+          <!--Title for sign up page-->
             <h1>Sign Up</h1>
         </header>
 
         <nav id="navigation">
             <ul>
+              <!--navigation bar with links to main page and login page-->
                 <li class = "navigate"><a href="index.html">Main Page</a></li>
                 <li class = "navigate"><a href="login.html">Login</a></li>
             </ul>
@@ -41,27 +43,38 @@
                 }
             </style>
             
+            <!--short message-->
             <p>Create An Account to Synchronise Your Revision</p>
+
+            <!--sign up form-->
             <div id="signform">
+                <!--when submitted, go to the login page-->
                 <form id="s_form" onsubmit="store()" action="login.html">
                   <div class="container">
 
                     <hr>
+                    <!--get user's first name-->
                     <label for="fname"><b>First Name</b></label>
                     <input type="text" placeholder="Enter First Name" name="fname" id = "fname" required>
 
+                    <!--get last name-->
                     <label for="lname"><b>Last Name</b></label>
                     <input type="text" placeholder="Enter Last Name" name="lname" id = "lname" required>
+                    <!--The first and last name is used to create the username-->
               
+                    <!--user enters their password, which has requirements for length-->
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" id="pass" required>
 
+                    <!--user enters their email, with validation for format-->
                     <label for="email"><b>Email</b></label>
                     <input type="email" placeholder="Enter Email" name="email" id="email" required>
 
+                    <!--user selects their role-->
                     <label for="role"><b>Select your Role</b></label>
                     <br>
                     <select id="role" name="role" required>
+                      <!--either student, parent or teacher-->
                       <option value="Student">Student</option>
                       <option value="Parent">Parent</option>
                       <option value="Teacher">Teacher</option>
@@ -71,16 +84,21 @@
                     <br>
                     <br>
                     <label>
+                      <!--This would save the details on their device so they do not have to retype details-->
                       <input type="checkbox" name="remember" style="margin-bottom:15px"> Remember me
                     </label>
-              
-                    <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
-              
-                    <div class="clearfix">
+                            
+                    <div class="buttonPad">
+                      <!--redirects to login-->
                       <button type="submit" class="s_signup">Sign Up as Student</button>
+                      
+                      <!--redirects to login-->
                       <button type="submit" class="tp_signup" formaction="login.html">Submit as Paret/Teacher</button>
+
+                      <!--this saves details but does not redirect-->
                       <button onclick="store()" type="button">Save Details</button>
 
+                      <!--this clears the data on the form-->
                       <button type="reset" class="cancelbtn">Cancel</button>
                     </div>
                   </div>
