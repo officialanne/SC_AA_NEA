@@ -57,13 +57,12 @@ function setup() {
     strokeWeight(1);
     stroke(25);
 
-    // creating intro text box
-    intro = new Sprite(width/2, 50, 500, 55);
-
+    
     // creating button to return to summary notes menu
     returnMenu = new Sprite(150, 50, 150, 50);
 
-    
+    // creating intro text box
+    intro = new Sprite(width/2, 50, 500, 55);
 
     // creating buttons to click to select menu as objects called sprites
     boxes = new Group();
