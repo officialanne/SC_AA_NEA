@@ -121,17 +121,15 @@ function setup() {
 
 // this function continually runs whilst the program is running
 function draw(){
+    // changing screens when the user clicks any of the boxes
+    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
+        selectCards();
+    }
 
     //contunially calling the function to hover over boxes
     boxHover();
 
     boxText();
-
-
-    // changing screens when the user clicks any of the boxes
-    if (box1.mouse.presses() || box2.mouse.presses() || box3.mouse.presses() || box4.mouse.presses() || box5.mouse.presses() || box6.mouse.presses() || box7.mouse.presses() || box8.mouse.presses() || box9.mouse.presses() || box10.mouse.presses() || box11.mouse.presses() || box12.mouse.presses()) {
-        selectCards();
-    }
 
     // return back to summary notes when the return button is clicked
     if (returnMenu.mouse.presses()) {

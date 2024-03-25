@@ -120,7 +120,7 @@ function boxText(){
         intro.text=(intro_text);
     }
     else {
-        // if notes are being displayed
+        // if notes are being displayed, tell the user what unit they are studying
         intro.text = ("Study Unit " + choice.toString() + " - " + unitNotes[choice-1]);
     }
 
@@ -188,13 +188,24 @@ function selectUnit() {
 
     // when the button is pressed, return the choice in order to display its notes
     // different notes per unit
+
+    // if the user chooses unit 1
     if (box1.mouse.presses()) {
+        // change the variable for choice to 1
         choice = 1;
+
+        // change the background
         background("#84a98c");
+
+        // the subtopic titles for the notes
         text("Structure and Function \nof the Processor", 175, 150);
         text("Types of Processor", width/2, 150);
         text("Input, Output and Storage", 825, 150);
+
+        // let there be 3 subtopics to hold the notes
         numSubtopics = 3;
+
+        // the three sets of notes to be displayed
         textBox1.text = ("The ALU carries out arithmetic\nand boolean calculations\n\n The CU manages the execution\nof instructions\n\nRegisters are tiny areas of very\nfast memory to store data\ninside the CPU and include the\nPC, Accumulator, MAR, MDR\nand the CIR\n\nBuses are a parallel set of wires\nconnecting components, including\nthe data, address and control bus");
         textBox2.text = ("CISC processors have complex\ninstructions which execute in a\nfew machine cycles\n\nRISC processors are simple and\ncheap, enabling pipelining but\nuse more RAM\n\nMulticore processors are a single\nchip containing several\nindependent CPUs\n\nParallel Systems are the\nsimultaneous use of several\nprocessors to perform a job\nsplit into tasks");
         textBox3.text = ("An input device accepts data\npresented in machine-readable\nform and passes it into a\ncomputer system\n\nAn output device converts signals\nor data from the computer into\nhuman-readable form\n\nRAM is used to store programs\nand data in use temporarily\nIt is volatile and faster to access\nthan ROM\n\nROM is read-only and non-volatile\nIt stores the bootstrap and BIOS");
@@ -264,16 +275,28 @@ function selectUnit() {
         textBox2.text = ("A graph is a set of nodes\nconnected by edges\nThese edges can be directed\nor undirected\n\nA stack is a Last In First\nOut data structure\n\nA queue is First In First\nOut data structure\n\nA hash table is a data structure\nwhere the calculated\nvalue is used to mark the position\nin the table where the data item\nshould be stored");
     }
 
+    // if the user presses unit 8
     else if (box8.mouse.presses()) {
+        //change the variable for choice to 8
         choice = 8;
+
+        //change the background
         background("#f2d0a9");
+
+        // the subtitles for the unit 8 notes
         text("Boolean Logic & \nLogic Gates", 175, 150);
         text("Manipulate, Derive or Simplify \nExpressions / Statements", width/2, 150);
         text("D Type Flip Flops, \nHalf and Full Adders", 825, 150);
+
+        // let there be three subtopics to hold the notes
         numSubtopics = 3;
+
+        // the three sets of notes to be displayed
         textBox1.text = ("Boolean Logic is a form of\nalgebra where all values are\nreduced to TRUE or FALSE\n\nLogic Gates include NOT,\nAND, OR and XOR\n\nLogic gate diagrams express\nBoolean Logic in diagrammatic\nform using symbols\n\nTruth table define the output\nof a logic gate or circuit\nfor all possible inputs");
         textBox2.text = ("Rules of Boolean algebra\ninclude De Morgan's Laws,\nDistribution, Association\nCommutation and Double\nNegation\n\nDistributive rules allow for the\nmultiplying out or factoring out\nof an expression\n\nThe associative law allows for the\nremoval of brackets from an\nexpression and regrouping of\nthe variables");
         textBox3.text = ("D type flip flops are positive\nedge-triggered flip-flops\nthat store the input value until the\nnext clock pulse\n\nA Half Adder is A circuit\nthat performs the addition\nof two bits\n\nA Full Adder combines\ntwo half adders to add three\nbits together, including two inputs\nand a carry bit. Multiple full adders\ncan be concatenated together");
+        
+        // display the image for the AND gate as a box in the top right corner
         image(andGate, 800, 25, 50, 50);
     }
 
@@ -311,12 +334,22 @@ function selectUnit() {
         textBox3.text = ("An IDE is a program that provides\na set of tools and\nrelated functionality to facilitate\nsoftware development\n\nFeatures include:\nTransaltors which converts\nhigh-level code into executable\nmachine code\n\nDebugging facilities such as\nbreakpoint\n\nThe run-time environment supports\nthe execution and running of\nprograms");
     }
 
+    //if the user chooses unit 12
     else if (box12.mouse.presses()) { 
+        // change the variable for choice to 12
         choice = 12;
+
+        // change the background
         background("#d88c9a");
+
+        // the subtopics of the notes
         text("Efficiency of Algorithms", 250, 150);
         text("Standard Algorithms", 750, 150);
+
+        // let there be 2 boxes to hold the notes
         numSubtopics = 2;
+
+        // the two sets of notes to be displayed
         textBox1.text = ("Big O notation for time complexity\nincludes:\nConstant\nLinear\nPolynomial\nExponential\nLogarithmic\nComplexity\n\nCommon Data Structures include:\nstacks, queues, trees\narrays, hashes and lTheinked lists\n\nThese can be traversed using:\ndepth-first, post-order,\nbreadth first and in-order");
         textBox2.text = ("The Binary Searchis an efficienct\nway of searching a sorted\nlist usind divide and conquer\n\nIn the Bubble Sort, each item is\ncompared with the adjacent item\nand swapped if out of order\n\nDijkstra's shortest path algorithm\nfinds the shortest path for\na graph with non-negative\nedge path costs\n\nThe A* Algorithm is an adaptation\nwhich adds an approximate\nheuristic to each node");
     }
@@ -329,12 +362,18 @@ function selectUnit() {
 
 // function to display notes depending on user click
 function displayNotes(numSubtopics){
+    // if that unit has 2 subtopics
     if (numSubtopics == 2){
+
+        // show the two box templates 
         textBox1.pos = {x: width/2 - 250, y: 385};
         textBox2.pos = {x: width/2 + 250, y: 385};
     }
 
+    // if that unit has 3 subtopics
    if (numSubtopics == 3){
+
+        // show the three box templates
         textBox1.pos = {x: width/2 - 325, y: 385};
         textBox2.pos = {x: width/2, y: 385};
         textBox3.pos = {x: width/2 + 325, y: 385};
