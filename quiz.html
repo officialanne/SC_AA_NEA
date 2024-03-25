@@ -60,13 +60,15 @@
     <hr>
     <!--navigate to multiple quiz selection (cannot otherwise go to page)-->
     <h3>Want to practise multiple topics? Fill in the form below </h3>
-    <!--form to get user input of -->
+    <!--form to get user input of what unit-->
     <div id="quizform">
+        <!--go to multiple quiz page when submitted successfully-->
         <form id="q_form" onsubmit="multChoice()" action="quiz_m.html">
             <div class="container">
 
                 <label for="choose">Topics</label>
                 <br>
+                <!--choose from units 1 to 12-->
                 <input type="checkbox" id="topic1" name="units" value="1">
                 <label for="unit1"> Unit 1</label><br>
 
@@ -106,13 +108,12 @@
                 <br>
 
 
-
-                <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
-
                 <div>
 
+                    <!--submit choices-->
                     <button class="buttonPad" type="submit">Submit</button>
 
+                    <!-- returns an alert but does not submit-->
                     <button class="buttonPad" onclick="multChoice()" type="button">Check Units</button>
 
                 </div>

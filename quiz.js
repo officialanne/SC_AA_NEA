@@ -515,10 +515,11 @@ function saveScore() {
     nextQ.pos = {x: -553, y: 1234};
     tellAns.pos = {x: 5500, y: -5500};
 
-    // converting the integer values for the unit and the score into a string
+    // do not let the score go below 0
     if (score < 0){
         score = 0;
     }
+
 
     // do not let the score go above 10
     if (score >10){

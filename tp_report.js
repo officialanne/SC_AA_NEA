@@ -28,6 +28,7 @@ intScores[9] = [];
 intScores[10] = [];
 intScores[11] = [];
 
+// variables to get all average scores and display
 var averages = new Array();
 var totals = new Array();
 var lengths = new Array();
@@ -59,17 +60,23 @@ function setup(){
     var barColors = ["olive", "seagreen", "blue", "orange", "brown", "pink", "darkblue", "blue", "orange", "brown", "purple", "yellow"];
 
 
-
+    // drawing the chart into the html page
     new Chart("barChart", {
+        // this is a bar chart
         type: "bar",
         data: {
+            // the x axis labels are the units 
           labels: xValues,
           datasets: [{
+            // the colours will be those in the array
             backgroundColor: barColors,
+
+            // the data are the average scores
             data: yValues
           }]
         },
         options: {
+            // this allows the title to be displayed
           legend: {display: false},
           title: {
             display: true,
@@ -114,24 +121,39 @@ function setup(){
     fill("black");
     text("Well done for remaining consistent - \n Revise core fundamentals using the quizzes, flashcards and notes", 250, 260);
 
-    // Progression Chart
+    // Progression Chart into html web page
+    // getting the chart by Id and putting into 2d
     var ctx = document.getElementById("lineGraph").getContext("2d");
 
+    // setting the inital average to 0
     var avgAll = 0;
+
+    // setting the total to 0
     var avgAllTotal = 0;
+
+    // for units 1 to 12
     for (i = 0; i<12; i++){
+        // get the average from the average of each unit
         avgAllTotal = avgAllTotal + yValues[i];
     }
+
+    // divide by all units, which is 12
     avgAll = avgAllTotal/12;
+
+    // make into an integer
     avgAll = Math.trunc(avgAll);
     if (avgAll > 8){
         avgAll = 8;
     }
+    // set this average to local storage
     localStorage.setItem("all averge scores", avgAll.toString());
 
+    // draw the line graph
     var lineGraph = new Chart(ctx, {
+    // set the line graph
     type: 'line',
     options: {
+        // setting the data type of the x axis to be time
         scales: {
         xAxes: [{
             type: 'time',
@@ -139,18 +161,23 @@ function setup(){
         }
     },
     data: {
+        // this has dates from 2024 Feb to Exam time
         labels: ["2024-02-16T13:03:00Z", "2024-03-16T13:02:00Z", "2024-04-16T14:12:00Z"],
         datasets: [{
+        // average scores beginning from origin, 0
         label: 'Average Score',
         data: [{
+            // initially being 0
             t: '2024-02-16T13:03:00Z',
             y: 0
             },
             {
+            // moving to the current average score
             t: '2024-03-16T13:02:00Z',
             y: avgAll
             },
             {
+            // projected to improve linearly over time
             t: '2024-04-16T13:02:00Z',
             y: avgAll + 1
             },
@@ -159,6 +186,7 @@ function setup(){
             y: avgAll + 2
             }
         ],
+        // making the background colour pink
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -167,6 +195,8 @@ function setup(){
             'rgba(153, 102, 255, 0.2)',
             'rgba(255, 159, 64, 0.2)'
         ],
+
+        // border colour a darker pink
         borderColor: [
             'rgba(255,99,132,1)',
             'rgba(54, 162, 235, 1)',
@@ -175,6 +205,8 @@ function setup(){
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
         ],
+
+        // setting the width of the border to be thick
         borderWidth: 1
         }]
     }
